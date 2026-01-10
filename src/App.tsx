@@ -6,7 +6,7 @@ import { AuthorPage } from './pages/AuthorPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen bg-cyber-bg">
         <Header />
         <Routes>
