@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import { MediaItem } from '../types';
 import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
+const PLACEHOLDER = '/images/connector-placeholder.svg';
+
 interface Props {
   media: MediaItem[];
 }
@@ -49,6 +51,7 @@ export function MediaCarousel({ media }: Props) {
             src={current.url}
             alt=""
             className="w-full h-full object-cover"
+            onError={(e) => { e.currentTarget.src = PLACEHOLDER; }}
           />
         ) : (
           <div className="relative w-full h-full">
@@ -122,6 +125,7 @@ export function MediaCarousel({ media }: Props) {
                 src={item.type === 'video' ? item.thumbnail || item.url : item.url}
                 alt=""
                 className="w-full h-full object-cover"
+                onError={(e) => { e.currentTarget.src = PLACEHOLDER; }}
               />
               {item.type === 'video' && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30">
