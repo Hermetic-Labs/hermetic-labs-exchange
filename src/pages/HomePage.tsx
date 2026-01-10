@@ -1,0 +1,218 @@
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
+import { ProductCard } from '../components/ProductCard';
+import { fetchProducts, fetchCategories } from '../api/exchange';
+import { Product, Category } from '../types';
+import { ChevronRight, Sparkles, Zap, Clock, Loader2 } from 'lucide-react';
+
+export function HomePage() {
+  const [searchParams] = useSearchParams();
+  const categoryFilter = searchParams.get('category');
+  const searchQuery = searchParams.get('search');
+
+  const [activeCategory, setActiveCategory] = useState<string | null>(categoryFilter);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch data on mount
+  useEffect(() => {
+    async function loadData() {
+      setLoading(true);
+      setError(null);
+      try {
+        const [productsData, categoriesData] = await Promise.all([
+          fetchProducts(),
+          fetchCategories()
+        ]);
+        setProducts(productsData);
+        setCategories(categoriesData);
+      } catch (err) {
+        setError('Failed to load products. Please try again.');
+        console.error('Failed to load data:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadData();
+  }, []);
+
+  // Sync activeCategory with URL
+  useEffect(() => {
+    setActiveCategory(categoryFilter);
+  }, [categoryFilter]);
+
+  const filteredProducts = useMemo(() => {
+    let filtered = products;
+    if (activeCategory) {
+      filtered = filtered.filter((p) => p.category === activeCategory);
+    }
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      filtered = filtered.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.author.name.toLowerCase().includes(q)
+      );
+    }
+    return filtered;
+  }, [products, activeCategory, searchQuery]);
+
+  const featuredProducts = useMemo(() => products.filter((p) => p.featured), [products]);
+  const newProducts = useMemo(() => products.filter((p) => p.isNew), [products]);
+  const popularProducts = useMemo(
+    () => [...products].sort((a, b) => b.reviewCount - a.reviewCount).slice(0, 4),
+    [products]
+  );
+
+  if (loading) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-8 h-8 text-cyber-green animate-spin mx-auto mb-4" />
+          <p className="text-gray-400">Loading Exchange...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-cyber-pink mb-4">{error}</p>
+          <button onClick={() => window.location.reload()} className="cyber-btn">
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen pt-20">
+      {/* Hero Section */}
+      <section className="relative py-16 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-cyber-cyan/5 to-transparent" />
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-cyber-green text-glow-green">HERMETIC LABS</span>
+              <br />
+              <span className="text-white">EXCHANGE</span>
+            </h1>
+            <p className="text-gray-400 text-lg mb-8">
+              Premium EVE-OS modules, connectors, and components for enterprise developers
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/?category=Infrastructure" className="cyber-btn">
+                Browse Modules
+              </Link>
+              <button className="cyber-btn-outline">Publish Your Module</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories Grid */}
+      <section className="py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="section-title flex items-center gap-2">
+              <Sparkles className="w-4 h-4" /> Categories
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(activeCategory === cat.name ? null : cat.name)}
+                className={`cyber-card p-4 text-center transition-all ${
+                  activeCategory === cat.name
+                    ? 'border-cyber-green shadow-neon-green'
+                    : 'hover:border-cyber-cyan/50'
+                }`}
+              >
+                <span className="block text-sm font-medium text-white mb-1">{cat.name}</span>
+                <span className="text-xs text-gray-500">{cat.productCount}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products Carousel */}
+      {!activeCategory && !searchQuery && featuredProducts.length > 0 && (
+        <section className="py-12 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="section-title flex items-center gap-2">
+                <Zap className="w-4 h-4" /> Featured
+              </h2>
+              <Link
+                to="/?featured=true"
+                className="text-cyber-cyan text-sm flex items-center gap-1 hover:underline"
+              >
+                View All <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredProducts.slice(0, 6).map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* New Releases */}
+      {!activeCategory && !searchQuery && newProducts.length > 0 && (
+        <section className="py-12 px-4 bg-gradient-to-b from-transparent via-cyber-green/5 to-transparent">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="section-title flex items-center gap-2">
+                <Clock className="w-4 h-4" /> New Releases
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {newProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Popular / Filtered Results */}
+      <section className="py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="section-title">
+              {activeCategory || searchQuery
+                ? `Results ${searchQuery ? `for "${searchQuery}"` : `in ${activeCategory}`}`
+                : 'Popular Modules'}
+            </h2>
+            {activeCategory && (
+              <button
+                onClick={() => setActiveCategory(null)}
+                className="text-cyber-pink text-sm hover:underline"
+              >
+                Clear Filter
+              </button>
+            )}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {(activeCategory || searchQuery ? filteredProducts : popularProducts).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+          {filteredProducts.length === 0 && (activeCategory || searchQuery) && (
+            <div className="text-center py-12 text-gray-500">No products found</div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}

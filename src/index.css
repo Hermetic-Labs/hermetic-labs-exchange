@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cyber-bg: #020208;
+  --cyber-dark: #000000;
+  --cyber-cyan: #00b4ff;
+  --cyber-green: #00ff99;
+  --cyber-pink: #ff64c8;
+}
+
+body {
+  margin: 0;
+  background: var(--cyber-bg);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.cyber-panel {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 255, 153, 0.3);
+  border-radius: 10px;
+}
+
+.cyber-border-cyan {
+  border: 1px solid rgba(0, 180, 255, 0.3);
+}
+
+.cyber-border-green {
+  border: 1px solid rgba(0, 255, 153, 0.3);
+}
+
+.cyber-border-pink {
+  border: 1px solid rgba(255, 100, 200, 0.3);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 6px #00ff99;
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 6px #00b4ff;
+}
+
+.section-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: #00ff99;
+  opacity: 0.9;
+}
+
+.cyber-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00b4ff, #00ff99);
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cyber-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
+}
+
+.cyber-btn-outline {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid rgba(0, 255, 153, 0.5);
+  border-radius: 6px;
+  color: #00ff99;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cyber-btn-outline:hover {
+  background: rgba(0, 255, 153, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
+}
+
+.cyber-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.cyber-input:focus {
+  outline: none;
+  border-color: rgba(0, 180, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 180, 255, 0.2);
+}
+
+.cyber-card {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.cyber-card:hover {
+  border-color: rgba(0, 255, 153, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.15);
+  transform: translateY(-2px);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 153, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 153, 0.5);
+}
