@@ -7,10 +7,17 @@ interface Props {
   product: Product;
 }
 
-const PLACEHOLDER = '/images/connector-placeholder.svg';
+const PLACEHOLDER = `${import.meta.env.BASE_URL}images/connector-placeholder.svg`;
+
+function getImageSrc(url: string | undefined): string {
+  if (!url) return PLACEHOLDER;
+  // If it's a localhost URL, use placeholder instead
+  if (url.includes('localhost:')) return PLACEHOLDER;
+  return url;
+}
 
 export function ProductCard({ product }: Props) {
-  const thumbnail = product.media[0]?.url || PLACEHOLDER;
+  const thumbnail = getImageSrc(product.media[0]?.url);
 
   return (
     <Link to={`/product/${product.slug}`} className="cyber-card overflow-hidden group">
@@ -19,7 +26,6 @@ export function ProductCard({ product }: Props) {
           src={thumbnail}
           alt={product.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          onError={(e) => { e.currentTarget.src = PLACEHOLDER; }}
         />
         {product.isNew && (
           <span className="absolute top-2 left-2 px-2 py-1 bg-cyber-cyan text-black text-xs font-bold rounded">

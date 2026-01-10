@@ -2,7 +2,13 @@ import { useState, useRef } from 'react';
 import { MediaItem } from '../types';
 import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
-const PLACEHOLDER = '/images/connector-placeholder.svg';
+const PLACEHOLDER = `${import.meta.env.BASE_URL}images/connector-placeholder.svg`;
+
+function getImageSrc(url: string | undefined): string {
+  if (!url) return PLACEHOLDER;
+  if (url.includes('localhost:')) return PLACEHOLDER;
+  return url;
+}
 
 interface Props {
   media: MediaItem[];
@@ -15,6 +21,7 @@ export function MediaCarousel({ media }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const current = media[currentIndex];
+  const currentSrc = getImageSrc(current.url);
 
   const goTo = (index: number) => {
     setCurrentIndex(index);
@@ -48,10 +55,9 @@ export function MediaCarousel({ media }: Props) {
       <div className="relative aspect-video cyber-card overflow-hidden">
         {current.type === 'image' ? (
           <img
-            src={current.url}
+            src={currentSrc}
             alt=""
             className="w-full h-full object-cover"
-            onError={(e) => { e.currentTarget.src = PLACEHOLDER; }}
           />
         ) : (
           <div className="relative w-full h-full">
@@ -122,10 +128,9 @@ export function MediaCarousel({ media }: Props) {
               }`}
             >
               <img
-                src={item.type === 'video' ? item.thumbnail || item.url : item.url}
+                src={getImageSrc(item.type === 'video' ? item.thumbnail || item.url : item.url)}
                 alt=""
                 className="w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.src = PLACEHOLDER; }}
               />
               {item.type === 'video' && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30">

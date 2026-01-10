@@ -10,23 +10,25 @@ interface Slide {
   linkText: string;
 }
 
+const BASE = import.meta.env.BASE_URL;
+
 const slides: Slide[] = [
   {
-    image: '/images/hero-1.svg',
+    image: `${BASE}images/hero-1.svg`,
     title: 'Enterprise Connectors',
     subtitle: 'AWS, Azure, GCP integrations ready to deploy',
     link: '/?category=Infrastructure',
     linkText: 'Browse Now',
   },
   {
-    image: '/images/hero-2.svg',
+    image: `${BASE}images/hero-2.svg`,
     title: 'Compliance Suites',
     subtitle: 'HIPAA, FedRAMP, PCI DSS ready modules',
     link: '/?category=Compliance',
     linkText: 'Explore',
   },
   {
-    image: '/images/hero-3.svg',
+    image: `${BASE}images/hero-3.svg`,
     title: 'VR/XR Components',
     subtitle: 'Immersive experiences for EVE-OS',
     link: '/?category=Immersive',
