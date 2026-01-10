@@ -318,7 +318,7 @@ export const products: Product[] = [
     "title": "FedRAMP Compliance Suite",
     "slug": "fedramp-compliance",
     "price": 49.99,
-    "discountPrice": 39.992000000000004,
+    "discountPrice": 39.99,
     "author": {
       "id": "eve-core",
       "name": "EVE Core Team",
@@ -742,7 +742,7 @@ export const products: Product[] = [
     "title": "HR & Payroll Portal",
     "slug": "hr-payroll-portal",
     "price": 49.99,
-    "discountPrice": 39.992000000000004,
+    "discountPrice": 39.99,
     "author": {
       "id": "hermetic",
       "name": "Hermetic Labs",
@@ -958,7 +958,7 @@ export const products: Product[] = [
     "title": "LexisNexis Connector",
     "slug": "lexisnexis-connector",
     "price": 49.99,
-    "discountPrice": 39.992000000000004,
+    "discountPrice": 39.99,
     "author": {
       "id": "eve-core",
       "name": "EVE Core Team",
@@ -1169,7 +1169,7 @@ export const products: Product[] = [
     "title": "Plaid Connector",
     "slug": "plaid-connector",
     "price": 49.99,
-    "discountPrice": 39.992000000000004,
+    "discountPrice": 39.99,
     "author": {
       "id": "eve-core",
       "name": "EVE Core Team",
@@ -2020,7 +2020,7 @@ export const products: Product[] = [
     "title": "Westlaw Connector",
     "slug": "westlaw-connector",
     "price": 49.99,
-    "discountPrice": 39.992000000000004,
+    "discountPrice": 39.99,
     "author": {
       "id": "eve-core",
       "name": "EVE Core Team",

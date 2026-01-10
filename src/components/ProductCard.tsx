@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Product } from '../types';
 import { Star } from 'lucide-react';
+import { formatPrice } from '../lib/utils';
 
 interface Props {
   product: Product;
@@ -42,11 +43,11 @@ export function ProductCard({ product }: Props) {
           <div className="text-right">
             {product.discountPrice ? (
               <>
-                <span className="text-gray-500 line-through text-sm mr-2">${product.price}</span>
-                <span className="text-cyber-green font-bold">${product.discountPrice}</span>
+                <span className="text-gray-500 line-through text-sm mr-2">{formatPrice(product.price)}</span>
+                <span className="text-cyber-green font-bold">{formatPrice(product.discountPrice)}</span>
               </>
             ) : (
-              <span className="text-cyber-green font-bold">${product.price}</span>
+              <span className="text-cyber-green font-bold">{formatPrice(product.price)}</span>
             )}
           </div>
         </div>
