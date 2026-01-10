@@ -5,6 +5,7 @@ import sourceIdentifierPlugin from 'vite-plugin-source-identifier'
 
 const isProd = process.env.BUILD_MODE === 'prod'
 export default defineConfig({
+  base: '/hermetic-labs-exchange/',
   plugins: [
     react(),
     sourceIdentifierPlugin({
