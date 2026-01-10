@@ -105,6 +105,11 @@ body {
   box-shadow: 0 0 10px rgba(0, 180, 255, 0.2);
 }
 
+.cyber-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+}
+
 .cyber-card {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);

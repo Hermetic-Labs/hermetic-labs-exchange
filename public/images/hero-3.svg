@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#00a8cc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg3)"/>
+  <polygon points="200,150 280,200 280,300 200,350 120,300 120,200" fill="none" stroke="url(#cyan)" stroke-width="2" opacity="0.6"/>
+  <polygon points="200,180 250,210 250,280 200,310 150,280 150,210" fill="url(#cyan)" opacity="0.2"/>
+  <circle cx="200" cy="240" r="30" fill="url(#cyan)" opacity="0.4"/>
+  <text x="450" y="280" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">VR/XR Components</text>
+  <text x="450" y="340" font-family="system-ui, sans-serif" font-size="24" fill="#888888">Immersive experiences for EVE-OS</text>
+  <rect x="450" y="380" width="180" height="50" rx="4" fill="url(#cyan)"/>
+  <text x="495" y="413" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#000000">Discover</text>
+</svg>

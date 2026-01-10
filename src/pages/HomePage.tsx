@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
+import { HeroCarousel } from '../components/HeroCarousel';
 import { fetchProducts, fetchCategories } from '../api/exchange';
 import { Product, Category } from '../types';
 import { ChevronRight, Sparkles, Zap, Clock, Loader2 } from 'lucide-react';
@@ -93,28 +94,14 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative py-16 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-cyber-cyan/5 to-transparent" />
-        <div className="max-w-7xl mx-auto relative">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-cyber-green text-glow-green">HERMETIC LABS</span>
-              <br />
-              <span className="text-white">EXCHANGE</span>
-            </h1>
-            <p className="text-gray-400 text-lg mb-8">
-              Premium EVE-OS modules, connectors, and components for enterprise developers
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/?category=Infrastructure" className="cyber-btn">
-                Browse Modules
-              </Link>
-              <button className="cyber-btn-outline">Publish Your Module</button>
-            </div>
+      {/* Hero Carousel */}
+      {!activeCategory && !searchQuery && (
+        <section className="py-8 px-4">
+          <div className="max-w-7xl mx-auto">
+            <HeroCarousel />
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Categories Grid */}
       <section className="py-12 px-4">
