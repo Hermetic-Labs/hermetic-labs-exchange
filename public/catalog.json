@@ -1,0 +1,2362 @@
+﻿{
+    "products":  [
+                     {
+                         "discountPrice":  null,
+                         "id":  "p1",
+                         "featured":  true,
+                         "price":  0,
+                         "title":  "AWS S3 Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Amazon S3 storage integration with buckets, objects, presigned URLs, and multipart uploads",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/aws-s3-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Bucket management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Object CRUD",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Presigned URLs",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Multipart uploads",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Lifecycle policies",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/aws-s3-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "aws-s3-connector",
+                         "category":  "Storage",
+                         "reviewCount":  178,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.6
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p2",
+                         "featured":  true,
+                         "price":  0,
+                         "title":  "Azure Blob Storage Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Azure Blob Storage integration with containers, blobs, and SAS tokens",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/azure-blob-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Container management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Blob operations",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "SAS token generation",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Access tier management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Lease handling",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/azure-blob-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "azure-blob-connector",
+                         "category":  "Storage",
+                         "reviewCount":  183,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.5
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p3",
+                         "featured":  true,
+                         "price":  0,
+                         "title":  "Beat Bubble VR",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Immersive 3D spherical beat mixer game. Place beats on a spinning sphere inside a VR-ready environment. Features Web Audio API synthesis for kick, snare, hi-hat, bass, and synth sounds. Perfect for music creation and relaxation.",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/beat-bubble-vr/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Component",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "VR-ready 3D sphere environment",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Web Audio API sound synthesis",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "5 sound types (Kick, Snare, Hi-Hat, Bass, Synth)",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "5 track lanes for beat placement",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Adjustable tempo (60-180 BPM)",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Click to place/remove beats",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/beat-bubble-vr.zip",
+                         "author":  {
+                                        "id":  "hermetic",
+                                        "name":  "Hermetic Labs",
+                                        "socialLinks":  {
+                                                            "discord":  "#",
+                                                            "website":  "https://hermetic.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  8500,
+                                        "productCount":  7,
+                                        "bio":  "Creators of innovative visualization, gaming, and productivity components for the EVE-OS ecosystem."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "beat-bubble-vr",
+                         "category":  "Entertainment",
+                         "reviewCount":  106,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.9
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p4",
+                         "featured":  true,
+                         "price":  0,
+                         "title":  "FedRAMP Compliance Suite",
+                         "questions":  [
+
+                                       ],
+                         "description":  "FedRAMP authorization compliance with security controls, continuous monitoring, and documentation",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/fedramp-compliance/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Module",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Control baseline assessment",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Continuous monitoring",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "POA\u0026M management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "SSP documentation",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Vulnerability scanning integration",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/fedramp-compliance.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "fedramp-compliance",
+                         "category":  "Government",
+                         "reviewCount":  127,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.1
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p5",
+                         "featured":  true,
+                         "price":  0,
+                         "title":  "FHIR Compliance Suite",
+                         "questions":  [
+
+                                       ],
+                         "description":  "HL7 FHIR R4 compliance validation, resource management, and healthcare interoperability",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/fhir-compliance/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Module",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "FHIR R4 resource validation",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Patient/Practitioner management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Observation and Condition handling",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "MedicationRequest processing",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Bundle/Transaction support",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/fhir-compliance.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "fhir-compliance",
+                         "category":  "Healthcare",
+                         "reviewCount":  27,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  5
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p6",
+                         "featured":  true,
+                         "price":  0,
+                         "title":  "Form Builder",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Drag-and-drop form builder with field palette, live preview, form sharing via URL encoding, and form submission handling. Supports text, email, number, date, select, checkbox, radio, textarea, signature, and file upload fields.",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/form-builder/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Component",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Drag-and-drop field placement",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Live form preview",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "URL-encoded form sharing",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Multiple field types (text, email, date, select, etc.)",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Signature capture support",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "File upload fields",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/form-builder.zip",
+                         "author":  {
+                                        "id":  "hermetic",
+                                        "name":  "Hermetic Labs",
+                                        "socialLinks":  {
+                                                            "discord":  "#",
+                                                            "website":  "https://hermetic.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  8500,
+                                        "productCount":  7,
+                                        "bio":  "Creators of innovative visualization, gaming, and productivity components for the EVE-OS ecosystem."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "form-builder",
+                         "category":  "Productivity",
+                         "reviewCount":  146,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.1
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p7",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Google Cloud Storage Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Google Cloud Storage integration with buckets, objects, and signed URLs",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/gcs-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Bucket operations",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Object management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Signed URLs",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "IAM integration",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Lifecycle management",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/gcs-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "gcs-connector",
+                         "category":  "Storage",
+                         "reviewCount":  93,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.8
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p8",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Globe Data Visualization",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Interactive 3D globe visualization with pluggable data adapters. Supports points, arcs, heatmaps, and flight paths. Perfect for displaying geographic data, network traffic, logistics, and analytics.",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/globe-viz/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Component",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Interactive 3D globe with Three.js",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Pluggable data adapter system",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Flight tracking visualization",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Network traffic heatmaps",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Point markers with labels",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Arc paths between locations",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/globe-viz.zip",
+                         "author":  {
+                                        "id":  "hermetic",
+                                        "name":  "Hermetic Labs",
+                                        "socialLinks":  {
+                                                            "discord":  "#",
+                                                            "website":  "https://hermetic.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  8500,
+                                        "productCount":  7,
+                                        "bio":  "Creators of innovative visualization, gaming, and productivity components for the EVE-OS ecosystem."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "globe-viz",
+                         "category":  "Analytics",
+                         "reviewCount":  139,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.9
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p9",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "HIPAA Privacy Suite",
+                         "questions":  [
+
+                                       ],
+                         "description":  "HIPAA Privacy Rule compliance with PHI handling, access controls, and audit logging",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/hipaa-compliance/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Module",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "PHI detection and masking",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Minimum necessary enforcement",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Access control validation",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Audit trail logging",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Breach notification support",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/hipaa-compliance.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "hipaa-compliance",
+                         "category":  "Healthcare",
+                         "reviewCount":  45,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p10",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "HR \u0026 Payroll Portal",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Complete HR management and payroll processing portal. Manage employees, departments, job postings, banking, payroll calculations, pay stubs, and integrations. Full-featured white-label HR solution.",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/hr-payroll-portal/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Plugin",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Employee management with profiles",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Department organization and budgets",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Job posting board",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Banking integrations",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Third-party integrations (Gusto, ADP, etc.)",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Payroll calculator with taxes",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/hr-payroll-portal.zip",
+                         "author":  {
+                                        "id":  "hermetic",
+                                        "name":  "Hermetic Labs",
+                                        "socialLinks":  {
+                                                            "discord":  "#",
+                                                            "website":  "https://hermetic.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  8500,
+                                        "productCount":  7,
+                                        "bio":  "Creators of innovative visualization, gaming, and productivity components for the EVE-OS ecosystem."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "hr-payroll-portal",
+                         "category":  "Business",
+                         "reviewCount":  175,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.8
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p11",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "IoT Device Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Universal IoT device discovery, protocol handlers (HTTP/WebSocket/MQTT), workflow automation, and safety rules engine for smart home, medical devices, and industrial IoT",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/iot-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "MDNS/SSDP device discovery",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "HTTP/WebSocket/MQTT protocol handlers",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Device safety rules engine",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Workflow automation engine",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Device templates for common manufacturers",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Medical device integration support",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/iot-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "iot-connector",
+                         "category":  "Connectivity",
+                         "reviewCount":  92,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.5
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p12",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "ITAR Compliance Suite",
+                         "questions":  [
+
+                                       ],
+                         "description":  "ITAR export control compliance for defense articles and technical data",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/itar-compliance/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Module",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "USML classification",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Export license tracking",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Foreign person screening",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Technical data controls",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Audit reporting",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/itar-compliance.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "itar-compliance",
+                         "category":  "Defense",
+                         "reviewCount":  52,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.7
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p13",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "LexisNexis Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "LexisNexis legal research integration with document search, case law, and statutes",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/lexisnexis-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Document search",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Case law retrieval",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Statutory research",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Citation analysis",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Shepardizing",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/lexisnexis-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "lexisnexis-connector",
+                         "category":  "Legal",
+                         "reviewCount":  132,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.9
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p14",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Medical Professional Suite",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Complete medical module with bedside assistant, nurse station dashboard, FHIR integration, vitals monitoring, and fall detection. Optimized for Raspberry Pi deployment.",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/medical-module/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Module",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "2.2.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Real-time vitals monitoring",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Fall detection with nurse overflow",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "FHIR R4 import/export",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Multi-room nurse station",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Video call integration",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Patient intake forms",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/medical-module.zip",
+                         "author":  {
+                                        "id":  "eve-os",
+                                        "name":  "EVE OS",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  12000,
+                                        "productCount":  1,
+                                        "bio":  "Official EVE OS modules and integrations."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "medical-module",
+                         "category":  "Medical",
+                         "reviewCount":  182,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.3
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p15",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "PCI DSS Compliance Suite",
+                         "questions":  [
+
+                                       ],
+                         "description":  "PCI DSS compliance for payment card security, cardholder data protection, and network security",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/pci-compliance/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Module",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Cardholder data protection",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Network security validation",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Access control management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Vulnerability management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "SAQ preparation",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/pci-compliance.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "pci-compliance",
+                         "category":  "Payments",
+                         "reviewCount":  176,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.7
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p16",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Plaid Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Full Plaid integration with Link token flow, transactions, identity, auth, balances, investments, liabilities, and webhooks",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/plaid-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Link token creation",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Transaction sync",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Identity verification",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "ACH authentication",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Investment holdings",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Liabilities tracking",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/plaid-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "plaid-connector",
+                         "category":  "Financial",
+                         "reviewCount":  76,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.5
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p17",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Super Platformer",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Classic side-scrolling platformer game in the style of Mario. Features pixel art graphics, coin collection, enemies to defeat, platforms to navigate, and a flag to reach. Mobile-ready with touch controls.",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/platformer-game/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Component",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Classic platformer gameplay",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Pixel art retro graphics",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Coin collection system",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Enemy AI with patrol patterns",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Stomp-to-defeat mechanic",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Multiple platform types (ground, brick, question blocks)",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/platformer-game.zip",
+                         "author":  {
+                                        "id":  "hermetic",
+                                        "name":  "Hermetic Labs",
+                                        "socialLinks":  {
+                                                            "discord":  "#",
+                                                            "website":  "https://hermetic.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  8500,
+                                        "productCount":  7,
+                                        "bio":  "Creators of innovative visualization, gaming, and productivity components for the EVE-OS ecosystem."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "platformer-game",
+                         "category":  "Entertainment",
+                         "reviewCount":  123,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.1
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p18",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Salesforce Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Full Salesforce CRM integration with objects, SOQL queries, bulk operations, and streaming API",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/salesforce-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "OAuth2 authentication",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "SOQL query execution",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Object CRUD operations",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Bulk data operations",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Real-time streaming API",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/salesforce-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "salesforce-connector",
+                         "category":  "CRM",
+                         "reviewCount":  93,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.1
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p19",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "SAM.gov Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "SAM.gov federal contractor registration and entity search integration",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/sam-gov-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Entity search",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Registration status",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Exclusion records",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Contract opportunities",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Cage code lookup",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/sam-gov-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "sam-gov-connector",
+                         "category":  "Government",
+                         "reviewCount":  118,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.4
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p20",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "SAP Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "SAP ERP integration with RFC, BAPI, OData services, and IDoc support",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/sap-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "RFC function calls",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "BAPI execution",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "OData service integration",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "IDoc processing",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Material/vendor management",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/sap-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "sap-connector",
+                         "category":  "ERP",
+                         "reviewCount":  170,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.6
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p21",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "SOX Compliance Suite",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Sarbanes-Oxley compliance for financial controls, audit trails, and internal controls",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/sox-compliance/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Module",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Control documentation",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Audit trail management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Segregation of duties",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Access control reviews",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Deficiency reporting",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/sox-compliance.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "sox-compliance",
+                         "category":  "Financial",
+                         "reviewCount":  92,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.7
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p22",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "3D Stock Visualizer",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Interactive 3D candlestick chart with real-time strategy coding. Write trading strategies in a simple DSL, see buy/sell signals visualized on the chart. Supports 2D/3D views, SMA/EMA indicators, and timeline scrubbing.",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/stock-visualizer/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Component",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "3D and 2D candlestick charts",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Real-time strategy DSL editor",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "SMA and EMA indicators",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Buy/sell signal visualization",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Timeline scrubbing and zoom",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Adjustable window size",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/stock-visualizer.zip",
+                         "author":  {
+                                        "id":  "hermetic",
+                                        "name":  "Hermetic Labs",
+                                        "socialLinks":  {
+                                                            "discord":  "#",
+                                                            "website":  "https://hermetic.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  8500,
+                                        "productCount":  7,
+                                        "bio":  "Creators of innovative visualization, gaming, and productivity components for the EVE-OS ecosystem."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "stock-visualizer",
+                         "category":  "Finance",
+                         "reviewCount":  75,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  5
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p23",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Stripe Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Stripe payment integration with charges, subscriptions, customers, and webhooks",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/stripe-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Payment intents",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Subscription management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Customer management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Webhook handling",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Invoice generation",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/stripe-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "stripe-connector",
+                         "category":  "Payments",
+                         "reviewCount":  95,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p24",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "USASpending Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "USASpending.gov federal spending data integration for awards, agencies, and recipients",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/usaspending-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Award search",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Agency spending",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Recipient lookup",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Geographic analysis",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Time series data",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  false,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/usaspending-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "usaspending-connector",
+                         "category":  "Government",
+                         "reviewCount":  63,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.4
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p25",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Voice Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Voice recognition, command processing, and voice-to-reflex-card integration for hands-free operation",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/voice-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Speech-to-text recognition",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Natural language command parsing",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Voice-to-reflex-card conversion",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Continuous listening mode",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Multi-language support",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  true,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/voice-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "voice-connector",
+                         "category":  "Accessibility",
+                         "reviewCount":  108,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.8
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p26",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "VR Spatial Engine",
+                         "questions":  [
+
+                                       ],
+                         "description":  "VR/XR capability component - enables VR mode across EVE-OS when installed",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/vr-spatial-engine/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Component",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Real-time VR scene generation",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "WebXR compatibility",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Node-based visual editor",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Spatial tracking integration",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Hand tracking support",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Eye tracking capabilities",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  true,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/vr-spatial-engine.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "vr-spatial-engine",
+                         "category":  "VR/XR",
+                         "reviewCount":  26,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.2
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p27",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "VRM Companion",
+                         "questions":  [
+
+                                       ],
+                         "description":  "3D VRM avatar companion with lip-syncing, phoneme-driven animation, and EVE Core integration. Can swap EVE\u0027s sphere representation with a full VRM character.",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/vrm-companion/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Component",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "VRM 1.0 avatar loading",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Phoneme-driven lip sync",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Amplitude fallback mode",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Real-time viseme visualization",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "EVE Core sphere replacement",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "VR-ready when vr-spatial-engine installed",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  true,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/vrm-companion.zip",
+                         "author":  {
+                                        "id":  "hermetic",
+                                        "name":  "Hermetic Labs",
+                                        "socialLinks":  {
+                                                            "discord":  "#",
+                                                            "website":  "https://hermetic.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  8500,
+                                        "productCount":  7,
+                                        "bio":  "Creators of innovative visualization, gaming, and productivity components for the EVE-OS ecosystem."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "vrm-companion",
+                         "category":  "AI",
+                         "reviewCount":  22,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p28",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Westlaw Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Westlaw legal research integration with KeyCite, documents, and statutes",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/westlaw-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Document search",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "KeyCite validation",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Case law research",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Statute annotations",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Secondary sources",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  true,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/westlaw-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "westlaw-connector",
+                         "category":  "Legal",
+                         "reviewCount":  133,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.1
+                     },
+                     {
+                         "discountPrice":  null,
+                         "id":  "p29",
+                         "featured":  false,
+                         "price":  0,
+                         "title":  "Workday Connector",
+                         "questions":  [
+
+                                       ],
+                         "description":  "Workday HCM integration with workers, positions, organizations, and payroll",
+                         "media":  [
+                                       {
+                                           "type":  "image",
+                                           "url":  "https://hermetic-labs.github.io/exchange/packages/workday-connector/assets/images/hero.png"
+                                       }
+                                   ],
+                         "techSpecs":  [
+                                           {
+                                               "value":  "Connector",
+                                               "label":  "Type"
+                                           },
+                                           {
+                                               "value":  "1.0.0",
+                                               "label":  "Version"
+                                           },
+                                           {
+                                               "value":  "Worker management",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Position tracking",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Organization hierarchy",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Payroll integration",
+                                               "label":  "Feature"
+                                           },
+                                           {
+                                               "value":  "Benefits administration",
+                                               "label":  "Feature"
+                                           }
+                                       ],
+                         "releaseDate":  "2024-12-01",
+                         "isNew":  true,
+                         "downloadUrl":  "https://hermetic-labs.github.io/exchange/packages/workday-connector.zip",
+                         "author":  {
+                                        "id":  "eve-core",
+                                        "name":  "EVE Core Team",
+                                        "socialLinks":  {
+                                                            "website":  "https://eve-os.dev"
+                                                        },
+                                        "avatar":  "",
+                                        "totalSales":  15000,
+                                        "productCount":  21,
+                                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                                    },
+                         "reviews":  [
+
+                                     ],
+                         "slug":  "workday-connector",
+                         "category":  "HR",
+                         "reviewCount":  185,
+                         "links":  [
+                                       {
+                                           "url":  "#",
+                                           "label":  "Documentation"
+                                       }
+                                   ],
+                         "rating":  4.6
+                     }
+                 ],
+    "version":  "1.0.0",
+    "authors":  [
+                    {
+                        "id":  "eve-os",
+                        "name":  "EVE OS",
+                        "socialLinks":  {
+                                            "website":  "https://eve-os.dev"
+                                        },
+                        "avatar":  "",
+                        "totalSales":  12000,
+                        "productCount":  1,
+                        "bio":  "Official EVE OS modules and integrations."
+                    },
+                    {
+                        "id":  "hermetic",
+                        "name":  "Hermetic Labs",
+                        "socialLinks":  {
+                                            "discord":  "#",
+                                            "website":  "https://hermetic.dev"
+                                        },
+                        "avatar":  "",
+                        "totalSales":  8500,
+                        "productCount":  7,
+                        "bio":  "Creators of innovative visualization, gaming, and productivity components for the EVE-OS ecosystem."
+                    },
+                    {
+                        "id":  "eve-core",
+                        "name":  "EVE Core Team",
+                        "socialLinks":  {
+                                            "website":  "https://eve-os.dev"
+                                        },
+                        "avatar":  "",
+                        "totalSales":  15000,
+                        "productCount":  21,
+                        "bio":  "Core development team building enterprise-grade connectors and compliance modules for EVE-OS."
+                    }
+                ],
+    "baseUrl":  "https://hermetic-labs.github.io/exchange",
+    "generated":  "2026-01-10T10:33:44Z",
+    "categories":  [
+                       {
+                           "icon":  "package",
+                           "productCount":  2,
+                           "name":  "Healthcare",
+                           "id":  "c1"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  2,
+                           "name":  "Financial",
+                           "id":  "c2"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "AI",
+                           "id":  "c3"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "Accessibility",
+                           "id":  "c4"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  2,
+                           "name":  "Entertainment",
+                           "id":  "c5"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "CRM",
+                           "id":  "c6"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "Medical",
+                           "id":  "c7"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "Productivity",
+                           "id":  "c8"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "Finance",
+                           "id":  "c9"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "Business",
+                           "id":  "c10"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "Connectivity",
+                           "id":  "c11"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "Analytics",
+                           "id":  "c12"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  2,
+                           "name":  "Payments",
+                           "id":  "c13"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "ERP",
+                           "id":  "c14"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  3,
+                           "name":  "Storage",
+                           "id":  "c15"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  3,
+                           "name":  "Government",
+                           "id":  "c16"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "VR/XR",
+                           "id":  "c17"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "HR",
+                           "id":  "c18"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  1,
+                           "name":  "Defense",
+                           "id":  "c19"
+                       },
+                       {
+                           "icon":  "package",
+                           "productCount":  2,
+                           "name":  "Legal",
+                           "id":  "c20"
+                       }
+                   ]
+}

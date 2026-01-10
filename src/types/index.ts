@@ -60,6 +60,7 @@ export interface Product {
   releaseDate: string;
   featured?: boolean;
   isNew?: boolean;
+  downloadUrl?: string;
 }
 
 export interface Category {
