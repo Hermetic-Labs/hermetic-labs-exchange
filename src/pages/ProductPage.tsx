@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { fetchProductBySlug } from '../api/exchange';
+import { fetchProductBySlug, createCheckoutSession } from '../api/exchange';
 import { Product } from '../types';
 import { MediaCarousel } from '../components/MediaCarousel';
 import { StarRating } from '../components/StarRating';
@@ -14,14 +14,31 @@ import {
   User,
   Calendar,
   Loader2,
+  Download,
 } from 'lucide-react';
 
 export function ProductPage() {
   const { slug } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
+  const [purchasing, setPurchasing] = useState(false);
+  const [purchaseError, setPurchaseError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'description' | 'qa' | 'reviews'>('description');
   const [newQuestion, setNewQuestion] = useState('');
+
+  const handlePurchase = async () => {
+    if (!product) return;
+
+    setPurchasing(true);
+    setPurchaseError(null);
+
+    try {
+      await createCheckoutSession(product);
+    } catch (err) {
+      setPurchaseError(err instanceof Error ? err.message : 'Purchase failed');
+      setPurchasing(false);
+    }
+  };
 
   useEffect(() => {
     async function loadProduct() {
@@ -281,13 +298,47 @@ export function ProductPage() {
               </div>
 
               <div className="flex gap-3 mb-6">
-                <button className="cyber-btn flex-1 flex items-center justify-center gap-2">
-                  <ShoppingCart className="w-4 h-4" /> Add to Cart
-                </button>
+                {product.price === 0 ? (
+                  <a
+                    href={product.downloadUrl}
+                    className="cyber-btn flex-1 flex items-center justify-center gap-2"
+                    download
+                  >
+                    <Download className="w-4 h-4" /> Download Free
+                  </a>
+                ) : product.stripePriceId ? (
+                  <button
+                    onClick={handlePurchase}
+                    disabled={purchasing}
+                    className="cyber-btn flex-1 flex items-center justify-center gap-2 disabled:opacity-50"
+                  >
+                    {purchasing ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" /> Processing...
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingCart className="w-4 h-4" /> Buy Now
+                      </>
+                    )}
+                  </button>
+                ) : (
+                  <button
+                    disabled
+                    className="cyber-btn flex-1 flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+                  >
+                    <ShoppingCart className="w-4 h-4" /> Coming Soon
+                  </button>
+                )}
                 <button className="cyber-btn-outline p-3">
                   <Heart className="w-5 h-5" />
                 </button>
               </div>
+              {purchaseError && (
+                <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded text-red-400 text-sm">
+                  {purchaseError}
+                </div>
+              )}
 
               {/* Tech Specs */}
               <div className="border-t border-white/10 pt-4">

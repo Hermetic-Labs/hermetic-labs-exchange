@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, ShoppingCart, User, ChevronDown, Menu, X } from 'lucide-react';
+import { Search, ShoppingCart, User, ChevronDown, Menu, X, LogOut, Library } from 'lucide-react';
 import { fetchCategories } from '../api/exchange';
 import { Category } from '../types';
+import { useAuth } from '../context/AuthContext';
 
 export function Header() {
   const [showCategories, setShowCategories] = useState(false);
@@ -11,6 +12,7 @@ export function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [categories, setCategories] = useState<Category[]>([]);
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   // Fetch categories on mount
   useEffect(() => {
@@ -101,13 +103,47 @@ export function Header() {
                 <User className="w-5 h-5" />
               </button>
               {showUserMenu && (
-                <div className="absolute top-full mt-2 right-0 cyber-panel p-2 min-w-[160px]">
-                  <button className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors">
-                    Sign In
-                  </button>
-                  <button className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors">
-                    Create Account
-                  </button>
+                <div className="absolute top-full mt-2 right-0 cyber-panel p-2 min-w-[180px]">
+                  {user ? (
+                    <>
+                      <div className="px-4 py-2 text-xs text-gray-500 border-b border-white/10 mb-1">
+                        {user.email}
+                      </div>
+                      <Link
+                        to="/library"
+                        onClick={() => setShowUserMenu(false)}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors flex items-center gap-2"
+                      >
+                        <Library className="w-4 h-4" /> My Library
+                      </Link>
+                      <button
+                        onClick={() => {
+                          logout();
+                          setShowUserMenu(false);
+                        }}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors flex items-center gap-2"
+                      >
+                        <LogOut className="w-4 h-4" /> Sign Out
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <Link
+                        to="/auth"
+                        onClick={() => setShowUserMenu(false)}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors block"
+                      >
+                        Sign In
+                      </Link>
+                      <Link
+                        to="/auth?mode=register"
+                        onClick={() => setShowUserMenu(false)}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors block"
+                      >
+                        Create Account
+                      </Link>
+                    </>
+                  )}
                 </div>
               )}
             </div>

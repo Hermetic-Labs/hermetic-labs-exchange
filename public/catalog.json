@@ -64,6 +64,7 @@
 
                                      ],
                          "slug":  "aws-s3-connector",
+                         "stripePriceId":  null,
                          "category":  "Storage",
                          "reviewCount":  178,
                          "links":  [
@@ -138,6 +139,7 @@
 
                                      ],
                          "slug":  "azure-blob-connector",
+                         "stripePriceId":  null,
                          "category":  "Storage",
                          "reviewCount":  183,
                          "links":  [
@@ -217,6 +219,7 @@
 
                                      ],
                          "slug":  "beat-bubble-vr",
+                         "stripePriceId":  null,
                          "category":  "Entertainment",
                          "reviewCount":  106,
                          "links":  [
@@ -291,6 +294,7 @@
 
                                      ],
                          "slug":  "fedramp-compliance",
+                         "stripePriceId":  null,
                          "category":  "Government",
                          "reviewCount":  127,
                          "links":  [
@@ -365,6 +369,7 @@
 
                                      ],
                          "slug":  "fhir-compliance",
+                         "stripePriceId":  null,
                          "category":  "Healthcare",
                          "reviewCount":  27,
                          "links":  [
@@ -444,6 +449,7 @@
 
                                      ],
                          "slug":  "form-builder",
+                         "stripePriceId":  null,
                          "category":  "Productivity",
                          "reviewCount":  146,
                          "links":  [
@@ -518,6 +524,7 @@
 
                                      ],
                          "slug":  "gcs-connector",
+                         "stripePriceId":  null,
                          "category":  "Storage",
                          "reviewCount":  93,
                          "links":  [
@@ -597,6 +604,7 @@
 
                                      ],
                          "slug":  "globe-viz",
+                         "stripePriceId":  null,
                          "category":  "Analytics",
                          "reviewCount":  139,
                          "links":  [
@@ -671,6 +679,7 @@
 
                                      ],
                          "slug":  "hipaa-compliance",
+                         "stripePriceId":  null,
                          "category":  "Healthcare",
                          "reviewCount":  45,
                          "links":  [
@@ -750,6 +759,7 @@
 
                                      ],
                          "slug":  "hr-payroll-portal",
+                         "stripePriceId":  null,
                          "category":  "Business",
                          "reviewCount":  175,
                          "links":  [
@@ -828,6 +838,7 @@
 
                                      ],
                          "slug":  "iot-connector",
+                         "stripePriceId":  null,
                          "category":  "Connectivity",
                          "reviewCount":  92,
                          "links":  [
@@ -902,6 +913,7 @@
 
                                      ],
                          "slug":  "itar-compliance",
+                         "stripePriceId":  null,
                          "category":  "Defense",
                          "reviewCount":  52,
                          "links":  [
@@ -976,6 +988,7 @@
 
                                      ],
                          "slug":  "lexisnexis-connector",
+                         "stripePriceId":  null,
                          "category":  "Legal",
                          "reviewCount":  132,
                          "links":  [
@@ -1054,6 +1067,7 @@
 
                                      ],
                          "slug":  "medical-module",
+                         "stripePriceId":  "price_1Soeh8RrheLnW1znPVCR7nap",
                          "category":  "Medical",
                          "reviewCount":  182,
                          "links":  [
@@ -1128,6 +1142,7 @@
 
                                      ],
                          "slug":  "pci-compliance",
+                         "stripePriceId":  null,
                          "category":  "Payments",
                          "reviewCount":  176,
                          "links":  [
@@ -1206,6 +1221,7 @@
 
                                      ],
                          "slug":  "plaid-connector",
+                         "stripePriceId":  null,
                          "category":  "Financial",
                          "reviewCount":  76,
                          "links":  [
@@ -1285,6 +1301,7 @@
 
                                      ],
                          "slug":  "platformer-game",
+                         "stripePriceId":  null,
                          "category":  "Entertainment",
                          "reviewCount":  123,
                          "links":  [
@@ -1359,6 +1376,7 @@
 
                                      ],
                          "slug":  "salesforce-connector",
+                         "stripePriceId":  null,
                          "category":  "CRM",
                          "reviewCount":  93,
                          "links":  [
@@ -1433,6 +1451,7 @@
 
                                      ],
                          "slug":  "sam-gov-connector",
+                         "stripePriceId":  null,
                          "category":  "Government",
                          "reviewCount":  118,
                          "links":  [
@@ -1507,6 +1526,7 @@
 
                                      ],
                          "slug":  "sap-connector",
+                         "stripePriceId":  null,
                          "category":  "ERP",
                          "reviewCount":  170,
                          "links":  [
@@ -1581,6 +1601,7 @@
 
                                      ],
                          "slug":  "sox-compliance",
+                         "stripePriceId":  null,
                          "category":  "Financial",
                          "reviewCount":  92,
                          "links":  [
@@ -1660,6 +1681,7 @@
 
                                      ],
                          "slug":  "stock-visualizer",
+                         "stripePriceId":  null,
                          "category":  "Finance",
                          "reviewCount":  75,
                          "links":  [
@@ -1734,6 +1756,7 @@
 
                                      ],
                          "slug":  "stripe-connector",
+                         "stripePriceId":  null,
                          "category":  "Payments",
                          "reviewCount":  95,
                          "links":  [
@@ -1808,6 +1831,7 @@
 
                                      ],
                          "slug":  "usaspending-connector",
+                         "stripePriceId":  null,
                          "category":  "Government",
                          "reviewCount":  63,
                          "links":  [
@@ -1882,6 +1906,7 @@
 
                                      ],
                          "slug":  "voice-connector",
+                         "stripePriceId":  null,
                          "category":  "Accessibility",
                          "reviewCount":  108,
                          "links":  [
@@ -1960,6 +1985,7 @@
 
                                      ],
                          "slug":  "vr-spatial-engine",
+                         "stripePriceId":  null,
                          "category":  "VR/XR",
                          "reviewCount":  26,
                          "links":  [
@@ -2039,6 +2065,7 @@
 
                                      ],
                          "slug":  "vrm-companion",
+                         "stripePriceId":  null,
                          "category":  "AI",
                          "reviewCount":  22,
                          "links":  [
@@ -2113,6 +2140,7 @@
 
                                      ],
                          "slug":  "westlaw-connector",
+                         "stripePriceId":  null,
                          "category":  "Legal",
                          "reviewCount":  133,
                          "links":  [
@@ -2187,6 +2215,7 @@
 
                                      ],
                          "slug":  "workday-connector",
+                         "stripePriceId":  null,
                          "category":  "HR",
                          "reviewCount":  185,
                          "links":  [
@@ -2236,7 +2265,7 @@
                     }
                 ],
     "baseUrl":  "https://hermetic-labs.github.io/exchange",
-    "generated":  "2026-01-10T10:33:44Z",
+    "generated":  "2026-01-12T02:42:29Z",
     "categories":  [
                        {
                            "icon":  "package",

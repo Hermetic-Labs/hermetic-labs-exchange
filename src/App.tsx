@@ -3,18 +3,27 @@ import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
 import { AuthorPage } from './pages/AuthorPage';
+import { SuccessPage } from './pages/SuccessPage';
+import { AuthPage } from './pages/AuthPage';
+import { LibraryPage } from './pages/LibraryPage';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <div className="min-h-screen bg-cyber-bg">
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product/:slug" element={<ProductPage />} />
-          <Route path="/author/:id" element={<AuthorPage />} />
-        </Routes>
-      </div>
+      <AuthProvider>
+        <div className="min-h-screen bg-cyber-bg">
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/:slug" element={<ProductPage />} />
+            <Route path="/author/:id" element={<AuthorPage />} />
+            <Route path="/success" element={<SuccessPage />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/library" element={<LibraryPage />} />
+          </Routes>
+        </div>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

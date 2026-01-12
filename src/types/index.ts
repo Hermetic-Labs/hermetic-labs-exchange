@@ -47,6 +47,7 @@ export interface Product {
   slug: string;
   price: number;
   discountPrice?: number;
+  stripePriceId?: string;
   author: Author;
   category: string;
   media: MediaItem[];
