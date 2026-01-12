@@ -164,34 +164,38 @@ export function getDownloadUrl(product: Product): string | undefined {
 // ============================================
 
 const API_BASE_URL = 'https://hermetic-labs-api-cthme4a9gcgdfwfc.eastus-01.azurewebsites.net/api';
-const STRIPE_PUBLISHABLE_KEY = 'pk_live_51So5KYRrheLnW1znj7SnUiUtMpWDwDCXFJTtKi6aYtiMGTsaevKLCGszqXMOENX47mAGGpNy6dqSL4NsTITxCxs1005kfG17ol';
 
 /**
- * Create a Stripe Checkout session and redirect to payment
+ * Create a Stripe Checkout session via backend and redirect to payment
  */
 export async function createCheckoutSession(product: Product): Promise<void> {
   if (!product.stripePriceId) {
     throw new Error('This product is not available for purchase yet');
   }
 
-  // Dynamically load Stripe.js
-  const stripe = await loadStripe();
-  if (!stripe) {
-    throw new Error('Failed to load payment processor');
+  const successUrl = `${window.location.origin}${import.meta.env.BASE_URL}success?session_id={CHECKOUT_SESSION_ID}&slug=${product.slug}`;
+  const cancelUrl = `${window.location.origin}${import.meta.env.BASE_URL}product/${product.slug}`;
+
+  // Call backend to create checkout session
+  const response = await fetch(`${API_BASE_URL}/create-checkout`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      priceId: product.stripePriceId,
+      slug: product.slug,
+      successUrl,
+      cancelUrl,
+    }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to create checkout session');
   }
 
   // Redirect to Stripe Checkout
-  const { error } = await stripe.redirectToCheckout({
-    lineItems: [{ price: product.stripePriceId, quantity: 1 }],
-    mode: 'payment',
-    successUrl: `${window.location.origin}${import.meta.env.BASE_URL}success?session_id={CHECKOUT_SESSION_ID}&slug=${product.slug}`,
-    cancelUrl: `${window.location.origin}${import.meta.env.BASE_URL}product/${product.slug}`,
-    clientReferenceId: product.slug,
-  });
-
-  if (error) {
-    throw new Error(error.message || 'Payment failed');
-  }
+  window.location.href = data.data.url;
 }
 
 /**
@@ -210,36 +214,6 @@ export async function verifyPurchase(sessionId: string): Promise<{
   }
 
   return data.data;
-}
-
-/**
- * Load Stripe.js dynamically
- */
-let stripePromise: Promise<any> | null = null;
-
-function loadStripe(): Promise<any> {
-  if (stripePromise) return stripePromise;
-
-  stripePromise = new Promise((resolve, reject) => {
-    if ((window as any).Stripe) {
-      resolve((window as any).Stripe(STRIPE_PUBLISHABLE_KEY));
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.src = 'https://js.stripe.com/v3/';
-    script.onload = () => {
-      if ((window as any).Stripe) {
-        resolve((window as any).Stripe(STRIPE_PUBLISHABLE_KEY));
-      } else {
-        reject(new Error('Stripe.js failed to load'));
-      }
-    };
-    script.onerror = () => reject(new Error('Failed to load Stripe.js'));
-    document.head.appendChild(script);
-  });
-
-  return stripePromise;
 }
 
 // ============================================
