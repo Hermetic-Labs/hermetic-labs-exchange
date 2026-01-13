@@ -232,6 +232,7 @@ export interface LibraryItem {
   packageSlug: string;
   purchasedAt: string;
   transactionId: string;
+  downloadAvailable: boolean;
 }
 
 /**
@@ -337,7 +338,7 @@ export async function fetchLibrary(): Promise<LibraryItem[]> {
     throw new Error(data.error || 'Failed to fetch library');
   }
 
-  return data.data.items;
+  return data.data;
 }
 
 /**
