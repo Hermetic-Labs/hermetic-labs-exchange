@@ -280,6 +280,17 @@ async function buildBundle(packageName, verbose = false) {
       configFile: false,
       root: packageDir,
       plugins: [
+        // Custom plugin to mark host services as external BEFORE resolution
+        {
+          name: 'external-host-services',
+          resolveId(id) {
+            // Keep @/services/* and @/types as external (host-provided)
+            if (id.startsWith('@/services/') || id === '@/types' || id.startsWith('@/types/')) {
+              return { id, external: true };
+            }
+            return null;
+          }
+        },
         react(),
         nodePolyfills({
           include: ['crypto', 'path', 'buffer', 'stream', 'events'],
@@ -288,7 +299,9 @@ async function buildBundle(packageName, verbose = false) {
       ],
       resolve: {
         alias: {
-          '@': resolve(packageDir, './frontend'),
+          // Alias @/ to package's frontend folder (for internal imports)
+          '@': resolve(packageDir, 'frontend'),
+          // _shared imports resolve to the shared package
           '../../_shared': resolve(PACKAGES_DIR, '_shared'),
           '../_shared': resolve(PACKAGES_DIR, '_shared'),
         },
