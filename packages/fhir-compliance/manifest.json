@@ -1,0 +1,70 @@
+{
+    "name": "fhir-compliance",
+    "version": "1.0.0",
+    "type": "module",
+    "displayName": "FHIR Compliance Suite",
+    "description": "HL7 FHIR R4 compliance validation, resource management, and healthcare interoperability",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/__init__.py",
+    "icon": "🏥",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "FHIRCompliancePortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "healthcare",
+        "fhir",
+        "hl7",
+        "interoperability",
+        "medical"
+    ],
+    "category": "Healthcare",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "FHIR R4 resource validation",
+        "Patient/Practitioner management",
+        "Observation and Condition handling",
+        "MedicationRequest processing",
+        "Bundle/Transaction support"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "fhir-compliance-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "FHIR Compliance Suite hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "FHIR Compliance",
+            "description": "HL7 FHIR R4 validation and healthcare interoperability",
+            "icon": "Stethoscope",
+            "color": "rose"
+        },
+        "apiTags": [
+            "fhir-compliance",
+            "fhir",
+            "healthcare"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "HL7 FHIR R4 compliance validation with resource management for Patient, Practitioner, Observation, Condition, and MedicationRequest. Bundle and transaction support for batch operations.",
+            "exampleUseCase": "Validate incoming FHIR resources from external EHRs, transform legacy data to FHIR format, and export patient bundles for interoperability with other healthcare systems.",
+            "whatMakesThisDifferent": "Local FHIR validation without cloud dependencies. Pairs with HIPAA compliance module for complete healthcare data governance. Medical module uses this for import/export."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/fhir-compliance.bundle.js",
+    "bundleVersion": "1768911819127"
+}

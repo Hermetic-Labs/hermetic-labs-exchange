@@ -1,0 +1,33 @@
+[project]
+name = "eve-os-marketplace-packages"
+version = "1.0.0"
+description = "EVE-OS Marketplace Packages - Backend plugins for the main FastAPI application"
+requires-python = ">=3.10"
+
+# These are the shared dependencies that all marketplace backend modules need.
+# They are NOT installed separately - packages run inside the main backend's environment.
+# This file exists for IDE/linting purposes to resolve imports.
+dependencies = [
+    "fastapi>=0.115.0",
+    "pydantic>=2.9.0",
+    "httpx>=0.27.0",
+    "sqlalchemy>=2.0.0",
+]
+
+[tool.pyright]
+# Tell Pyright/Pylance to look at the main backend for dependencies
+extraPaths = ["../../backend"]
+pythonVersion = "3.10"
+typeCheckingMode = "basic"
+
+# These packages are plugins loaded into the main backend
+# They don't have their own venv - they use the main backend's environment
+venvPath = "../../backend"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]  # Line length handled by formatter

@@ -1,0 +1,71 @@
+{
+    "name": "azure-blob-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "Azure Blob Storage Connector",
+    "description": "Azure Blob Storage integration with containers, blobs, and SAS tokens",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "☁️",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "AzureBlobConnector",
+        "AzureBlobPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "storage",
+        "azure",
+        "blob",
+        "microsoft",
+        "cloud"
+    ],
+    "category": "Storage",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Container management",
+        "Blob operations",
+        "SAS token generation",
+        "Access tier management",
+        "Lease handling"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "azure-blob-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Azure Blob Storage Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Azure Blob Storage",
+            "description": "Azure Blob integration with containers, SAS tokens, and access tiers",
+            "icon": "Cloud",
+            "color": "blue"
+        },
+        "apiTags": [
+            "azure-blob-connector",
+            "azure",
+            "storage"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Full Azure Blob Storage integration supporting container management, blob operations, SAS token generation for secure access, and hot/cool/archive tier management.",
+            "exampleUseCase": "Store large media files in cool storage for cost savings, generate SAS tokens with expiration for temporary partner access, and automatically move old data to archive tier.",
+            "whatMakesThisDifferent": "Direct Azure connectivity without intermediaries. Supports lease handling for concurrent access control and integrates with EVE's unified storage layer alongside S3 and GCS."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/azure-blob-connector.bundle.js",
+    "bundleVersion": "1768911818912"
+}

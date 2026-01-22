@@ -1,0 +1,72 @@
+{
+    "name": "westlaw-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "Westlaw Connector",
+    "description": "Westlaw legal research integration with KeyCite, documents, and statutes",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "types": "./frontend/types/index.ts",
+    "icon": "📚",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "WestlawConnector",
+        "WestlawPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "legal",
+        "westlaw",
+        "research",
+        "keycite",
+        "thomson-reuters"
+    ],
+    "category": "Legal",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Document search",
+        "KeyCite validation",
+        "Case law research",
+        "Statute annotations",
+        "Secondary sources"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "westlaw-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Westlaw Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Westlaw Connector",
+            "description": "Legal research with KeyCite, case law, and statutes",
+            "icon": "Briefcase",
+            "color": "teal"
+        },
+        "apiTags": [
+            "westlaw-connector",
+            "westlaw",
+            "legal"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Westlaw legal research integration with document search, KeyCite citation validation, case law research, statute annotations, and secondary sources.",
+            "exampleUseCase": "Search case law by topic, KeyCite citations to check validity and negative treatment, retrieve annotated statutes, and access secondary sources for legal analysis.",
+            "whatMakesThisDifferent": "Direct Westlaw API access with your Thomson Reuters credentials. Pairs with LexisNexis connector for comprehensive legal research coverage across platforms."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/westlaw-connector.bundle.js",
+    "bundleVersion": "1768911823228"
+}

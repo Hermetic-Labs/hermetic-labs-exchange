@@ -1,0 +1,28 @@
+# EVE-OS Marketplace - Shared Plugin Dependencies
+#
+# These are the common dependencies that marketplace backend plugins use.
+# When a package is installed into the main codebase, these are checked
+# against the main backend's requirements and installed if missing.
+#
+# This file is for:
+# 1. IDE/linting - so Pylance knows what's available
+# 2. Cloud marketplace API - runs its own FastAPI service
+# 3. Dependency resolution - installer checks these
+
+# Core Framework (required by all plugins)
+fastapi>=0.115.0
+pydantic>=2.9.0
+starlette>=0.41.0
+
+# HTTP Client (most connectors need this)
+httpx>=0.27.0
+
+# Database (modules that persist data)
+sqlalchemy>=2.0.0
+aiosqlite>=0.20.0
+
+# Async Support
+anyio>=4.0.0
+
+# Common Utilities
+python-dotenv>=1.0.0

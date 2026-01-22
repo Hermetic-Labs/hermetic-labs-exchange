@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { fetchProductBySlug, createCheckoutSession } from '../api/exchange';
+import { useState, useEffect, useCallback } from 'react';
+import { fetchProductBySlug, createCheckoutSession, fetchReviews, markReviewHelpful, ReviewsResponse } from '../api/exchange';
 import { Product } from '../types';
 import { MediaCarousel } from '../components/MediaCarousel';
 import { StarRating } from '../components/StarRating';
@@ -15,7 +15,10 @@ import {
   Calendar,
   Loader2,
   Download,
+  Flag,
+  BadgeCheck,
 } from 'lucide-react';
+import { ReviewForm } from '../components/ReviewForm';
 
 export function ProductPage() {
   const { slug } = useParams();
@@ -25,6 +28,33 @@ export function ProductPage() {
   const [purchaseError, setPurchaseError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'description' | 'qa' | 'reviews'>('description');
   const [newQuestion, setNewQuestion] = useState('');
+  const [reviewsData, setReviewsData] = useState<ReviewsResponse | null>(null);
+  const [reviewsLoading, setReviewsLoading] = useState(false);
+  const [helpfulIds, setHelpfulIds] = useState<Set<string>>(new Set());
+
+  const loadReviews = useCallback(async () => {
+    if (!slug) return;
+    setReviewsLoading(true);
+    try {
+      const data = await fetchReviews(slug);
+      setReviewsData(data);
+    } catch (err) {
+      console.error('Failed to load reviews:', err);
+    } finally {
+      setReviewsLoading(false);
+    }
+  }, [slug]);
+
+  const handleHelpful = async (reviewId: string) => {
+    if (helpfulIds.has(reviewId)) return;
+    try {
+      await markReviewHelpful(reviewId);
+      setHelpfulIds(prev => new Set(prev).add(reviewId));
+      loadReviews(); // Refresh reviews
+    } catch (err) {
+      console.error('Failed to mark helpful:', err);
+    }
+  };
 
   const handlePurchase = async () => {
     if (!product) return;
@@ -56,6 +86,13 @@ export function ProductPage() {
     }
     loadProduct();
   }, [slug]);
+
+  // Load reviews when reviews tab is selected
+  useEffect(() => {
+    if (activeTab === 'reviews' && slug && !reviewsData) {
+      loadReviews();
+    }
+  }, [activeTab, slug, reviewsData, loadReviews]);
 
   if (loading) {
     return (
@@ -135,11 +172,10 @@ export function ProductPage() {
                   <button
                     key={tab.key}
                     onClick={() => setActiveTab(tab.key as typeof activeTab)}
-                    className={`pb-3 text-sm font-medium transition-colors ${
-                      activeTab === tab.key
-                        ? 'text-cyber-green border-b-2 border-cyber-green'
-                        : 'text-gray-400 hover:text-white'
-                    }`}
+                    className={`pb-3 text-sm font-medium transition-colors ${activeTab === tab.key
+                      ? 'text-cyber-green border-b-2 border-cyber-green'
+                      : 'text-gray-400 hover:text-white'
+                      }`}
                   >
                     {tab.label}
                   </button>
@@ -231,37 +267,91 @@ export function ProductPage() {
               {activeTab === 'reviews' && (
                 <div className="space-y-6">
                   {/* Rating Summary */}
-                  <div className="cyber-panel p-6 flex flex-wrap items-center gap-8">
-                    <div className="text-center">
-                      <div className="text-5xl font-bold text-white mb-2">{product.rating}</div>
-                      <StarRating rating={product.rating} size="lg" showValue={false} />
-                      <div className="text-sm text-gray-500 mt-1">{product.reviewCount} reviews</div>
+                  <div className="cyber-panel p-6">
+                    <div className="flex flex-wrap items-center gap-8">
+                      <div className="text-center">
+                        <div className="text-5xl font-bold text-white mb-2">
+                          {reviewsData?.summary.averageRating || product.rating}
+                        </div>
+                        <StarRating rating={reviewsData?.summary.averageRating || product.rating} size="lg" showValue={false} />
+                        <div className="text-sm text-gray-500 mt-1">
+                          {reviewsData?.summary.totalReviews || product.reviewCount} reviews
+                        </div>
+                      </div>
+
+                      {/* Rating Distribution */}
+                      {reviewsData?.summary && (
+                        <div className="flex-1 min-w-[200px] space-y-1">
+                          {[5, 4, 3, 2, 1].map((star) => {
+                            const count = reviewsData.summary.ratingDistribution[star as 1 | 2 | 3 | 4 | 5];
+                            const total = reviewsData.summary.totalReviews || 1;
+                            const pct = Math.round((count / total) * 100);
+                            return (
+                              <div key={star} className="flex items-center gap-2 text-xs">
+                                <span className="w-8 text-gray-400">{star}★</span>
+                                <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                                  <div
+                                    className="h-full bg-cyber-green"
+                                    style={{ width: `${pct}%` }}
+                                  />
+                                </div>
+                                <span className="w-8 text-gray-500">{count}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
-                    <button className="cyber-btn">Write a Review</button>
+
+                    <div className="mt-6">
+                      <ReviewForm packageSlug={slug!} onReviewSubmitted={loadReviews} />
+                    </div>
                   </div>
 
                   {/* Reviews List */}
-                  {product.reviews.length === 0 ? (
-                    <div className="text-center py-8 text-gray-500">No reviews yet.</div>
+                  {reviewsLoading ? (
+                    <div className="text-center py-8">
+                      <Loader2 className="w-6 h-6 text-cyber-green animate-spin mx-auto" />
+                    </div>
+                  ) : reviewsData?.reviews.length === 0 ? (
+                    <div className="text-center py-8 text-gray-500">No reviews yet. Be the first to review!</div>
                   ) : (
-                    product.reviews.map((review) => (
+                    reviewsData?.reviews.map((review) => (
                       <div key={review.id} className="cyber-card p-4">
                         <div className="flex items-start justify-between mb-2">
                           <div>
                             <div className="flex items-center gap-2 mb-1">
-                              <span className="font-medium text-white">{review.user}</span>
+                              <span className="font-medium text-white">{review.userName}</span>
+                              {review.verified && (
+                                <span className="flex items-center gap-1 text-xs text-cyber-green">
+                                  <BadgeCheck className="w-3 h-3" /> Verified Purchase
+                                </span>
+                              )}
                               <StarRating rating={review.rating} size="sm" showValue={false} />
                             </div>
                             <h4 className="text-cyber-green font-medium">{review.title}</h4>
                           </div>
                           <span className="text-xs text-gray-500 flex items-center gap-1">
-                            <Calendar className="w-3 h-3" /> {review.date}
+                            <Calendar className="w-3 h-3" /> {new Date(review.createdAt).toLocaleDateString()}
                           </span>
                         </div>
                         <p className="text-gray-400 text-sm mb-3">{review.content}</p>
-                        <button className="flex items-center gap-2 text-xs text-gray-500 hover:text-cyber-cyan transition-colors">
-                          <ThumbsUp className="w-3 h-3" /> Helpful ({review.helpful})
-                        </button>
+                        <div className="flex items-center gap-4">
+                          <button
+                            onClick={() => handleHelpful(review.id)}
+                            disabled={helpfulIds.has(review.id)}
+                            className={`flex items-center gap-2 text-xs transition-colors ${helpfulIds.has(review.id)
+                                ? 'text-cyber-cyan'
+                                : 'text-gray-500 hover:text-cyber-cyan'
+                              }`}
+                          >
+                            <ThumbsUp className="w-3 h-3" />
+                            Helpful ({review.helpful})
+                          </button>
+                          <button className="flex items-center gap-2 text-xs text-gray-500 hover:text-red-400 transition-colors">
+                            <Flag className="w-3 h-3" /> Report
+                          </button>
+                        </div>
                       </div>
                     ))
                   )}

@@ -1,0 +1,62 @@
+{
+    "$schema": "../_shared/manifest.schema.json",
+    "name": "package-name",
+    "version": "1.0.0",
+    "type": "module",
+    "displayName": "Package Display Name",
+    "description": "A brief description of what this package does. This appears on the product card in the marketplace.",
+    "entry": "./frontend/index.ts",
+    "icon": "📦",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "PackageNamePortal"
+    ],
+    "permissions": [],
+    "tags": [
+        "tag1",
+        "tag2"
+    ],
+    "category": "Productivity",
+    "author": "Hermetic Labs",
+    "license": "EVE-MARKET-001",
+    "marketId": "package-name-1.0.0",
+    "price": "free",
+    "features": [
+        "Feature one description",
+        "Feature two description",
+        "Feature three description"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Package hero image"
+        },
+        {
+            "type": "gif",
+            "url": "./assets/images/demo.gif",
+            "caption": "Feature demonstration"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Package Display Name",
+            "description": "Short description for the documentation card",
+            "icon": "Package",
+            "color": "blue"
+        },
+        "apiTags": ["package-name"],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "A concise overview of what this package does and why it matters.",
+            "exampleUseCase": "Describe a typical workflow or scenario where this package shines.",
+            "whatMakesThisDifferent": "Explain what sets this apart from alternatives or why this approach was chosen."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    }
+}

@@ -1,0 +1,12 @@
+# Developer Portal - Python Dependencies
+#
+# List package-specific Python dependencies here.
+#
+# Core dependencies already available from EVE OS:
+# - fastapi
+# - pydantic
+# - httpx
+# - sqlalchemy
+
+# Add package-specific dependencies below:
+# None required for core functionality

@@ -1,0 +1,78 @@
+{
+    "name": "beat-bubble-vr",
+    "version": "1.0.0",
+    "type": "component",
+    "displayName": "Beat Bubble VR",
+    "description": "Immersive 3D spherical beat mixer game. Place beats on a spinning sphere inside a VR-ready environment. Features Web Audio API synthesis for kick, snare, hi-hat, bass, and synth sounds. Perfect for music creation and relaxation.",
+    "entry": "./frontend/index.ts",
+    "icon": "🎵",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "BeatBubbleVR"
+    ],
+    "permissions": [
+        "audio",
+        "3d-rendering",
+        "xr"
+    ],
+    "tags": [
+        "game",
+        "music",
+        "vr",
+        "3D",
+        "beat",
+        "mixer",
+        "audio",
+        "creative",
+        "component"
+    ],
+    "category": "Entertainment",
+    "author": "Hermetic Labs",
+    "license": "EVE-MARKET-001",
+    "marketId": "beat-bubble-vr-1.0.0",
+    "price": "free",
+    "features": [
+        "VR-ready 3D sphere environment",
+        "Web Audio API sound synthesis",
+        "5 sound types (Kick, Snare, Hi-Hat, Bass, Synth)",
+        "5 track lanes for beat placement",
+        "Adjustable tempo (60-180 BPM)",
+        "Click to place/remove beats",
+        "Drag to look around",
+        "Visual pulse feedback on trigger",
+        "No external audio files required"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Beat Bubble VR hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Beat Bubble VR",
+            "description": "Immersive 3D spherical beat mixer with Web Audio synthesis",
+            "icon": "Gamepad2",
+            "color": "violet"
+        },
+        "apiTags": ["beat-bubble-vr", "game", "audio"],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "VR-ready 3D beat mixer where you place beats on a spinning sphere. Features Web Audio API synthesis for kick, snare, hi-hat, bass, and synth - no external audio files needed.",
+            "exampleUseCase": "Click to place beats on 5 track lanes, adjust tempo from 60-180 BPM, drag to look around the sphere, and watch visual pulses sync with your rhythm creation.",
+            "whatMakesThisDifferent": "Pure Web Audio synthesis means zero loading time and works offline. The spherical interface is intuitive for VR but works great with mouse/touch. Perfect for creative breaks or focus sessions."
+        }
+    },
+    "dependencies": {
+        "npm": [
+            "three"
+        ],
+        "python": [],
+        "packages": [],
+        "optional": [
+            "vr-spatial-engine"
+        ]
+    }
+}

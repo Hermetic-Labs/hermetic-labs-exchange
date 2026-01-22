@@ -1,0 +1,79 @@
+{
+    "name": "iot-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "IoT Device Connector",
+    "description": "Universal IoT device discovery, protocol handlers (HTTP/WebSocket/MQTT), workflow automation, and safety rules engine for smart home, medical devices, and industrial IoT",
+    "entry": "./frontend/index.ts",
+    "types": "./frontend/types/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "📡",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "IoTConnectorPortal"
+    ],
+    "permissions": [
+        "network",
+        "bluetooth"
+    ],
+    "tags": [
+        "iot",
+        "devices",
+        "mdns",
+        "ssdp",
+        "mqtt",
+        "websocket",
+        "smart-home",
+        "medical-devices"
+    ],
+    "category": "Connectivity",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "MDNS/SSDP device discovery",
+        "HTTP/WebSocket/MQTT protocol handlers",
+        "Device safety rules engine",
+        "Workflow automation engine",
+        "Device templates for common manufacturers",
+        "Medical device integration support",
+        "Rate limiting and error recovery"
+    ],
+    "peerDependencies": [
+        "react",
+        "three"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "iot-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "IoT Device Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "IoT Device Connector",
+            "description": "Universal device discovery with MQTT, WebSocket, and safety rules",
+            "icon": "Box",
+            "color": "purple"
+        },
+        "apiTags": [
+            "iot-connector",
+            "iot",
+            "devices"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Universal IoT integration with MDNS/SSDP discovery, HTTP/WebSocket/MQTT protocol handlers, workflow automation, and a safety rules engine for smart home, medical, and industrial devices.",
+            "exampleUseCase": "Auto-discover smart devices on your network, pair them with templates for common manufacturers, set safety rules (never exceed X temperature), and trigger workflows based on sensor readings.",
+            "whatMakesThisDifferent": "Safety-first design with rate limiting and error recovery built-in. Medical device support with proper isolation. Template engine handles manufacturer quirks so you don't have to."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    }
+}

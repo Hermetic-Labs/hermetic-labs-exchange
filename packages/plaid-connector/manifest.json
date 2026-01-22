@@ -1,0 +1,73 @@
+{
+    "name": "plaid-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "Plaid Connector",
+    "description": "Full Plaid integration with Link token flow, transactions, identity, auth, balances, investments, liabilities, and webhooks",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "🏦",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "PlaidConnector",
+        "PlaidConnectorPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "financial",
+        "plaid",
+        "banking",
+        "transactions",
+        "investments"
+    ],
+    "category": "Financial",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Link token creation",
+        "Transaction sync",
+        "Identity verification",
+        "ACH authentication",
+        "Investment holdings",
+        "Liabilities tracking",
+        "Webhook handling"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "plaid-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Plaid Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Plaid Connector",
+            "description": "Banking integration with transactions, identity, and investments",
+            "icon": "CreditCard",
+            "color": "cyan"
+        },
+        "apiTags": [
+            "plaid-connector",
+            "plaid",
+            "banking"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Full Plaid integration with Link token flow, transaction sync, identity verification, ACH authentication, investment holdings, liabilities tracking, and webhook handling.",
+            "exampleUseCase": "Connect bank accounts via Plaid Link, sync transactions for expense tracking, verify identity for KYC, and monitor investment holdings across institutions.",
+            "whatMakesThisDifferent": "Direct Plaid API access with your credentials. Webhook handling built-in for real-time updates. Pairs with PCI compliance for secure payment workflows."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/plaid-connector.bundle.js",
+    "bundleVersion": "1768911820110"
+}

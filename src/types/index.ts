@@ -39,6 +39,38 @@ export interface Review {
   content: string;
   date: string;
   helpful: number;
+  verified?: boolean;
+}
+
+export interface ReviewSummary {
+  averageRating: number;
+  totalReviews: number;
+  ratingDistribution: {
+    1: number;
+    2: number;
+    3: number;
+    4: number;
+    5: number;
+  };
+}
+
+export interface DocumentationSummary {
+  overview: string;
+  exampleUseCase: string;
+  whatMakesThisDifferent: string;
+}
+
+export interface DocumentationCard {
+  title: string;
+  description: string;
+  icon: string;
+  color: string;
+}
+
+export interface ProductDocumentation {
+  card?: DocumentationCard;
+  summary?: DocumentationSummary;
+  readme?: string;
 }
 
 export interface Product {
@@ -62,6 +94,7 @@ export interface Product {
   featured?: boolean;
   isNew?: boolean;
   downloadUrl?: string;
+  documentation?: ProductDocumentation;
 }
 
 export interface Category {

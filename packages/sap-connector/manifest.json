@@ -1,0 +1,71 @@
+{
+    "name": "sap-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "SAP Connector",
+    "description": "SAP ERP integration with RFC, BAPI, OData services, and IDoc support",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "🏭",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "SAPConnector",
+        "SAPPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "erp",
+        "sap",
+        "enterprise",
+        "rfc",
+        "bapi"
+    ],
+    "category": "ERP",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "RFC function calls",
+        "BAPI execution",
+        "OData service integration",
+        "IDoc processing",
+        "Material/vendor management"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "sap-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "SAP Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "SAP Connector",
+            "description": "ERP integration with RFC, BAPI, OData, and IDoc",
+            "icon": "Database",
+            "color": "amber"
+        },
+        "apiTags": [
+            "sap-connector",
+            "sap",
+            "erp"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "SAP ERP integration supporting RFC function calls, BAPI execution, OData service integration, IDoc processing, and material/vendor management.",
+            "exampleUseCase": "Execute BAPIs for material master updates, process inbound IDocs from suppliers, query OData services for real-time inventory, and manage vendor records via RFC.",
+            "whatMakesThisDifferent": "Native SAP protocol support - no middleware required. IDoc processing for EDI integration. Works with S/4HANA and legacy ECC systems."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/sap-connector.bundle.js",
+    "bundleVersion": "1768911820448"
+}

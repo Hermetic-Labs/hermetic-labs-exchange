@@ -7,6 +7,10 @@
     "dev": "pnpm install --prefer-offline && vite",
     "build": "pnpm install --prefer-offline && rm -rf node_modules/.vite-temp && tsc -b && vite build",
     "build:prod": "pnpm install --prefer-offline && rm -rf node_modules/.vite-temp && tsc -b && BUILD_MODE=prod vite build",
+    "build:all": "node scripts/build-all.mjs",
+    "build:bundles": "node scripts/build-all.mjs --bundles",
+    "build:zips": "node scripts/build-all.mjs --zips",
+    "build:catalog": "node scripts/build-all.mjs --catalog",
     "lint": "pnpm install --prefer-offline && eslint .",
     "preview": "pnpm install --prefer-offline && vite preview",
     "install-deps": "pnpm install --prefer-offline",
@@ -71,6 +75,7 @@
     "@types/react-dom": "^18.3.1",
     "@types/react-router-dom": "^5",
     "@vitejs/plugin-react": "^4.3.4",
+    "archiver": "^7.0.1",
     "autoprefixer": "10.4.20",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",
@@ -81,6 +86,7 @@
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.15.0",
     "vite": "^6.0.1",
+    "vite-plugin-node-polyfills": "^0.22.0",
     "vite-plugin-source-identifier": "1.1.2"
   }
 }

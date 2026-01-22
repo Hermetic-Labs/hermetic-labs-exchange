@@ -1,0 +1,76 @@
+{
+    "name": "video-narration-editor",
+    "version": "1.0.0",
+    "type": "component",
+    "displayName": "Video Narration Editor",
+    "description": "Timeline-based video editor with TTS narration. Drop a script, chunk it, assign voices and speeds per chunk, overlay on video, and export. Supports configurable TTS endpoints (Kokoro compatible).",
+    "entry": "./frontend/index.ts",
+    "icon": "🎬",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "VideoNarrationEditor"
+    ],
+    "permissions": [],
+    "tags": [
+        "video",
+        "audio",
+        "narration",
+        "tts",
+        "timeline",
+        "editor",
+        "kokoro",
+        "component"
+    ],
+    "category": "Media",
+    "author": "Hermetic Labs",
+    "license": "EVE-MARKET-001",
+    "marketId": "video-narration-editor-1.0.0",
+    "price": "free",
+    "features": [
+        "Drag/drop script import",
+        "Text chunking with highlight-to-select",
+        "Voice selector per chunk",
+        "Speed slider (0.5x-2.0x)",
+        "Multi-track timeline (audio + video)",
+        "Draggable clips",
+        "Video preview player",
+        "Configurable TTS endpoint",
+        "Export controls"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Video Narration Editor interface"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Video Narration Editor",
+            "description": "Timeline-based video editor with TTS narration overlay",
+            "icon": "Mic",
+            "color": "pink"
+        },
+        "apiTags": [
+            "video-narration-editor",
+            "video",
+            "tts"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Timeline-based video editor with TTS narration. Drop a script, chunk it into segments, assign voices and speeds per chunk, overlay on video, and export.",
+            "exampleUseCase": "Import your video, paste a narration script, highlight sections to create chunks, pick different voices for different speakers, adjust timing, and export the final video with narration.",
+            "whatMakesThisDifferent": "Per-chunk voice and speed control gives fine-grained narration control. Works with any Kokoro-compatible TTS endpoint. No external software needed."
+        }
+    },
+    "dependencies": {
+        "npm": [
+            "zustand"
+        ],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/video-narration-component.bundle.js",
+    "bundleVersion": "1768911823050"
+}

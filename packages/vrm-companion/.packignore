@@ -1,0 +1,48 @@
+# VRM Companion Package Ignore File
+# Files and directories listed here will be excluded from package zips
+
+# Duplicate asset locations (assets should ONLY be in frontend/assets/)
+/assets/
+
+# Large optional model packs (download separately)
+frontend/assets/models/MetaHuman/
+frontend/assets/models/UnrealEngine/
+
+# Development files
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+tests/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Documentation (include README, exclude verbose docs)
+docs/
+*.md
+!README.md
+
+# Large media files (consider separate download)
+*.exr
+*.hdr

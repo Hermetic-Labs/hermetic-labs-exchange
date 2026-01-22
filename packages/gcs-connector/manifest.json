@@ -1,0 +1,71 @@
+{
+    "name": "gcs-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "Google Cloud Storage Connector",
+    "description": "Google Cloud Storage integration with buckets, objects, and signed URLs",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "🌐",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "GCSConnector",
+        "GCSPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "storage",
+        "gcp",
+        "gcs",
+        "cloud",
+        "google"
+    ],
+    "category": "Storage",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Bucket operations",
+        "Object management",
+        "Signed URLs",
+        "IAM integration",
+        "Lifecycle management"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "gcs-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Google Cloud Storage Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Google Cloud Storage",
+            "description": "GCS integration with buckets, signed URLs, and IAM",
+            "icon": "Cloud",
+            "color": "amber"
+        },
+        "apiTags": [
+            "gcs-connector",
+            "gcs",
+            "storage"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Complete Google Cloud Storage integration supporting bucket operations, object management, signed URL generation, and lifecycle policies with native IAM integration.",
+            "exampleUseCase": "Upload analytics exports to GCS, generate signed URLs for time-limited dashboard access, and configure lifecycle rules to auto-archive old data.",
+            "whatMakesThisDifferent": "Direct GCP connectivity using service account credentials. Works alongside S3 and Azure Blob in EVE's unified storage layer. IAM-aware for enterprise deployments."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/gcs-connector.bundle.js",
+    "bundleVersion": "1768911819233"
+}

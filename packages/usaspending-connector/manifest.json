@@ -1,0 +1,71 @@
+{
+    "name": "usaspending-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "USASpending Connector",
+    "description": "USASpending.gov federal spending data integration for awards, agencies, and recipients",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "types": "./frontend/types/index.ts",
+    "icon": "💵",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "USASpendingConnector",
+        "USASpendingPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "government",
+        "usaspending",
+        "federal",
+        "spending",
+        "awards"
+    ],
+    "category": "Government",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Award search",
+        "Agency spending",
+        "Recipient lookup",
+        "Geographic analysis",
+        "Time series data"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "usaspending-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "USASpending Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "USASpending Connector",
+            "description": "Federal spending data - awards, agencies, and recipients",
+            "icon": "Briefcase",
+            "color": "indigo"
+        },
+        "apiTags": [
+            "usaspending-connector",
+            "government"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "USASpending.gov integration for federal spending analysis - search awards, explore agency budgets, lookup recipients, and analyze geographic distribution with time series data.",
+            "exampleUseCase": "Research federal contracts in your NAICS sector, analyze which agencies are spending in your region, and track award trends over time for business development targeting.",
+            "whatMakesThisDifferent": "Direct API access to public federal data. Pairs with SAM.gov connector for complete procurement intelligence. Geographic and time series analysis built-in."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/usaspending-connector.bundle.js",
+    "bundleVersion": "1768911822959"
+}

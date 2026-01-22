@@ -1,0 +1,21 @@
+{
+  "name": "@eve-market/stock-visualizer",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./frontend/index.ts",
+  "types": "./frontend/index.ts",
+  "exports": {
+    ".": "./frontend/index.ts",
+    "./components/*": "./frontend/components/*",
+    "./utils/*": "./frontend/utils/*"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.5.0",
+    "@react-three/drei": "^10.7.7",
+    "three": "^0.182.0"
+  }
+}

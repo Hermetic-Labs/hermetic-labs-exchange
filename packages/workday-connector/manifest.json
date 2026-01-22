@@ -1,0 +1,71 @@
+{
+    "name": "workday-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "Workday Connector",
+    "description": "Workday HCM integration with workers, positions, organizations, and payroll",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "👥",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "WorkdayConnector",
+        "WorkdayPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "hr",
+        "workday",
+        "hcm",
+        "payroll",
+        "workers"
+    ],
+    "category": "HR",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Worker management",
+        "Position tracking",
+        "Organization hierarchy",
+        "Payroll integration",
+        "Benefits administration"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "workday-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Workday Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Workday Connector",
+            "description": "HCM integration with workers, payroll, and benefits",
+            "icon": "Users",
+            "color": "cyan"
+        },
+        "apiTags": [
+            "workday-connector",
+            "workday",
+            "hr"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Workday HCM integration supporting worker management, position tracking, organization hierarchy, payroll integration, and benefits administration.",
+            "exampleUseCase": "Sync worker data from Workday, map positions to organization hierarchy, trigger payroll workflows based on position changes, and reconcile benefits elections.",
+            "whatMakesThisDifferent": "Direct Workday API access for real-time HCM data. Pairs with HR Payroll Portal for local payroll processing. Organization hierarchy enables role-based access in EVE."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/workday-connector.bundle.js",
+    "bundleVersion": "1768911823271"
+}

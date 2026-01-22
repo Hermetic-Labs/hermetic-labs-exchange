@@ -1,15 +1,21 @@
 /**
  * Exchange API Client
  *
- * Fetches catalog from static catalog.json (GitHub Pages).
- * Falls back to mockData if catalog is unavailable.
+ * In development: Uses local catalog.json (public/catalog.json)
+ * In production: Fetches from Azure Blob Storage, falls back to GitHub Pages
  */
 
 import { Product, Category, Author } from '../types';
 import { products as mockProducts, categories as mockCategories, authors as mockAuthors } from '../data/mockData';
 
-// Catalog URL - relative to the site root
-const CATALOG_URL = `${import.meta.env.BASE_URL}catalog.json`;
+// Local catalog URL (for development - served by Vite)
+const LOCAL_CATALOG_URL = `${import.meta.env.BASE_URL}catalog.json`;
+
+// Azure Blob Storage URL (for production)
+const AZURE_CATALOG_URL = 'https://hermeticlabs9f36.blob.core.windows.net/packages/catalog.json';
+
+// In dev mode, use local first. In production, use Azure.
+const IS_DEV = import.meta.env.DEV;
 
 interface Catalog {
   version: string;
@@ -31,36 +37,76 @@ function isCacheValid(): boolean {
 
 /**
  * Fetch and cache the entire catalog
+ * DEV: Local catalog.json first, then mock data
+ * PROD: Azure first, then local, then mock data
  */
 async function fetchCatalog(): Promise<Catalog> {
   if (catalogCache && isCacheValid()) {
     return catalogCache;
   }
 
-  try {
-    const response = await fetch(CATALOG_URL);
+  // In development, try local catalog first
+  if (IS_DEV) {
+    try {
+      console.log('[Exchange] DEV MODE - Fetching local catalog.json...');
+      const response = await fetch(LOCAL_CATALOG_URL);
 
-    if (!response.ok) {
-      throw new Error(`Catalog fetch error: ${response.status}`);
+      if (response.ok) {
+        const catalog: Catalog = await response.json();
+        catalogCache = catalog;
+        cacheTimestamp = Date.now();
+        console.log(`[Exchange] Loaded ${catalog.products?.length || 0} products from local catalog`);
+        return catalog;
+      }
+    } catch (error) {
+      console.warn('[Exchange] Local catalog unavailable:', error);
+    }
+  }
+
+  // In production (or if local fails), try Azure
+  if (!IS_DEV) {
+    try {
+      console.log('[Exchange] Fetching catalog from Azure...');
+      const response = await fetch(AZURE_CATALOG_URL);
+
+      if (response.ok) {
+        const catalog: Catalog = await response.json();
+        catalogCache = catalog;
+        cacheTimestamp = Date.now();
+        console.log(`[Exchange] Loaded ${catalog.products?.length || 0} products from Azure`);
+        return catalog;
+      }
+    } catch (error) {
+      console.warn('[Exchange] Azure catalog unavailable:', error);
     }
 
-    const catalog: Catalog = await response.json();
-    catalogCache = catalog;
-    cacheTimestamp = Date.now();
+    // Fallback to local catalog (GitHub Pages deployment)
+    try {
+      console.log('[Exchange] Trying local catalog fallback...');
+      const response = await fetch(LOCAL_CATALOG_URL);
 
-    return catalog;
-  } catch (error) {
-    console.warn('Catalog unavailable, using mock data:', error);
-    // Return mock data as a catalog structure
-    return {
-      version: '0.0.0',
-      generated: new Date().toISOString(),
-      baseUrl: '',
-      products: mockProducts,
-      categories: mockCategories,
-      authors: mockAuthors,
-    };
+      if (response.ok) {
+        const catalog: Catalog = await response.json();
+        catalogCache = catalog;
+        cacheTimestamp = Date.now();
+        console.log(`[Exchange] Loaded ${catalog.products?.length || 0} products from local catalog`);
+        return catalog;
+      }
+    } catch (error) {
+      console.warn('[Exchange] Local catalog unavailable:', error);
+    }
   }
+
+  // Final fallback to mock data
+  console.warn('[Exchange] Using mock data');
+  return {
+    version: '0.0.0',
+    generated: new Date().toISOString(),
+    baseUrl: '',
+    products: mockProducts,
+    categories: mockCategories,
+    authors: mockAuthors,
+  };
 }
 
 /**
@@ -101,7 +147,19 @@ export async function fetchProducts(options?: {
  */
 export async function fetchProductBySlug(slug: string): Promise<Product | undefined> {
   const catalog = await fetchCatalog();
-  return catalog.products.find(p => p.slug === slug);
+  const product = catalog.products.find(p => p.slug === slug);
+  if (!product) return undefined;
+
+  // Ensure required arrays exist with defaults
+  return {
+    ...product,
+    questions: product.questions || [],
+    reviews: product.reviews || [],
+    links: product.links || [],
+    media: product.media || [],
+    techSpecs: product.techSpecs || [],
+    author: product.author || { id: 'unknown', name: 'Unknown', avatar: '', bio: '', socialLinks: {}, productCount: 0, totalSales: 0 },
+  };
 }
 
 /**
@@ -364,3 +422,267 @@ export async function getPackageDownload(packageSlug: string): Promise<{ downloa
 
   return data.data;
 }
+
+// ============================================
+// Reviews API
+// ============================================
+
+export interface ReviewInput {
+  packageSlug: string;
+  rating: number;
+  title: string;
+  content: string;
+}
+
+export interface ReviewsResponse {
+  reviews: {
+    id: string;
+    packageSlug: string;
+    userId: string;
+    userName: string;
+    rating: number;
+    title: string;
+    content: string;
+    helpful: number;
+    verified: boolean;
+    createdAt: string;
+  }[];
+  summary: {
+    averageRating: number;
+    totalReviews: number;
+    ratingDistribution: {
+      1: number;
+      2: number;
+      3: number;
+      4: number;
+      5: number;
+    };
+  };
+}
+
+/**
+ * Fetch reviews for a package
+ */
+export async function fetchReviews(packageSlug: string): Promise<ReviewsResponse> {
+  const response = await fetch(`${API_BASE_URL}/reviews/${packageSlug}`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to fetch reviews');
+  }
+
+  return data.data;
+}
+
+/**
+ * Submit a new review (requires authentication)
+ */
+export async function submitReview(review: ReviewInput): Promise<void> {
+  const token = getAuthToken();
+  if (!token) {
+    throw new Error('Authentication required');
+  }
+
+  const response = await fetch(`${API_BASE_URL}/reviews`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify(review),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to submit review');
+  }
+}
+
+/**
+ * Mark a review as helpful
+ */
+export async function markReviewHelpful(reviewId: string): Promise<{ helpful: number }> {
+  const response = await fetch(`${API_BASE_URL}/reviews/${reviewId}/helpful`, {
+    method: 'POST',
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to mark review as helpful');
+  }
+
+  return data.data;
+}
+
+/**
+ * Report a review
+ */
+export async function reportReview(reviewId: string): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/reviews/${reviewId}/report`, {
+    method: 'POST',
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to report review');
+  }
+}
+
+// ============================================
+// Seller Dashboard API
+// ============================================
+
+export interface SellerDashboardStats {
+  totalSales: number;
+  totalRevenue: number;
+  thisMonthSales: number;
+  thisMonthRevenue: number;
+  averageOrderValue: number;
+  topProducts: { slug: string; sales: number; revenue: number }[];
+  recentSales: {
+    id: string;
+    packageSlug: string;
+    amountCents: number;
+    purchasedAt: string;
+  }[];
+}
+
+export interface SellerInfo {
+  id: string;
+  displayName: string;
+  verified: boolean;
+  packageCount: number;
+}
+
+export interface SellerDashboardResponse {
+  seller: SellerInfo;
+  stats: SellerDashboardStats;
+}
+
+export interface SellerSale {
+  id: string;
+  packageSlug: string;
+  amountCents: number;
+  purchasedAt: string;
+  netEarnings: number;
+}
+
+export interface SellerSalesResponse {
+  sales: SellerSale[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  };
+}
+
+/**
+ * Fetch seller dashboard data (requires authentication)
+ */
+export async function fetchSellerDashboard(): Promise<SellerDashboardResponse> {
+  const token = getAuthToken();
+  if (!token) {
+    throw new Error('Authentication required');
+  }
+
+  const response = await fetch(`${API_BASE_URL}/seller/dashboard`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to fetch seller dashboard');
+  }
+
+  return data.data;
+}
+
+/**
+ * Fetch seller sales history (requires authentication)
+ */
+export async function fetchSellerSales(page = 1, limit = 20): Promise<SellerSalesResponse> {
+  const token = getAuthToken();
+  if (!token) {
+    throw new Error('Authentication required');
+  }
+
+  const response = await fetch(`${API_BASE_URL}/seller/sales?page=${page}&limit=${limit}`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to fetch seller sales');
+  }
+
+  return data.data;
+}
+
+/**
+ * Check seller status (requires authentication)
+ */
+export async function checkSellerStatus(): Promise<{
+  isSeller: boolean;
+  displayName?: string;
+  verified?: boolean;
+  stripeConnected?: boolean;
+}> {
+  const token = getAuthToken();
+  if (!token) {
+    throw new Error('Authentication required');
+  }
+
+  const response = await fetch(`${API_BASE_URL}/seller/status`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to check seller status');
+  }
+
+  return data.data;
+}
+
+/**
+ * Start seller onboarding (requires authentication)
+ */
+export async function startSellerOnboarding(displayName: string): Promise<{
+  stripeOnboardingUrl?: string;
+}> {
+  const token = getAuthToken();
+  if (!token) {
+    throw new Error('Authentication required');
+  }
+
+  const response = await fetch(`${API_BASE_URL}/seller/onboard`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify({ displayName }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Failed to start seller onboarding');
+  }
+
+  return data.data;
+}
+

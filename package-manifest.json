@@ -1,0 +1,63 @@
+{
+  "manifest_version": "2.0",
+  "format": "EVE_OS_MARKETPLACE",
+  "updated": "2025-01-01T00:00:00Z",
+  "repository": {
+    "name": "EVE-OS Marketplace",
+    "description": "Official EVE-OS marketplace packages repository",
+    "maintainer": "EVE Core Team",
+    "license": "MIT"
+  },
+  "categories": [
+    {
+      "id": "connectors",
+      "name": "Connectors",
+      "description": "Third-party service integrations",
+      "icon": "🔌"
+    },
+    {
+      "id": "compliance",
+      "name": "Compliance",
+      "description": "Regulatory compliance frameworks",
+      "icon": "📋"
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare",
+      "description": "Medical and healthcare modules",
+      "icon": "🏥"
+    },
+    {
+      "id": "vr-xr",
+      "name": "VR/XR",
+      "description": "Virtual and augmented reality",
+      "icon": "🥽"
+    }
+  ],
+  "packages": [
+    "aws-s3-connector",
+    "azure-blob-connector",
+    "fedramp-compliance",
+    "fhir-compliance",
+    "gcs-connector",
+    "hipaa-compliance",
+    "iot-connector",
+    "itar-compliance",
+    "lexisnexis-connector",
+    "medical-module",
+    "pci-compliance",
+    "plaid-connector",
+    "salesforce-connector",
+    "sam-gov-connector",
+    "sap-connector",
+    "sox-compliance",
+    "stripe-connector",
+    "usaspending-connector",
+    "voice-connector",
+    "vr-spatial-engine",
+    "vrm-companion",
+    "westlaw-connector",
+    "workday-connector"
+  ],
+  "shared": "_shared"
+}

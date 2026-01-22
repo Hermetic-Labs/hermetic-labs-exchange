@@ -1,0 +1,68 @@
+{
+    "name": "pci-compliance",
+    "version": "1.0.0",
+    "type": "module",
+    "displayName": "PCI DSS Compliance Suite",
+    "description": "PCI DSS compliance for payment card security, cardholder data protection, and network security",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/__init__.py",
+    "icon": "💳",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "PCICompliancePortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "payments",
+        "pci-dss",
+        "security",
+        "cardholder",
+        "compliance"
+    ],
+    "category": "Payments",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Cardholder data protection",
+        "Network security validation",
+        "Access control management",
+        "Vulnerability management",
+        "SAQ preparation"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "pci-compliance-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "PCI DSS Compliance Suite hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "PCI DSS Compliance",
+            "description": "Payment card security and cardholder data protection",
+            "icon": "CreditCard",
+            "color": "emerald"
+        },
+        "apiTags": [
+            "pci-compliance",
+            "pci",
+            "payments"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "PCI DSS compliance suite covering cardholder data protection, network security validation, access control management, vulnerability management, and SAQ preparation.",
+            "exampleUseCase": "Validate network segmentation, scan for cardholder data exposure, manage access controls for payment systems, and prepare SAQ documentation for assessor review.",
+            "whatMakesThisDifferent": "Local validation means cardholder data patterns are checked without external transmission. Integrates with Stripe connector for end-to-end payment compliance."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    }
+}

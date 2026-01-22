@@ -1,0 +1,1 @@
+{"gesture": "point", "handTracking": {"leftHand": {"joints": [{"name": "index_finger_tip", "position": [0.2, 1.2, -0.8], "confidence": 0.92}, {"name": "thumb_tip", "position": [0.25, 1.15, -0.75], "confidence": 0.88}], "confidence": 0.9}, "rightHand": {"joints": [], "confidence": 0.0}}, "gestureType": "pointing", "confidence": 0.91, "timestamp": 1640995200123}

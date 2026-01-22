@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVE-OS VR Spatial Engine Suite - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .demo-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .demo-card p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.active {
+            background: #4ecdc4;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li::before {
+            content: "✨";
+            font-size: 1.2rem;
+        }
+
+        .vr-device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .device-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .device-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .device-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+
+        .footer a {
+            color: #4ecdc4;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <header class="header">
+            <h1>🥽 VR Spatial Engine Suite</h1>
+            <p>Comprehensive VR/XR Spatial Computing Module for EVE-OS</p>
+        </header>
+
+        <div class="demo-grid">
+            <div class="demo-card">
+                <h3>🚀 Quick Start</h3>
+                <p>Get started with VR development in minutes. Our comprehensive engine provides everything you need to build immersive VR experiences.</p>
+                
+                <div class="status-indicator">
+                    <div class="status-dot" id="webxr-status"></div>
+                    <span id="webxr-status-text">Checking WebXR support...</span>
+                </div>
+
+                <button class="btn" onclick="checkWebXR()">Check WebXR Support</button>
+                <button class="btn btn-secondary" onclick="initializeVR()">Initialize VR Engine</button>
+            </div>
+
+            <div class="demo-card">
+                <h3>🎯 Core Features</h3>
+                <p>Powerful features for building next-generation VR applications:</p>
+                
+                <ul class="feature-list">
+                    <li>Real-time 3D scene generation</li>
+                    <li>6DoF spatial tracking</li>
+                    <li>Hand & eye tracking support</li>
+                    <li>Node-based visual editor</li>
+                    <li>Spatial anchor persistence</li>
+                    <li>Haptic feedback system</li>
+                    <li>Cross-platform compatibility</li>
+                    <li>Performance optimization</li>
+                </ul>
+            </div>
+
+            <div class="demo-card">
+                <h3>🔧 API Example</h3>
+                <p>Simple and intuitive API for VR development:</p>
+                
+                <div class="code-block">
+<pre>// Initialize VR Engine
+const engine = new VRSpatialEngine('my-session');
+
+// Start VR Session
+await engine.startVRSession({
+  features: ['hand-tracking', 'spatial-anchors']
+});
+
+// Create VR Scene
+const scene = await engine.createSceneFromSchema({
+  name: 'My VR Scene',
+  objects: [/* scene objects */]
+});</pre>
+                </div>
+                
+                <button class="btn" onclick="runAPIDemo()">Run API Demo</button>
+            </div>
+
+            <div class="demo-card">
+                <h3>📱 Supported Devices</h3>
+                <p>Works with all major VR headsets and platforms:</p>
+                
+                <div class="vr-device-grid">
+                    <div class="device-card">
+                        <div class="device-icon">🥽</div>
+                        <div class="device-name">Meta Quest</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="device-icon">🍎</div>
+                        <div class="device-name">Vision Pro</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="device-icon">🔍</div>
+                        <div class="device-name">HoloLens</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="device-icon">🎮</div>
+                        <div class="device-name">Vive Pro</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="device-icon">🌀</div>
+                        <div class="device-name">Valve Index</div>
+                    </div>
+                    <div class="device-card">
+                        <div class="device-icon">🌐</div>
+                        <div class="device-name">WebXR</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-card">
+                <h3>📊 Performance</h3>
+                <p>Optimized for high-performance VR experiences:</p>
+                
+                <div class="code-block">
+<pre>Performance Targets:
+• Frame Rate: 90-120 FPS
+• Latency: <20ms
+• Tracking: ±1mm accuracy
+• Quality: 4K per eye rendering
+• Field of View: Up to 200°</pre>
+                </div>
+                
+                <button class="btn" onclick="benchmarkPerformance()">Run Performance Test</button>
+            </div>
+
+            <div class="demo-card">
+                <h3>🎨 Visual Editor</h3>
+                <p>Node-based visual editor for easy scene creation and manipulation:</p>
+                
+                <div class="code-block">
+<pre>// Scene Editor Features:
+• Drag & drop scene building
+• Real-time object manipulation
+• Material and lighting editor
+• Animation timeline
+• Physics simulation
+• Multi-user collaboration</pre>
+                </div>
+                
+                <button class="btn" onclick="openSceneEditor()">Launch Scene Editor</button>
+            </div>
+        </div>
+
+        <div class="demo-card" style="max-width: 100%;">
+            <h3>🔗 Integration with EVE-OS</h3>
+            <p>Seamlessly integrates with EVE-OS ecosystem components:</p>
+            
+            <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div>
+                    <h4>Graph Editor</h4>
+                    <p>Visual node-based programming for VR scene logic</p>
+                </div>
+                <div>
+                    <h4>Living Word</h4>
+                    <p>Auto-discovery and schema validation</p>
+                </div>
+                <div>
+                    <h4>Medical Marketplace</h4>
+                    <p>Healthcare VR applications support</p>
+                </div>
+                <div>
+                    <h4>EVE-OS Core</h4>
+                    <p>Core platform integration and orchestration</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>
+                <strong>EVE-OS VR Spatial Engine Suite v1.0.0</strong><br>
+                Built with ❤️ for immersive experiences
+            </p>
+            <div style="margin-top: 20px;">
+                <a href="https://github.com/eve-os/vr-spatial-engine">GitHub</a>
+                <a href="https://docs.eve-os.com/vr-spatial-engine">Documentation</a>
+                <a href="https://github.com/eve-os/vr-spatial-engine/issues">Support</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Demo functionality
+        async function checkWebXR() {
+            const statusDot = document.getElementById('webxr-status');
+            const statusText = document.getElementById('webxr-status-text');
+            
+            try {
+                if ('xr' in navigator && await navigator.xr.isSessionSupported('immersive-vr')) {
+                    statusDot.classList.add('active');
+                    statusText.textContent = 'WebXR supported - Ready for VR!';
+                } else {
+                    statusText.textContent = 'WebXR not supported - Use compatible browser';
+                }
+            } catch (error) {
+                statusText.textContent = 'Error checking WebXR support';
+            }
+        }
+
+        function initializeVR() {
+            // Simulate VR engine initialization
+            const statusText = document.getElementById('webxr-status-text');
+            statusText.textContent = 'Initializing VR Engine...';
+            
+            setTimeout(() => {
+                statusText.textContent = 'VR Engine initialized successfully!';
+                document.getElementById('webxr-status').classList.add('active');
+            }, 2000);
+        }
+
+        function runAPIDemo() {
+            alert('API Demo: In a real implementation, this would initialize the VR engine and create a sample scene.');
+        }
+
+        function benchmarkPerformance() {
+            alert('Performance Benchmark: In a real implementation, this would run performance tests and display metrics.');
+        }
+
+        function openSceneEditor() {
+            alert('Scene Editor: In a real implementation, this would open the visual scene editor in a new window.');
+        }
+
+        // Auto-check WebXR support on load
+        window.addEventListener('load', () => {
+            setTimeout(checkWebXR, 1000);
+        });
+
+        // Add some visual effects
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.demo-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / centerY * 5;
+                    const rotateY = (centerX - x) / centerX * 5;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                } else {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

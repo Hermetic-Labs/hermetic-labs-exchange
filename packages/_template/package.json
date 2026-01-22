@@ -1,0 +1,18 @@
+{
+    "name": "@eve-market/package-name",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "./frontend/index.ts",
+    "types": "./frontend/index.ts",
+    "exports": {
+        ".": "./frontend/index.ts",
+        "./components/*": "./frontend/components/*",
+        "./types/*": "./frontend/types/*",
+        "./utils/*": "./frontend/utils/*"
+    },
+    "peerDependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "dependencies": {}
+}

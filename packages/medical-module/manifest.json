@@ -1,0 +1,96 @@
+{
+    "name": "medical-module",
+    "version": "2.2.0",
+    "type": "module",
+    "displayName": "Medical Professional Suite",
+    "description": "Complete medical module with bedside assistant, nurse station dashboard, FHIR integration, vitals monitoring, and fall detection. Optimized for Raspberry Pi deployment.",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "🏥",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "documentation": {
+        "card": {
+            "title": "Medical Module",
+            "description": "HIPAA-compliant healthcare workflows with FHIR integration",
+            "icon": "Stethoscope",
+            "color": "rose"
+        },
+        "apiTags": [
+            "medical-module",
+            "medical",
+            "fhir"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Complete medical professional suite with bedside assistant, nurse station dashboard, FHIR R4 integration, real-time vitals monitoring, and fall detection. Designed for HIPAA compliance and optimized for Raspberry Pi deployment in clinical settings.",
+            "exampleUseCase": "A nurse receives a fall alert on the multi-room dashboard, immediately video-calls the patient via the bedside kiosk, and documents the incident using FHIR-compliant intake forms - all within EVE's unified interface.",
+            "whatMakesThisDifferent": "Unlike cloud-dependent solutions, this runs locally for data sovereignty. The Lite viewport ensures 24 FPS on Raspberry Pi hardware. Six-language terminology support and automatic network discovery make deployment frictionless across facilities."
+        }
+    },
+    "components": [
+        "MedicalModulePage",
+        "MedicalDashboard",
+        "AdminPortal",
+        "AdminControls",
+        "MedicalViewport",
+        "MedicalViewportLite",
+        "EveBedsideAssistant",
+        "BedsideKiosk",
+        "NurseStationDashboard",
+        "FHIRImportExport",
+        "HealthKitVitalsChart",
+        "PatientIntakeForms"
+    ],
+    "permissions": [
+        "camera",
+        "audio",
+        "network"
+    ],
+    "tags": [
+        "medical",
+        "HIPAA",
+        "FHIR",
+        "healthcare",
+        "clinical"
+    ],
+    "category": "Medical",
+    "author": "Hermetic Labs",
+    "license": "EVE-MARKET-001",
+    "marketId": "medical-module-2.2.0",
+    "price": "free",
+    "features": [
+        "Real-time vitals monitoring",
+        "Fall detection with nurse overflow",
+        "FHIR R4 import/export",
+        "Multi-room nurse station",
+        "Video call integration",
+        "Patient intake forms",
+        "HealthKit integration",
+        "Raspberry Pi optimized (24 FPS, merged geometry)",
+        "Admin controls with 6-language terminology",
+        "Lite viewport for low-end devices",
+        "Kiosk mode with network discovery",
+        "Branded loading screen"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Medical Professional Suite hero image"
+        }
+    ],
+    "dependencies": {
+        "python": [
+            "httpx>=0.27.0"
+        ],
+        "npm": [
+            "lucide-react",
+            "clsx",
+            "tailwind-merge",
+            "three",
+            "@types/three"
+        ],
+        "packages": []
+    }
+}

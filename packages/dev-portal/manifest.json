@@ -1,0 +1,81 @@
+{
+    "$schema": "../_shared/manifest.schema.json",
+    "name": "dev-portal",
+    "version": "1.0.0",
+    "type": "component",
+    "displayName": "Developer Portal",
+    "description": "Complete IDE and development toolkit for EVE-OS. Includes Code Graph visualization, Node Editor, API Harness, LLM Console, and the Remix IDE for creating new packages from existing components.",
+    "entry": "./frontend/index.ts",
+    "icon": "⚡",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "DevPortalPage",
+        "EVEGraphEditor",
+        "ResponsesTestHarness",
+        "ThreadsPanel",
+        "EVEUnifiedCortex"
+    ],
+    "permissions": [
+        "filesystem.read",
+        "filesystem.write",
+        "api.full",
+        "code.execute"
+    ],
+    "tags": [
+        "developer",
+        "ide",
+        "code-graph",
+        "node-editor",
+        "remix",
+        "api-testing"
+    ],
+    "category": "Developer Tools",
+    "author": "Hermetic Labs",
+    "license": "EVE-MARKET-001",
+    "marketId": "dev-portal-1.0.0",
+    "price": "free",
+    "features": [
+        "Code Graph IDE with AST visualization",
+        "Visual Node Editor with drag-and-drop workflows",
+        "API Harness for endpoint testing",
+        "LLM Console for direct AI model access",
+        "Remix IDE for creating packages from components",
+        "Personas management for AI personalities",
+        "Vector DB inspector for embeddings"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Developer Portal main interface"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Developer Portal",
+            "description": "Complete IDE and development toolkit for EVE-OS",
+            "icon": "Code",
+            "color": "purple"
+        },
+        "apiTags": ["devportal", "graph", "nodes"],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "The Developer Portal is the central hub for building, testing, and remixing EVE-OS components. It provides a visual code graph IDE, node-based workflow editor, and tools for API testing and AI model interaction.",
+            "exampleUseCase": "Use the Remix IDE to browse installed packages, select components you need, and generate a new package with automatic dependency resolution. Test your APIs with the built-in harness before deployment.",
+            "whatMakesThisDifferent": "Unlike traditional IDEs, the Developer Portal visualizes code as interconnected nodes and supports remixing existing components into new packages without writing boilerplate."
+        }
+    },
+    "dependencies": {
+        "npm": [
+            "@xyflow/react",
+            "zustand"
+        ],
+        "python": [],
+        "packages": []
+    },
+    "capabilities": {
+        "injects": ["graph-editor", "code-writer", "api-harness"],
+        "provides": ["remix-ide", "node-editor", "code-graph"]
+    }
+}

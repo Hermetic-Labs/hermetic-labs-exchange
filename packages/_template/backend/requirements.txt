@@ -1,0 +1,18 @@
+# Package Name - Python Dependencies
+#
+# List your Python package dependencies here (pip format).
+# These are installed when the package is set up.
+#
+# Guidelines:
+# - Pin versions for production stability: package==1.2.3
+# - Use ranges for flexibility: package>=1.2,<2.0
+# - Keep minimal - reuse EVE OS core dependencies when possible
+#
+# Core dependencies already available from EVE OS:
+# - fastapi
+# - pydantic
+# - httpx
+# - sqlalchemy
+
+# Add your package-specific dependencies below:
+# example-package>=1.0.0

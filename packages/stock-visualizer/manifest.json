@@ -1,0 +1,77 @@
+{
+    "name": "stock-visualizer",
+    "version": "1.0.0",
+    "type": "component",
+    "displayName": "3D Stock Visualizer",
+    "description": "Interactive 3D candlestick chart with real-time strategy coding. Write trading strategies in a simple DSL, see buy/sell signals visualized on the chart. Supports 2D/3D views, SMA/EMA indicators, and timeline scrubbing.",
+    "entry": "./frontend/index.ts",
+    "icon": "📈",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "StockVisualizer",
+        "StockChart3D",
+        "StrategyEditor",
+        "TimelineControls"
+    ],
+    "permissions": [
+        "3d-rendering"
+    ],
+    "tags": [
+        "stocks",
+        "trading",
+        "visualization",
+        "3D",
+        "candlestick",
+        "strategy",
+        "analytics",
+        "component"
+    ],
+    "category": "Finance",
+    "author": "Hermetic Labs",
+    "license": "EVE-MARKET-001",
+    "marketId": "stock-visualizer-1.0.0",
+    "price": "free",
+    "features": [
+        "3D and 2D candlestick charts",
+        "Real-time strategy DSL editor",
+        "SMA and EMA indicators",
+        "Buy/sell signal visualization",
+        "Timeline scrubbing and zoom",
+        "Adjustable window size",
+        "Price change tracking",
+        "Drag-to-rotate 3D view"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "3D Stock Visualizer hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "3D Stock Visualizer",
+            "description": "Interactive candlestick charts with real-time strategy coding",
+            "icon": "Activity",
+            "color": "emerald"
+        },
+        "apiTags": ["stock-visualizer", "finance"],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Interactive 3D candlestick chart with real-time strategy coding. Write trading strategies in a simple DSL, see buy/sell signals visualized, and switch between 2D/3D views with SMA/EMA indicators.",
+            "exampleUseCase": "Write a crossover strategy in the DSL editor, watch buy/sell signals appear on the chart, scrub the timeline to backtest, and rotate the 3D view to spot patterns.",
+            "whatMakesThisDifferent": "Strategy DSL is readable English, not code. 3D view reveals patterns invisible in 2D. Timeline scrubbing lets you backtest without leaving the visual interface."
+        }
+    },
+    "dependencies": {
+        "npm": [
+            "@react-three/fiber",
+            "@react-three/drei",
+            "three",
+            "lucide-react"
+        ],
+        "python": [],
+        "packages": []
+    }
+}

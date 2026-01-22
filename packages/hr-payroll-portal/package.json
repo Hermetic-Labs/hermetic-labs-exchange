@@ -1,0 +1,20 @@
+{
+  "name": "@eve-market/hr-payroll-portal",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./frontend/index.ts",
+  "types": "./frontend/index.ts",
+  "exports": {
+    ".": "./frontend/index.ts",
+    "./components/*": "./frontend/components/*",
+    "./pages/*": "./frontend/pages/*",
+    "./types": "./frontend/types/index.ts"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "recharts": "^2.12.4"
+  }
+}

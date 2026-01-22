@@ -1,0 +1,275 @@
+/* VR Scene Editor Styles */
+.vr-scene-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #1e1e1e;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Toolbar */
+.editor-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #2d2d2d;
+  border-bottom: 1px solid #3e3e3e;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.toolbar-section {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.toolbar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #404040;
+  border: 1px solid #555555;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.toolbar-button:hover {
+  background: #4a4a4a;
+  border-color: #666666;
+}
+
+.toolbar-button.active {
+  background: #0078d4;
+  border-color: #106ebe;
+}
+
+.toolbar-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toolbar-button.delete-button:hover {
+  background: #d13438;
+  border-color: #a4262c;
+}
+
+.toolbar-button.vr-button.active {
+  background: #00d4aa;
+  border-color: #00a896;
+}
+
+/* Main Editor Area */
+.editor-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Viewport */
+.viewport {
+  flex: 1;
+  position: relative;
+  background: #000000;
+}
+
+.editor-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Sidebar */
+.editor-sidebar {
+  width: 300px;
+  background: #252525;
+  border-left: 1px solid #3e3e3e;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.properties-panel,
+.performance-panel,
+.hierarchy-panel {
+  padding: 16px;
+  border-bottom: 1px solid #3e3e3e;
+}
+
+.properties-panel h3,
+.performance-panel h3,
+.hierarchy-panel h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #cccccc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.no-selection {
+  color: #888888;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Properties Panel */
+.object-properties {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.property-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.property-group label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #cccccc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.property-group input[type="text"],
+.property-group input[type="number"] {
+  padding: 6px 8px;
+  background: #404040;
+  border: 1px solid #555555;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.property-group input[type="text"]:focus,
+.property-group input[type="number"]:focus {
+  outline: none;
+  border-color: #0078d4;
+  box-shadow: 0 0 0 1px #0078d4;
+}
+
+.property-group input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.vector-input {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.vector-input input {
+  padding: 4px 6px;
+  background: #404040;
+  border: 1px solid #555555;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Performance Panel */
+.performance-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #cccccc;
+}
+
+.performance-metrics div {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
+/* Hierarchy Panel */
+.scene-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tree-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 13px;
+}
+
+.tree-item:hover {
+  background: #404040;
+}
+
+.tree-item.selected {
+  background: #0078d4;
+  color: #ffffff;
+}
+
+.object-icon {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.object-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .editor-main {
+    flex-direction: column;
+  }
+  
+  .editor-sidebar {
+    width: 100%;
+    height: 200px;
+    border-left: none;
+    border-top: 1px solid #3e3e3e;
+  }
+  
+  .editor-toolbar {
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .toolbar-button {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+/* Dark Theme Variables */
+:root {
+  --bg-primary: #1e1e1e;
+  --bg-secondary: #252525;
+  --bg-tertiary: #2d2d2d;
+  --bg-hover: #404040;
+  --border-color: #3e3e3e;
+  --border-hover: #555555;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #888888;
+  --accent-blue: #0078d4;
+  --accent-blue-hover: #106ebe;
+  --accent-teal: #00d4aa;
+  --accent-teal-hover: #00a896;
+  --accent-red: #d13438;
+  --accent-red-hover: #a4262c;
+}

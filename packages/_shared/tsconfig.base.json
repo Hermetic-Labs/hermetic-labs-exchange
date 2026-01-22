@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    /* ═══════════════════════════════════════════════════════════════════════════
+     * EVE OS MARKETPLACE PACKAGE - SHARED TYPESCRIPT CONFIG
+     * ═══════════════════════════════════════════════════════════════════════════
+     * 
+     * This configuration provides path mappings for marketplace packages.
+     * Packages extend this to get proper IDE support during development.
+     * 
+     * AT DEVELOPMENT TIME:
+     *   - @/ paths resolve to the host contract types in _shared/core.d.ts
+     *   - @market/ paths resolve to sibling packages
+     *   - Packages get full IntelliSense without the host codebase
+     * 
+     * AT INSTALL TIME:
+     *   - Package files are copied into the host codebase
+     *   - @/ paths resolve to actual frontend/src/* implementations
+     *   - Full runtime functionality is available
+     * 
+     * ═══════════════════════════════════════════════════════════════════════════ */
+    
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable", "WebWorker"],
+    
+    /* React JSX Transform */
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    
+    /* Strict Type Checking - relaxed for marketplace packages */
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    
+    /* Module Interop */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    
+    /* Output (packages are not compiled directly) */
+    "noEmit": true,
+    "declaration": false,
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+     * PATH MAPPINGS - THE CORE INTEGRATION MECHANISM
+     * ═══════════════════════════════════════════════════════════════════════════
+     * 
+     * These paths map package imports to either:
+     *   - _shared/core.d.ts (during development, for type support)
+     *   - Host codebase (at runtime after installation)
+     * 
+     * The installer rewrites imports when copying package files.
+     * ═══════════════════════════════════════════════════════════════════════════ */
+    "baseUrl": ".",
+    "paths": {
+      /* Host Application Types & Services
+       * During dev: resolves to core.d.ts declarations
+       * At runtime: resolves to frontend/src/* */
+      "@/types": ["./core.d.ts"],
+      "@/types/*": ["./core.d.ts"],
+      "@/services/*": ["./core.d.ts"],
+      "@/components/*": ["./core.d.ts"],
+      "@/security/*": ["./core.d.ts"],
+      
+      /* Cross-Package References
+       * Allows packages to import from each other */
+      "@market/*": ["../*"],
+      
+      /* Shared Utilities
+       * Always available, part of package distribution */
+      "@eve/shared/*": ["./*"],
+      "@eve/shared": ["./index.ts"]
+    }
+  },
+  
+  /* Packages should include their own files plus shared */
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./**/*.d.ts"
+  ],
+  
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build"
+  ]
+}

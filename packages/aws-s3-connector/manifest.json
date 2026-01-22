@@ -1,0 +1,70 @@
+{
+    "name": "aws-s3-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "AWS S3 Connector",
+    "description": "Amazon S3 storage integration with buckets, objects, presigned URLs, and multipart uploads",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "📦",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "AWSS3Portal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "storage",
+        "aws",
+        "s3",
+        "cloud",
+        "objects"
+    ],
+    "category": "Storage",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Bucket management",
+        "Object CRUD",
+        "Presigned URLs",
+        "Multipart uploads",
+        "Lifecycle policies"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "aws-s3-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "AWS S3 Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "AWS S3 Connector",
+            "description": "Amazon S3 storage integration with presigned URLs and multipart uploads",
+            "icon": "Cloud",
+            "color": "cyan"
+        },
+        "apiTags": [
+            "aws-s3-connector",
+            "s3",
+            "storage"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Complete AWS S3 integration for bucket management, object CRUD operations, presigned URLs for secure sharing, and multipart uploads for large files.",
+            "exampleUseCase": "Upload patient records to S3 with automatic encryption, generate time-limited presigned URLs for secure sharing with external parties, and manage lifecycle policies for compliance retention.",
+            "whatMakesThisDifferent": "Runs locally with your AWS credentials - no third-party intermediary. Supports multipart uploads for files over 5GB and integrates with EVE's unified storage abstraction layer."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/aws-s3-connector.bundle.js",
+    "bundleVersion": "1768911818815"
+}

@@ -1,0 +1,89 @@
+{
+    "name": "vr-spatial-engine",
+    "version": "1.0.0",
+    "type": "component",
+    "displayName": "VR Spatial Engine",
+    "description": "VR/XR capability component - enables VR mode across EVE-OS when installed",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "🥽",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "capability": true,
+    "injectsInto": [
+        "eve-core",
+        "vrm-companion",
+        "chat"
+    ],
+    "components": [
+        "VRButton",
+        "VRSceneEditor",
+        "VROverlay"
+    ],
+    "integrations": [
+        "vrm-companion"
+    ],
+    "permissions": [
+        "vr_device_access",
+        "spatial_tracking",
+        "camera_access",
+        "motion_sensors"
+    ],
+    "tags": [
+        "vr",
+        "xr",
+        "spatial-computing",
+        "virtual-reality",
+        "webxr",
+        "3d-rendering"
+    ],
+    "category": "VR/XR",
+    "author": "Hermetic Labs",
+    "license": "EVE-MARKET-001",
+    "marketId": "vr-spatial-engine-1.0.0",
+    "price": "free",
+    "features": [
+        "Real-time VR scene generation",
+        "WebXR compatibility",
+        "Node-based visual editor",
+        "Spatial tracking integration",
+        "Hand tracking support",
+        "Eye tracking capabilities",
+        "Cross-platform VR support"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "VR Spatial Engine hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "VR Spatial Engine",
+            "description": "WebXR capability with hand and eye tracking",
+            "icon": "Globe",
+            "color": "purple"
+        },
+        "apiTags": [
+            "vr-spatial-engine",
+            "vr",
+            "xr"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "VR/XR capability component that enables VR mode across EVE-OS. Includes real-time scene generation, WebXR compatibility, node-based visual editor, and hand/eye tracking support.",
+            "exampleUseCase": "Put on a VR headset, press the VR button, and interact with EVE's 3D interface using hand tracking. Edit scenes with the node-based editor and enjoy spatial computing.",
+            "whatMakesThisDifferent": "Capability injection means VR mode works across EVE without modifying core. Integrates with VRM Companion for embodied AI presence in VR. Works with Quest, Index, and other WebXR devices."
+        }
+    },
+    "dependencies": {
+        "npm": [
+            "three",
+            "@react-three/fiber",
+            "@react-three/drei"
+        ],
+        "python": [],
+        "packages": []
+    }
+}

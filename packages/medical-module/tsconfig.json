@@ -1,0 +1,24 @@
+{
+    "extends": "../_shared/tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["../_shared/core.d.ts"],
+            "@/types": ["../_shared/core.d.ts"],
+            "@/types/*": ["../_shared/core.d.ts"],
+            "@/services/*": ["../_shared/core.d.ts"],
+            "@/components/*": ["../_shared/core.d.ts"],
+            "@market/*": ["../*"]
+        }
+    },
+    "include": [
+        "frontend/**/*.ts",
+        "frontend/**/*.tsx",
+        "../_shared/**/*.ts",
+        "../_shared/**/*.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "backend"
+    ]
+}

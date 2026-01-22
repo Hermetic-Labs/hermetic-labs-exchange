@@ -1,0 +1,18 @@
+{
+  "name": "@eve-market/beat-bubble-vr",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./frontend/index.ts",
+  "types": "./frontend/index.ts",
+  "exports": {
+    ".": "./frontend/index.ts",
+    "./components/*": "./frontend/components/*"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "three": "^0.182.0"
+  }
+}

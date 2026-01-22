@@ -1,0 +1,70 @@
+{
+    "name": "itar-compliance",
+    "version": "1.0.0",
+    "type": "module",
+    "displayName": "ITAR Compliance Suite",
+    "description": "ITAR export control compliance for defense articles and technical data",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/__init__.py",
+    "icon": "🛡️",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "ITARCompliancePortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "defense",
+        "itar",
+        "export-control",
+        "munitions",
+        "compliance"
+    ],
+    "category": "Defense",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "USML classification",
+        "Export license tracking",
+        "Foreign person screening",
+        "Technical data controls",
+        "Audit reporting"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "itar-compliance-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "ITAR Compliance Suite hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "ITAR Compliance",
+            "description": "Export control for defense articles and technical data",
+            "icon": "Shield",
+            "color": "slate"
+        },
+        "apiTags": [
+            "itar-compliance",
+            "itar",
+            "defense"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "ITAR export control compliance with USML classification, export license tracking, foreign person screening, technical data controls, and comprehensive audit reporting.",
+            "exampleUseCase": "Classify items against USML categories, screen personnel for foreign person status, track export license applications, and generate audit reports for DDTC review.",
+            "whatMakesThisDifferent": "Local processing ensures controlled technical data never leaves your infrastructure. Integrates with user management for foreign person access controls."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/itar-compliance.bundle.js",
+    "bundleVersion": "1768911819607"
+}

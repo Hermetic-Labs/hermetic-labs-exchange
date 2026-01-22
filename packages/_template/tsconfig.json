@@ -1,0 +1,17 @@
+{
+    "extends": "../_shared/tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": ".",
+        "declaration": true,
+        "declarationMap": true,
+        "composite": true
+    },
+    "include": [
+        "frontend/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

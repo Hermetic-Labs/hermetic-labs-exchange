@@ -1,0 +1,5 @@
+# HR & Payroll Portal Backend Dependencies
+fastapi>=0.100.0
+pydantic>=2.0.0
+pydantic[email]
+python-multipart>=0.0.6  # For file uploads

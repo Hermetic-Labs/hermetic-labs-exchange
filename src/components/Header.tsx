@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, ShoppingCart, User, ChevronDown, Menu, X, LogOut, Library } from 'lucide-react';
+import { Search, ShoppingCart, User, ChevronDown, Menu, X, LogOut, Library, Wrench, Store } from 'lucide-react';
 import { fetchCategories } from '../api/exchange';
 import { Category } from '../types';
 import { useAuth } from '../context/AuthContext';
@@ -85,6 +85,10 @@ export function Header() {
             <Link to="/" className="text-sm text-gray-300 hover:text-cyber-green transition-colors">
               Browse
             </Link>
+            <Link to="/devtools" className="text-sm text-gray-300 hover:text-cyber-cyan transition-colors flex items-center gap-1">
+              <Wrench className="w-4 h-4" />
+              DevTools
+            </Link>
 
             {/* Cart */}
             <button className="relative p-2 text-gray-300 hover:text-cyber-cyan transition-colors">
@@ -115,6 +119,13 @@ export function Header() {
                         className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors flex items-center gap-2"
                       >
                         <Library className="w-4 h-4" /> My Library
+                      </Link>
+                      <Link
+                        to="/seller"
+                        onClick={() => setShowUserMenu(false)}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-cyan hover:bg-white/5 rounded transition-colors flex items-center gap-2"
+                      >
+                        <Store className="w-4 h-4" /> Seller Dashboard
                       </Link>
                       <button
                         onClick={() => {

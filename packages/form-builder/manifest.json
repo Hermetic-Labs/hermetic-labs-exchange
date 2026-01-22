@@ -1,0 +1,81 @@
+{
+    "name": "form-builder",
+    "version": "1.0.0",
+    "type": "component",
+    "displayName": "Form Builder",
+    "description": "Drag-and-drop form builder with field palette, live preview, form sharing via URL encoding, and form submission handling. Supports text, email, number, date, select, checkbox, radio, textarea, signature, and file upload fields.",
+    "entry": "./frontend/index.ts",
+    "icon": "📝",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "FormBuilder",
+        "FormRenderer",
+        "FieldPalette",
+        "FormCanvas",
+        "FieldEditor"
+    ],
+    "permissions": [
+        "storage",
+        "clipboard"
+    ],
+    "tags": [
+        "forms",
+        "builder",
+        "drag-drop",
+        "survey",
+        "intake",
+        "component"
+    ],
+    "category": "Productivity",
+    "author": "Hermetic Labs",
+    "license": "EVE-MARKET-001",
+    "marketId": "form-builder-1.0.0",
+    "price": "free",
+    "features": [
+        "Drag-and-drop field placement",
+        "Live form preview",
+        "URL-encoded form sharing",
+        "Multiple field types (text, email, date, select, etc.)",
+        "Signature capture support",
+        "File upload fields",
+        "Form validation",
+        "LocalStorage persistence",
+        "Responsive design"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Form Builder hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Form Builder",
+            "description": "Drag-and-drop form builder with live preview and URL sharing",
+            "icon": "FileCheck",
+            "color": "emerald"
+        },
+        "apiTags": ["form-builder", "forms"],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Visual drag-and-drop form builder supporting text, email, date, select, checkbox, radio, signature capture, and file uploads. Forms persist locally and can be shared via URL encoding.",
+            "exampleUseCase": "Build a patient intake form with signature capture, preview it live, copy the shareable URL, and collect submissions - all without writing code.",
+            "whatMakesThisDifferent": "URL-encoded sharing means forms work offline and don't require a database. Signature capture built-in for compliance workflows. Integrates with EVE's storage connectors for submission handling."
+        }
+    },
+    "dependencies": {
+        "npm": [
+            "react-dnd",
+            "react-dnd-html5-backend",
+            "react-hook-form",
+            "react-signature-canvas",
+            "zod",
+            "uuid",
+            "lucide-react"
+        ],
+        "python": [],
+        "packages": []
+    }
+}

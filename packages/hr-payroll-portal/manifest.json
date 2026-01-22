@@ -1,0 +1,123 @@
+{
+  "name": "hr-payroll-portal",
+  "version": "1.0.0",
+  "type": "component",
+  "displayName": "HR & Payroll Portal",
+  "description": "Complete HR management and payroll processing portal. Manage employees, departments, job postings, banking, payroll calculations, pay stubs, and integrations. Full-featured white-label HR solution.",
+  "entry": "./frontend/index.ts",
+  "backend": {
+    "entry": "./backend/routes.py",
+    "router": "router",
+    "prefix": "/hr"
+  },
+  "icon": "👥",
+  "iconUrl": "./assets/icon.svg",
+  "sidebar": true,
+  "components": [
+    "HRPortal",
+    "Dashboard",
+    "Employees",
+    "Departments",
+    "JobPostings",
+    "Banking",
+    "Integrations",
+    "PayrollCalculator",
+    "BulkUpload",
+    "PayStubs",
+    "Settings"
+  ],
+  "permissions": [
+    "storage",
+    "network"
+  ],
+  "tags": [
+    "hr",
+    "payroll",
+    "employees",
+    "departments",
+    "hiring",
+    "banking",
+    "business",
+    "plugin"
+  ],
+  "category": "Business",
+  "author": "Hermetic Labs",
+  "license": "EVE-MARKET-001",
+  "marketId": "hr-payroll-portal-1.0.0",
+  "price": "free",
+  "features": [
+    "Employee management with profiles",
+    "Department organization and budgets",
+    "Job posting board",
+    "Banking integrations",
+    "Third-party integrations (Gusto, ADP, etc.)",
+    "Payroll calculator with taxes",
+    "Bulk employee upload (CSV)",
+    "Pay stub generation (PDF)",
+    "Company settings and branding",
+    "Dashboard analytics"
+  ],
+  "media": [
+    {
+      "type": "image",
+      "url": "./assets/images/hero.png",
+      "caption": "HR & Payroll Portal hero image"
+    }
+  ],
+  "documentation": {
+    "card": {
+      "title": "HR & Payroll Portal",
+      "description": "Complete employee management and payroll processing",
+      "icon": "Briefcase",
+      "color": "emerald"
+    },
+    "apiTags": [
+      "hr-payroll-portal",
+      "hr",
+      "payroll"
+    ],
+    "readme": "./README.md",
+    "summary": {
+      "overview": "Full-featured HR management and payroll processing - employee profiles, departments, job postings, banking integrations, payroll calculations with taxes, bulk upload, and PDF pay stubs.",
+      "exampleUseCase": "Add employees via CSV bulk upload, assign to departments, connect Gusto/ADP integration, run payroll calculations, and generate branded PDF pay stubs for distribution.",
+      "whatMakesThisDifferent": "White-label ready with company branding. Integrates with major payroll providers. Local data storage with optional cloud sync. Dashboard analytics for HR insights."
+    }
+  },
+  "dependencies": {
+    "npm": [
+      "lucide-react",
+      "recharts"
+    ],
+    "python": [
+      "fastapi>=0.100.0",
+      "pydantic>=2.0.0",
+      "python-multipart>=0.0.6",
+      "aiosqlite>=0.19.0"
+    ],
+    "packages": []
+  },
+  "exports": {
+    "schemas": [
+      "Employee",
+      "EmployeeCreate",
+      "Department",
+      "DepartmentCreate",
+      "PayrollInput",
+      "PayrollResult",
+      "PayStub",
+      "TaxConfig",
+      "DeductionConfig"
+    ],
+    "services": [
+      "HRService",
+      "PayrollService"
+    ],
+    "storage": [
+      "JsonFileStorage",
+      "SQLiteStorage",
+      "StorageProtocol"
+    ]
+  },
+  "bundle": "/bundles/hr-payroll-portal.bundle.js",
+  "bundleVersion": "1768911819491"
+}

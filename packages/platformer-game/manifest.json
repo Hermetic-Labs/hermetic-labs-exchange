@@ -1,0 +1,73 @@
+{
+    "name": "platformer-game",
+    "version": "1.0.0",
+    "type": "component",
+    "displayName": "Super Platformer",
+    "description": "Classic side-scrolling platformer game in the style of Mario. Features pixel art graphics, coin collection, enemies to defeat, platforms to navigate, and a flag to reach. Mobile-ready with touch controls.",
+    "entry": "./frontend/index.ts",
+    "icon": "🎮",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "PlatformerGame"
+    ],
+    "permissions": [],
+    "tags": [
+        "game",
+        "platformer",
+        "retro",
+        "arcade",
+        "mobile",
+        "entertainment",
+        "component"
+    ],
+    "category": "Entertainment",
+    "author": "VRF",
+    "license": "EVE-MARKET-001",
+    "marketId": "platformer-game-1.0.0",
+    "price": "free",
+    "features": [
+        "Classic platformer gameplay",
+        "Pixel art retro graphics",
+        "Coin collection system",
+        "Enemy AI with patrol patterns",
+        "Stomp-to-defeat mechanic",
+        "Multiple platform types (ground, brick, question blocks)",
+        "Side-scrolling camera",
+        "Mobile touch controls",
+        "Win/lose states",
+        "Score tracking"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Super Platformer hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Super Platformer",
+            "description": "Classic side-scrolling platformer with pixel art and touch controls",
+            "icon": "Gamepad2",
+            "color": "pink"
+        },
+        "apiTags": [
+            "platformer-game",
+            "game"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Classic Mario-style platformer with pixel art graphics, coin collection, enemies with patrol patterns, stomp-to-defeat mechanics, and mobile touch controls.",
+            "exampleUseCase": "Jump between platforms, collect coins, stomp enemies, and reach the flag. Works on desktop with keyboard or mobile with touch controls.",
+            "whatMakesThisDifferent": "Pure Canvas rendering means no dependencies and instant load. Mobile-first touch controls work naturally. Perfect for quick breaks or demoing EVE's component system."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/platformer-game.bundle.js",
+    "bundleVersion": "1768911820149"
+}

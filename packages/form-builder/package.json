@@ -1,0 +1,26 @@
+{
+  "name": "@eve-market/form-builder",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./frontend/index.ts",
+  "types": "./frontend/index.ts",
+  "exports": {
+    ".": "./frontend/index.ts",
+    "./components/*": "./frontend/components/*",
+    "./pages/*": "./frontend/pages/*",
+    "./types/*": "./frontend/types/*",
+    "./utils/*": "./frontend/utils/*"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-hook-form": "^7.54.2",
+    "react-signature-canvas": "1.1.0-alpha.2",
+    "uuid": "^9.0.0",
+    "zod": "^3.24.1"
+  }
+}

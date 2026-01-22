@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
 import { HeroCarousel } from '../components/HeroCarousel';
+import { SearchFilters, FilterState, defaultFilters } from '../components/SearchFilters';
 import { fetchProducts, fetchCategories } from '../api/exchange';
 import { Product, Category } from '../types';
 import { ChevronRight, Sparkles, Zap, Clock, Loader2 } from 'lucide-react';
@@ -16,6 +17,7 @@ export function HomePage() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [filters, setFilters] = useState<FilterState>(defaultFilters);
 
   // Fetch data on mount
   useEffect(() => {
@@ -46,9 +48,13 @@ export function HomePage() {
 
   const filteredProducts = useMemo(() => {
     let filtered = products;
+
+    // Category filter
     if (activeCategory) {
       filtered = filtered.filter((p) => p.category === activeCategory);
     }
+
+    // Search query
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       filtered = filtered.filter(
@@ -58,8 +64,57 @@ export function HomePage() {
           p.author.name.toLowerCase().includes(q)
       );
     }
+
+    // Price filters
+    if (filters.freeOnly) {
+      filtered = filtered.filter((p) => p.price === 0);
+    } else {
+      if (filters.minPrice !== null) {
+        filtered = filtered.filter((p) => p.price >= filters.minPrice!);
+      }
+      if (filters.maxPrice !== null) {
+        filtered = filtered.filter((p) => p.price <= filters.maxPrice!);
+      }
+    }
+
+    // Rating filter
+    if (filters.minRating > 0) {
+      filtered = filtered.filter((p) => p.rating >= filters.minRating);
+    }
+
+    // Sorting
+    switch (filters.sort) {
+      case 'newest':
+        filtered = [...filtered].sort((a, b) =>
+          new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
+        );
+        break;
+      case 'oldest':
+        filtered = [...filtered].sort((a, b) =>
+          new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime()
+        );
+        break;
+      case 'price-low':
+        filtered = [...filtered].sort((a, b) =>
+          (a.discountPrice ?? a.price) - (b.discountPrice ?? b.price)
+        );
+        break;
+      case 'price-high':
+        filtered = [...filtered].sort((a, b) =>
+          (b.discountPrice ?? b.price) - (a.discountPrice ?? a.price)
+        );
+        break;
+      case 'rating':
+        filtered = [...filtered].sort((a, b) => b.rating - a.rating);
+        break;
+      case 'popular':
+      default:
+        filtered = [...filtered].sort((a, b) => b.reviewCount - a.reviewCount);
+        break;
+    }
+
     return filtered;
-  }, [products, activeCategory, searchQuery]);
+  }, [products, activeCategory, searchQuery, filters]);
 
   const featuredProducts = useMemo(() => products.filter((p) => p.featured), [products]);
   const newProducts = useMemo(() => products.filter((p) => p.isNew), [products]);
@@ -116,11 +171,10 @@ export function HomePage() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(activeCategory === cat.name ? null : cat.name)}
-                className={`cyber-card p-4 text-center transition-all ${
-                  activeCategory === cat.name
-                    ? 'border-cyber-green shadow-neon-green'
-                    : 'hover:border-cyber-cyan/50'
-                }`}
+                className={`cyber-card p-4 text-center transition-all ${activeCategory === cat.name
+                  ? 'border-cyber-green shadow-neon-green'
+                  : 'hover:border-cyber-cyan/50'
+                  }`}
               >
                 <span className="block text-sm font-medium text-white mb-1">{cat.name}</span>
                 <span className="text-xs text-gray-500">{cat.productCount}</span>
@@ -190,14 +244,31 @@ export function HomePage() {
               </button>
             )}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {(activeCategory || searchQuery ? filteredProducts : popularProducts).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+
+          {/* Filters + Results Grid */}
+          <div className="grid lg:grid-cols-4 gap-6">
+            {/* Filters Sidebar */}
+            <div className="lg:col-span-1">
+              <SearchFilters
+                filters={filters}
+                onChange={setFilters}
+                productCount={activeCategory || searchQuery ? filteredProducts.length : popularProducts.length}
+                onClear={() => setFilters(defaultFilters)}
+              />
+            </div>
+
+            {/* Products Grid */}
+            <div className="lg:col-span-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {(activeCategory || searchQuery ? filteredProducts : popularProducts).map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+              {filteredProducts.length === 0 && (activeCategory || searchQuery) && (
+                <div className="text-center py-12 text-gray-500">No products found</div>
+              )}
+            </div>
           </div>
-          {filteredProducts.length === 0 && (activeCategory || searchQuery) && (
-            <div className="text-center py-12 text-gray-500">No products found</div>
-          )}
         </div>
       </section>
     </div>

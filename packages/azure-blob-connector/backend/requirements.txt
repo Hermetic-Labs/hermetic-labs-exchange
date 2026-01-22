@@ -1,0 +1,8 @@
+# Azure Blob Connector Backend Dependencies
+# These are merged into the main backend's requirements.txt on install
+
+fastapi>=0.115.0
+pydantic>=2.9.0
+httpx>=0.27.0
+azure-storage-blob>=12.23.0
+azure-identity>=1.19.0

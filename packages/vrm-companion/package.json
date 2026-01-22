@@ -1,0 +1,39 @@
+{
+    "name": "@eve-os/vrm-companion",
+    "version": "1.0.0",
+    "private": true,
+    "description": "VRM avatar companion with 3D rendering and animation support",
+    "main": "frontend/index.ts",
+    "types": "frontend/index.ts",
+    "scripts": {
+        "typecheck": "tsc --noEmit",
+        "lint": "eslint frontend/"
+    },
+    "dependencies": {
+        "@pixiv/three-vrm": "^3.4.4",
+        "three": "^0.182.0",
+        "lucide-react": "^0.400.0",
+        "clsx": "^2.1.0",
+        "tailwind-merge": "^2.0.0"
+    },
+    "peerDependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "@types/react": "^18.3.0",
+        "@types/react-dom": "^18.3.0",
+        "@types/three": "^0.182.0",
+        "typescript": "~5.6.0"
+    },
+    "keywords": [
+        "eve-os",
+        "vrm",
+        "avatar",
+        "3d",
+        "three"
+    ],
+    "author": "EVE Core Team",
+    "license": "MIT"
+}

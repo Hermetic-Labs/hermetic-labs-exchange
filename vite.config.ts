@@ -4,8 +4,10 @@ import { defineConfig } from "vite"
 import sourceIdentifierPlugin from 'vite-plugin-source-identifier'
 
 const isProd = process.env.BUILD_MODE === 'prod'
+// In production (GitHub Pages), use /hermetic-labs-exchange/ base path
+// In dev mode, use root so catalog.json is at localhost:5174/catalog.json
 export default defineConfig({
-  base: '/hermetic-labs-exchange/',
+  base: isProd ? '/hermetic-labs-exchange/' : '/',
   plugins: [
     react(),
     sourceIdentifierPlugin({

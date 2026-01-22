@@ -1,0 +1,26 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/pyright/main/packages/vscode-pylance/schemas/pyrightconfig.schema.json",
+    "include": [
+        "*/backend/**/*.py"
+    ],
+    "exclude": [
+        "**/__pycache__",
+        "**/node_modules"
+    ],
+    "pythonVersion": "3.13",
+    "pythonPlatform": "Windows",
+    "typeCheckingMode": "basic",
+    "reportMissingImports": "warning",
+    "reportMissingTypeStubs": "none",
+    "reportUnusedImport": "warning",
+    "reportUnusedVariable": "warning",
+    "stubPath": "",
+    "venv": "",
+    "executionEnvironments": [
+        {
+            "root": ".",
+            "pythonVersion": "3.13",
+            "pythonPlatform": "Windows"
+        }
+    ]
+}

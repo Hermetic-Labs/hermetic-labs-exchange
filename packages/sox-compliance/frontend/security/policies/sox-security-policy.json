@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "name": "SOX Compliance Security Policy",
+  "description": "Sarbanes-Oxley Act compliance policy for financial controls",
+  "sections": {
+    "302": {
+      "name": "Corporate Responsibility for Financial Reports",
+      "controls": ["ceo_certification", "cfo_certification", "disclosure_controls"]
+    },
+    "404": {
+      "name": "Management Assessment of Internal Controls",
+      "controls": ["icfr_assessment", "auditor_attestation", "material_weakness_disclosure"]
+    },
+    "409": {
+      "name": "Real Time Issuer Disclosures",
+      "controls": ["material_change_disclosure", "rapid_public_disclosure"]
+    }
+  },
+  "audit_requirements": {
+    "retention_years": 7,
+    "immutable_records": true,
+    "access_logging": true
+  },
+  "access_control": {
+    "segregation_of_duties": true,
+    "least_privilege": true,
+    "review_frequency_days": 90
+  }
+}

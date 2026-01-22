@@ -1,0 +1,80 @@
+{
+    "name": "vrm-companion",
+    "version": "1.0.0",
+    "type": "component",
+    "displayName": "VRM Companion",
+    "description": "3D VRM avatar companion with lip-syncing, phoneme-driven animation, and EVE Core integration. Can swap EVE's sphere representation with a full VRM character.",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "🧑‍🤝‍🧑",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "capability": true,
+    "injectsInto": [
+        "eve-core"
+    ],
+    "integrations": [
+        "vr-spatial-engine"
+    ],
+    "components": [
+        "VRMCompanion"
+    ],
+    "permissions": [
+        "audio",
+        "network",
+        "3d-rendering"
+    ],
+    "tags": [
+        "avatar",
+        "vrm",
+        "lipsync",
+        "companion",
+        "3D",
+        "component"
+    ],
+    "category": "AI",
+    "author": "VRF",
+    "license": "EVE-MARKET-001",
+    "marketId": "vrm-companion-1.0.0",
+    "price": "free",
+    "features": [
+        "VRM 1.0 avatar loading",
+        "Phoneme-driven lip sync",
+        "Amplitude fallback mode",
+        "Real-time viseme visualization",
+        "EVE Core sphere replacement",
+        "VR-ready when vr-spatial-engine installed",
+        "Configurable smoothing, gain, and mouth open limits"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "VRM Companion hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "VRM Companion",
+            "description": "3D avatar with phoneme lip-sync and EVE Core integration",
+            "icon": "Users",
+            "color": "violet"
+        },
+        "apiTags": [
+            "vrm-companion",
+            "avatar",
+            "3d"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "3D VRM avatar companion with phoneme-driven lip-syncing that can replace EVE's sphere representation. Integrates with VR spatial engine for immersive presence.",
+            "exampleUseCase": "Load your custom VRM avatar, watch it lip-sync to EVE's speech in real-time, and interact naturally in VR environments when paired with the spatial engine.",
+            "whatMakesThisDifferent": "Real phoneme analysis, not just amplitude. Configurable smoothing and mouth limits for natural motion. Capability injection means it works without modifying EVE Core."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "@eve-os/marketplace-shared",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Shared utilities, type declarations, and host contracts for EVE-OS Marketplace Packages",
+    "main": "./index.ts",
+    "types": "./index.ts",
+    "peerDependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.0",
+        "@types/react-dom": "^18.0.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {},
+    "files": [
+        "*.ts",
+        "*.d.ts",
+        "*.json",
+        "*.md"
+    ],
+    "comment": "These are the common frontend dependencies that marketplace packages use. They are NOT installed separately - packages run inside the main frontend's environment. This file exists for IDE/linting purposes and type declarations."
+}

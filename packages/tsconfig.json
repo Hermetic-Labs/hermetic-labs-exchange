@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "lib": ["ES2022", "DOM", "DOM.Iterable", "WebWorker"],
+        "jsx": "react-jsx",
+        "jsxImportSource": "react",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "declaration": false,
+        "baseUrl": ".",
+        "paths": {
+            "@shared/*": ["./_shared/*"],
+            "@eve/shared": ["./_shared/index.ts"],
+            "@eve/shared/*": ["./_shared/*"],
+            "@/*": ["./_shared/core.d.ts"]
+        }
+    },
+    "include": [
+        "index.ts",
+        "_shared/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/backend/**",
+        "**/node_modules/**"
+    ],
+    "references": []
+}

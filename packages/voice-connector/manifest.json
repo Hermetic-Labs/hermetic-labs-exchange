@@ -1,0 +1,70 @@
+{
+    "name": "voice-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "Voice Connector",
+    "description": "Voice recognition, command processing, and voice-to-reflex-card integration for hands-free operation",
+    "entry": "./frontend/index.ts",
+    "types": "./frontend/types/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "🎤",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "VoiceConnectorPortal"
+    ],
+    "permissions": [
+        "audio",
+        "microphone"
+    ],
+    "tags": [
+        "voice",
+        "speech",
+        "recognition",
+        "commands",
+        "accessibility"
+    ],
+    "category": "Accessibility",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Speech-to-text recognition",
+        "Natural language command parsing",
+        "Voice-to-reflex-card conversion",
+        "Continuous listening mode",
+        "Multi-language support"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "voice-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Voice Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Voice Connector",
+            "description": "Speech recognition and hands-free voice commands",
+            "icon": "Mic",
+            "color": "rose"
+        },
+        "apiTags": [
+            "voice-connector",
+            "voice",
+            "accessibility"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Voice recognition with natural language command parsing, continuous listening mode, and voice-to-reflex-card conversion for hands-free operation. Multi-language support included.",
+            "exampleUseCase": "Say 'create a task for tomorrow' and watch EVE parse the intent, create the reflex card, and confirm verbally. Works hands-free in medical, industrial, or accessibility scenarios.",
+            "whatMakesThisDifferent": "Voice-to-reflex-card bridge means voice commands create the same structured data as typed inputs. Local processing option for privacy-sensitive environments."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    }
+}

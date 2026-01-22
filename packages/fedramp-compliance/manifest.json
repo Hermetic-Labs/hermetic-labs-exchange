@@ -1,0 +1,70 @@
+{
+    "name": "fedramp-compliance",
+    "version": "1.0.0",
+    "type": "module",
+    "displayName": "FedRAMP Compliance Suite",
+    "description": "FedRAMP authorization compliance with security controls, continuous monitoring, and documentation",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/__init__.py",
+    "icon": "🏛️",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "FedRAMPCompliancePortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "government",
+        "fedramp",
+        "security",
+        "cloud",
+        "authorization"
+    ],
+    "category": "Government",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Control baseline assessment",
+        "Continuous monitoring",
+        "POA&M management",
+        "SSP documentation",
+        "Vulnerability scanning integration"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "fedramp-compliance-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "FedRAMP Compliance Suite hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "FedRAMP Compliance",
+            "description": "Federal cloud authorization with continuous monitoring",
+            "icon": "Shield",
+            "color": "blue"
+        },
+        "apiTags": [
+            "fedramp-compliance",
+            "compliance",
+            "government"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "FedRAMP authorization compliance suite with control baseline assessment, continuous monitoring, POA&M management, SSP documentation, and vulnerability scanning integration.",
+            "exampleUseCase": "Map your controls to FedRAMP baselines, track POA&M items to resolution, generate SSP documentation, and integrate vulnerability scan results for continuous authorization.",
+            "whatMakesThisDifferent": "Pre-mapped control baselines reduce manual mapping. POA&M tracking integrated with workflow engine. SSP templates follow current 3PAO expectations."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/fedramp-compliance.bundle.js",
+    "bundleVersion": "1768911819066"
+}

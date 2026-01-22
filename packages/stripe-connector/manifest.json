@@ -1,0 +1,69 @@
+{
+    "name": "stripe-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "Stripe Connector",
+    "description": "Stripe payment integration with charges, subscriptions, customers, and webhooks",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "💳",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "StripeConnectorPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "payments",
+        "stripe",
+        "subscriptions",
+        "billing"
+    ],
+    "category": "Payments",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Payment intents",
+        "Subscription management",
+        "Customer management",
+        "Webhook handling",
+        "Invoice generation"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "stripe-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Stripe Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Stripe Connector",
+            "description": "Payments with subscriptions, customers, and webhooks",
+            "icon": "CreditCard",
+            "color": "violet"
+        },
+        "apiTags": [
+            "stripe-connector",
+            "stripe",
+            "payments"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Stripe payment integration with payment intents, subscription management, customer management, webhook handling, and invoice generation.",
+            "exampleUseCase": "Create payment intents for one-time charges, set up recurring subscriptions, manage customer payment methods, and handle webhook events for payment confirmations.",
+            "whatMakesThisDifferent": "Direct Stripe API access with built-in webhook signature verification. Pairs with PCI compliance for secure payment workflows. Subscription lifecycle events trigger EVE workflows."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/stripe-connector.bundle.js",
+    "bundleVersion": "1768911822903"
+}

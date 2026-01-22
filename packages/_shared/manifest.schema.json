@@ -1,0 +1,143 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "EVE-OS Marketplace Package Manifest",
+    "description": "Schema for marketplace package manifest.json files",
+    "type": "object",
+    "required": ["name", "version", "type", "displayName", "description", "entry"],
+    "properties": {
+        "name": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Package identifier (lowercase, hyphens only)"
+        },
+        "version": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$",
+            "description": "Semantic version (e.g., 1.0.0)"
+        },
+        "type": {
+            "type": "string",
+            "enum": ["module", "connector", "addon", "plugin", "component"],
+            "description": "Package type"
+        },
+        "displayName": {
+            "type": "string",
+            "description": "Human-readable name"
+        },
+        "description": {
+            "type": "string",
+            "description": "Package description"
+        },
+        "entry": {
+            "type": "string",
+            "description": "Frontend entry point (e.g., ./frontend/index.ts)"
+        },
+        "backend": {
+            "type": "string",
+            "description": "Backend entry point (e.g., ./backend/routes.py)"
+        },
+        "icon": {
+            "type": "string",
+            "description": "Emoji or icon identifier"
+        },
+        "sidebar": {
+            "type": "boolean",
+            "default": false,
+            "description": "Show in sidebar navigation"
+        },
+        "capability": {
+            "type": "boolean",
+            "default": false,
+            "description": "Injects capabilities into other views (for components)"
+        },
+        "injectsInto": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Views this component injects into"
+        },
+        "integrations": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Other packages this integrates with"
+        },
+        "components": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Exported component names"
+        },
+        "permissions": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Required permissions"
+        },
+        "tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Search tags"
+        },
+        "category": {
+            "type": "string",
+            "description": "Package category"
+        },
+        "author": {
+            "type": "string",
+            "description": "Package author"
+        },
+        "price": {
+            "type": "string",
+            "enum": ["free", "premium", "enterprise"],
+            "default": "free"
+        },
+        "features": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Feature list"
+        },
+        "dependencies": {
+            "type": "object",
+            "description": "Package dependencies",
+            "properties": {
+                "python": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "Python package requirements (pip format)"
+                },
+                "npm": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "NPM package requirements"
+                },
+                "packages": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "Other marketplace packages required"
+                }
+            }
+        },
+        "install": {
+            "type": "object",
+            "description": "Installation configuration",
+            "properties": {
+                "backendTarget": {
+                    "type": "string",
+                    "default": "backend/plugins",
+                    "description": "Where backend files are installed"
+                },
+                "frontendTarget": {
+                    "type": "string",
+                    "default": "frontend/src/modules",
+                    "description": "Where frontend files are installed"
+                },
+                "hooks": {
+                    "type": "object",
+                    "properties": {
+                        "preInstall": { "type": "string" },
+                        "postInstall": { "type": "string" },
+                        "preUninstall": { "type": "string" },
+                        "postUninstall": { "type": "string" }
+                    }
+                }
+            }
+        }
+    }
+}

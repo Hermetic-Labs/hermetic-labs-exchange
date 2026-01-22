@@ -1,0 +1,70 @@
+{
+    "name": "sam-gov-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "SAM.gov Connector",
+    "description": "SAM.gov federal contractor registration and entity search integration",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "🏛️",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "SAMConnector",
+        "SAMGovPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "government",
+        "sam",
+        "federal",
+        "contracts",
+        "registration"
+    ],
+    "category": "Government",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Entity search",
+        "Registration status",
+        "Exclusion records",
+        "Contract opportunities",
+        "Cage code lookup"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "sam-gov-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "SAM.gov Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "SAM.gov Connector",
+            "description": "Federal contractor registration and entity search integration",
+            "icon": "Briefcase",
+            "color": "blue"
+        },
+        "apiTags": [
+            "sam-gov-connector",
+            "government"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "SAM.gov integration for federal contractor workflows - entity search, registration status, exclusion records, contract opportunities, and CAGE code lookups.",
+            "exampleUseCase": "Verify a vendor's SAM registration status before awarding a contract, check exclusion records for compliance, and monitor contract opportunities matching your NAICS codes.",
+            "whatMakesThisDifferent": "Direct SAM.gov API access without third-party intermediaries. Integrates with USAspending connector for complete federal procurement workflows."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/sam-gov-connector.bundle.js",
+    "bundleVersion": "1768911820328"
+}

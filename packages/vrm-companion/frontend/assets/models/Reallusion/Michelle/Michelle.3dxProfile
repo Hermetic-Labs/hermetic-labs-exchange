@@ -1,0 +1,168 @@
+﻿[BoneMapOption]
+Prefix = 
+
+
+[BoneMap]
+Head = Head
+Hips = Hips
+LeftArm = LeftArm
+LeftFoot = LeftFoot
+LeftForeArm = LeftForeArm
+LeftHand = LeftHand
+LeftHandIndex1 = LeftHandIndex1
+LeftHandIndex2 = LeftHandIndex2
+LeftHandIndex3 = LeftHandIndex3
+LeftHandIndex4 = LeftHandIndex4
+LeftHandMiddle1 = LeftHandMiddle1
+LeftHandMiddle2 = LeftHandMiddle2
+LeftHandMiddle3 = LeftHandMiddle3
+LeftHandMiddle4 = LeftHandMiddle4
+LeftHandPinky1 = LeftHandPinky1
+LeftHandPinky2 = LeftHandPinky2
+LeftHandPinky3 = LeftHandPinky3
+LeftHandPinky4 = LeftHandPinky4
+LeftHandRing1 = LeftHandRing1
+LeftHandRing2 = LeftHandRing2
+LeftHandRing3 = LeftHandRing3
+LeftHandRing4 = LeftHandRing4
+LeftHandThumb1 = LeftHandThumb1
+LeftHandThumb2 = LeftHandThumb2
+LeftHandThumb3 = LeftHandThumb3
+LeftHandThumb4 = LeftHandThumb4
+LeftLeg = LeftLeg
+LeftShoulder = LeftShoulder
+LeftToeBase = LeftToeBase
+LeftUpLeg = LeftUpLeg
+Neck = Neck
+RightArm = RightArm
+RightFoot = RightFoot
+RightForeArm = RightForeArm
+RightHand = RightHand
+RightHandIndex1 = RightHandIndex1
+RightHandIndex2 = RightHandIndex2
+RightHandIndex3 = RightHandIndex3
+RightHandIndex4 = RightHandIndex4
+RightHandMiddle1 = RightHandMiddle1
+RightHandMiddle2 = RightHandMiddle2
+RightHandMiddle3 = RightHandMiddle3
+RightHandMiddle4 = RightHandMiddle4
+RightHandPinky1 = RightHandPinky1
+RightHandPinky2 = RightHandPinky2
+RightHandPinky3 = RightHandPinky3
+RightHandPinky4 = RightHandPinky4
+RightHandRing1 = RightHandRing1
+RightHandRing2 = RightHandRing2
+RightHandRing3 = RightHandRing3
+RightHandRing4 = RightHandRing4
+RightHandThumb1 = RightHandThumb1
+RightHandThumb2 = RightHandThumb2
+RightHandThumb3 = RightHandThumb3
+RightHandThumb4 = RightHandThumb4
+RightLeg = RightLeg
+RightShoulder = RightShoulder
+RightToeBase = RightToeBase
+RightUpLeg = RightUpLeg
+Spine = Spine
+Spine1 = Spine1
+Spine2 = Spine2
+
+
+[BoneRotate]
+Hips = 0.7071066499,-7.526719128e-005,7.05545026e-005,0.7071068883,
+Spine = -5.789607018e-002,9.296527423e-006,-1.027456892e-004,0.9983226061,
+Spine1 = 0.,0.,0.,1.,
+Spine2 = 0.,0.,0.,1.,
+Neck = 5.789582804e-002,0.,0.,0.9983226061,
+Head = 0.,0.,0.,1.,
+HeadTop_End = 0.,0.,0.,1.,
+LeftShoulder = -0.5581867695,-0.4276113212,0.5795540214,-0.4119384289,
+LeftArm = -0.1421188116,-0.2007861882,4.87922132e-002,0.9680425525,
+LeftForeArm = 3.670814112e-005,0.1149386987,2.652780313e-005,0.9933726192,
+LeftHand = 1.303236559e-002,0.1489917189,8.617630601e-002,0.9849900007,
+LeftHandThumb1 = 8.264866835e-008,0.,0.2588190138,0.9659258127,
+LeftHandThumb2 = 1.508486918e-007,0.,-0.130526036,0.9914448857,
+LeftHandThumb3 = -6.869889051e-002,-0.1401958466,0.1176381707,0.9807073474,
+LeftHandThumb4 = 0.,0.,0.,1.,
+LeftHandIndex1 = 0.,0.,-8.715575933e-002,0.9961947203,
+LeftHandIndex2 = 3.545479217e-007,-2.979030614e-005,1.929021906e-003,0.9999981523,
+LeftHandIndex3 = 5.744532672e-008,3.136366649e-005,1.947079203e-003,0.9999980927,
+LeftHandIndex4 = 0.,0.,0.,1.,
+LeftHandMiddle1 = 0.,0.,-8.715577424e-002,0.9961947203,
+LeftHandMiddle2 = -1.445721836e-007,4.23193751e-006,8.912014891e-004,0.9999995828,
+LeftHandMiddle3 = 1.932288285e-007,-3.115246955e-006,-1.041009673e-003,0.9999994636,
+LeftHandMiddle4 = 0.,0.,0.,1.,
+LeftHandRing1 = 0.,0.,-8.715577424e-002,0.9961947203,
+LeftHandRing2 = -3.916839262e-007,-3.013872265e-005,3.039673669e-003,0.9999953508,
+LeftHandRing3 = 5.888379064e-007,-6.272401265e-007,-2.091263013e-005,1.,
+LeftHandRing4 = 0.,0.,0.,1.,
+LeftHandPinky1 = 0.,0.,-8.715577424e-002,0.9961947203,
+LeftHandPinky2 = 3.513045783e-007,-1.671024256e-005,5.549270427e-004,0.9999998212,
+LeftHandPinky3 = -2.691705348e-008,1.147334842e-004,4.383833613e-003,0.9999904037,
+LeftHandPinky4 = 0.,0.,0.,1.,
+RightShoulder = 0.5591298342,-0.4269017577,0.5787866712,0.4124739766,
+RightArm = -0.1426802874,0.1992278993,-4.712270945e-002,0.968364656,
+RightForeArm = 3.42114472e-005,-0.1144411787,-2.499257607e-005,0.9934300184,
+RightHand = 1.29184192e-002,-0.1476682574,-8.619202673e-002,0.9851893783,
+RightHandThumb1 = 0.,-9.360881847e-008,-0.2588190436,0.9659258127,
+RightHandThumb2 = 1.231380935e-007,0.,0.130526036,0.9914448857,
+RightHandThumb3 = -6.86988607e-002,0.1401958168,-0.117638126,0.9807073474,
+RightHandThumb4 = 0.,0.,0.,1.,
+RightHandIndex1 = 1.300380603e-007,0.,8.715577424e-002,0.9961947203,
+RightHandIndex2 = -2.002882411e-007,-4.795689892e-005,-1.858414733e-003,0.9999982715,
+RightHandIndex3 = -3.099246442e-007,-3.293008558e-005,5.012914073e-003,0.9999874234,
+RightHandIndex4 = 0.,0.,0.,1.,
+RightHandMiddle1 = 1.448825202e-007,0.,8.715576679e-002,0.9961947203,
+RightHandMiddle2 = 1.840423494e-007,-5.166493793e-007,-1.332604152e-004,1.,
+RightHandMiddle3 = -2.659993754e-007,-1.28799968e-006,6.948598311e-004,0.9999997616,
+RightHandMiddle4 = 0.,0.,0.,1.,
+RightHandRing1 = 1.322183181e-007,0.,8.715578169e-002,0.9961947203,
+RightHandRing2 = 4.336686288e-006,5.469044554e-004,-6.919411942e-003,0.9999759197,
+RightHandRing3 = 7.589890629e-006,-8.533134824e-004,-9.715828113e-003,0.9999524355,
+RightHandRing4 = 0.,0.,0.,1.,
+RightHandPinky1 = 1.263269667e-007,0.,8.715576679e-002,0.9961947203,
+RightHandPinky2 = -1.657573989e-007,-5.175483238e-006,1.600561955e-004,1.,
+RightHandPinky3 = 3.484997819e-007,-1.8117945e-004,-6.9819903e-003,0.9999756217,
+RightHandPinky4 = 0.,0.,0.,1.,
+LeftUpLeg = -4.220597912e-003,-8.391771466e-003,0.9999145865,-9.088527411e-003,
+LeftLeg = -1.638472266e-002,-4.25839331e-004,-2.067515999e-002,0.9996519089,
+LeftFoot = 0.4554000497,1.615828648e-002,4.68294099e-002,0.8889076114,
+LeftToeBase = 0.3518749475,-2.322505973e-002,8.733739145e-003,0.9357181191,
+LeftToe_End = 2.505257157e-007,0.,0.,1.,
+RightUpLeg = 4.421688616e-003,-7.558363024e-003,0.9999185205,9.289164096e-003,
+RightLeg = -1.943498664e-002,4.321355955e-004,2.069841325e-002,0.9995967746,
+RightFoot = 0.4571630061,-1.590605825e-002,-4.695011303e-002,0.8880004287,
+RightToeBase = 0.3523367643,2.343811095e-002,-8.82712286e-003,0.9355380535,
+RightToe_End = 0.,0.,0.,1.,
+Ch03 = 0.7071067691,0.,0.,0.7071067691,
+
+
+[FloorContact]
+HandBottom = 2.916938782
+HandBack = 39.63717651
+HandMiddle = 0.
+HandFront = 16.45563889
+HandIn = 7.770288467
+HandOut = 2.518463135
+FootBottom = 11.45913982
+FootBack = 7.02093029
+FootMiddle = 13.17620754
+FootFront = 7.192159653
+FootIn = 8.459737778
+FootOut = 9.634381294
+
+
+[Property]
+AnkleHeight = 0.
+AnkleSpacing = 0.
+HipsForward = 0.
+AutoAnkleHeight = true
+AutoAnkleSpacing = true
+RollExtractionMode = false
+
+
+[RootTransform]
+Value = 1.,1.,0.9999999404,0.9999999404,0.,0.,0.,0.9999999404,0.7071066499,-7.526719128e-005,7.05545026e-005,0.7071068883,0.,0.,103.2916412,
+
+
+[BoneTypeOfBonesUnderHead]
+HeadTop_End = Facial

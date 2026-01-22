@@ -1,0 +1,68 @@
+{
+    "name": "sox-compliance",
+    "version": "1.0.0",
+    "type": "module",
+    "displayName": "SOX Compliance Suite",
+    "description": "Sarbanes-Oxley compliance for financial controls, audit trails, and internal controls",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/__init__.py",
+    "icon": "📊",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "SOXCompliancePortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "financial",
+        "sox",
+        "audit",
+        "internal-controls",
+        "compliance"
+    ],
+    "category": "Financial",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Control documentation",
+        "Audit trail management",
+        "Segregation of duties",
+        "Access control reviews",
+        "Deficiency reporting"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "sox-compliance-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "SOX Compliance Suite hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "SOX Compliance",
+            "description": "Financial controls, audit trails, and internal controls",
+            "icon": "FileCheck",
+            "color": "amber"
+        },
+        "apiTags": [
+            "sox-compliance",
+            "sox",
+            "audit"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Sarbanes-Oxley compliance suite covering control documentation, audit trail management, segregation of duties validation, access control reviews, and deficiency reporting.",
+            "exampleUseCase": "Document financial controls, validate segregation of duties in approval workflows, review access controls quarterly, and generate deficiency reports for external auditors.",
+            "whatMakesThisDifferent": "Immutable audit trails for SOX 404 compliance. Automated segregation of duties checks. Integrates with workflow engine for control testing documentation."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    }
+}

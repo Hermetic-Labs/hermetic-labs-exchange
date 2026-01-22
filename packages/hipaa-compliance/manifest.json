@@ -1,0 +1,68 @@
+{
+    "name": "hipaa-compliance",
+    "version": "1.0.0",
+    "type": "module",
+    "displayName": "HIPAA Privacy Suite",
+    "description": "HIPAA Privacy Rule compliance with PHI handling, access controls, and audit logging",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/__init__.py",
+    "icon": "🔒",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "HIPAACompliancePortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "healthcare",
+        "hipaa",
+        "privacy",
+        "phi",
+        "compliance"
+    ],
+    "category": "Healthcare",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "PHI detection and masking",
+        "Minimum necessary enforcement",
+        "Access control validation",
+        "Audit trail logging",
+        "Breach notification support"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "hipaa-compliance-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "HIPAA Privacy Suite hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "HIPAA Privacy Suite",
+            "description": "PHI handling, access controls, and audit logging",
+            "icon": "Shield",
+            "color": "amber"
+        },
+        "apiTags": [
+            "hipaa-compliance",
+            "hipaa",
+            "healthcare"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "HIPAA Privacy Rule compliance with PHI detection and masking, minimum necessary enforcement, access control validation, audit trail logging, and breach notification support.",
+            "exampleUseCase": "Automatically detect PHI in documents, enforce role-based access controls, log all PHI access for audit, and generate breach notification reports when required.",
+            "whatMakesThisDifferent": "Local-first means PHI never leaves your infrastructure for compliance checking. Pairs with medical module and FHIR compliance for complete healthcare data governance."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    }
+}

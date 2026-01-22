@@ -1,0 +1,71 @@
+{
+    "name": "salesforce-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "Salesforce Connector",
+    "description": "Full Salesforce CRM integration with objects, SOQL queries, bulk operations, and streaming API",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "icon": "☁️",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "SalesforceConnector",
+        "SalesforcePortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "crm",
+        "salesforce",
+        "sales",
+        "leads",
+        "opportunities"
+    ],
+    "category": "CRM",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "OAuth2 authentication",
+        "SOQL query execution",
+        "Object CRUD operations",
+        "Bulk data operations",
+        "Real-time streaming API"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "salesforce-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Salesforce Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Salesforce Connector",
+            "description": "CRM integration with SOQL, bulk ops, and streaming API",
+            "icon": "Database",
+            "color": "blue"
+        },
+        "apiTags": [
+            "salesforce-connector",
+            "salesforce",
+            "crm"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Full Salesforce CRM integration with OAuth2 authentication, SOQL query execution, object CRUD operations, bulk data operations, and real-time streaming API.",
+            "exampleUseCase": "Query leads with SOQL, bulk import contacts from CSV, subscribe to opportunity updates via streaming API, and trigger workflows from Salesforce events.",
+            "whatMakesThisDifferent": "Direct Salesforce API access without middleware. Bulk operations handle millions of records. Streaming API enables real-time CRM-to-EVE workflows."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/salesforce-connector.bundle.js",
+    "bundleVersion": "1768911820294"
+}

@@ -6,6 +6,7 @@ import { AuthorPage } from './pages/AuthorPage';
 import { SuccessPage } from './pages/SuccessPage';
 import { AuthPage } from './pages/AuthPage';
 import { LibraryPage } from './pages/LibraryPage';
+import { SellerDashboardPage } from './pages/SellerDashboardPage';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/success" element={<SuccessPage />} />
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/library" element={<LibraryPage />} />
+            <Route path="/seller" element={<SellerDashboardPage />} />
           </Routes>
         </div>
       </AuthProvider>

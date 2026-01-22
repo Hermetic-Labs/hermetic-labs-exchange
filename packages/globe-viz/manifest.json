@@ -1,0 +1,80 @@
+{
+    "name": "globe-viz",
+    "version": "1.0.0",
+    "type": "component",
+    "displayName": "Globe Data Visualization",
+    "description": "Interactive 3D globe visualization with pluggable data adapters. Supports points, arcs, heatmaps, and flight paths. Perfect for displaying geographic data, network traffic, logistics, and analytics.",
+    "entry": "./frontend/index.ts",
+    "icon": "🌍",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "GlobeViz",
+        "Globe",
+        "Controls",
+        "DataLayer"
+    ],
+    "permissions": [
+        "network",
+        "3d-rendering"
+    ],
+    "tags": [
+        "visualization",
+        "3D",
+        "globe",
+        "map",
+        "data",
+        "three.js",
+        "analytics",
+        "component"
+    ],
+    "category": "Analytics",
+    "author": "Hermetic Labs",
+    "license": "EVE-MARKET-001",
+    "marketId": "globe-viz-1.0.0",
+    "price": "free",
+    "features": [
+        "Interactive 3D globe with Three.js",
+        "Pluggable data adapter system",
+        "Flight tracking visualization",
+        "Network traffic heatmaps",
+        "Point markers with labels",
+        "Arc paths between locations",
+        "Auto-rotation mode",
+        "Custom data upload (JSON)",
+        "Real-time data updates",
+        "Click-to-select details panel"
+    ],
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "Globe Data Visualization hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "Globe Visualization",
+            "description": "Interactive 3D globe with pluggable data adapters",
+            "icon": "Globe",
+            "color": "teal"
+        },
+        "apiTags": ["globe-viz", "visualization"],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "Interactive 3D globe visualization supporting points, arcs, heatmaps, and flight paths. Pluggable data adapters let you visualize geographic data, network traffic, logistics routes, and analytics.",
+            "exampleUseCase": "Display real-time server health across global datacenters, visualize user traffic patterns with heatmaps, or track shipment routes with animated arcs.",
+            "whatMakesThisDifferent": "Pluggable adapter system means any data source works - just transform to lat/lng. Auto-rotation mode for ambient dashboards. Click-to-select for drill-down details."
+        }
+    },
+    "dependencies": {
+        "npm": [
+            "@react-three/fiber",
+            "@react-three/drei",
+            "three",
+            "lucide-react"
+        ],
+        "python": [],
+        "packages": []
+    }
+}

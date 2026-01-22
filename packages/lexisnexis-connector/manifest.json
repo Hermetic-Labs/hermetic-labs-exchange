@@ -1,0 +1,71 @@
+{
+    "name": "lexisnexis-connector",
+    "version": "1.0.0",
+    "type": "connector",
+    "displayName": "LexisNexis Connector",
+    "description": "LexisNexis legal research integration with document search, case law, and statutes",
+    "entry": "./frontend/index.ts",
+    "backend": "./backend/routes.py",
+    "types": "./frontend/types/index.ts",
+    "icon": "⚖️",
+    "iconUrl": "./assets/icon.svg",
+    "sidebar": true,
+    "components": [
+        "LexisNexisConnector",
+        "LexisNexisPortal"
+    ],
+    "permissions": [
+        "network"
+    ],
+    "tags": [
+        "legal",
+        "lexisnexis",
+        "research",
+        "case-law",
+        "statutes"
+    ],
+    "category": "Legal",
+    "author": "Hermetic Labs",
+    "price": "free",
+    "features": [
+        "Document search",
+        "Case law retrieval",
+        "Statutory research",
+        "Citation analysis",
+        "Shepardizing"
+    ],
+    "license": "EVE-MARKET-001",
+    "marketId": "lexisnexis-connector-1.0.0",
+    "media": [
+        {
+            "type": "image",
+            "url": "./assets/images/hero.png",
+            "caption": "LexisNexis Connector hero image"
+        }
+    ],
+    "documentation": {
+        "card": {
+            "title": "LexisNexis Connector",
+            "description": "Legal research with case law, statutes, and citations",
+            "icon": "Briefcase",
+            "color": "indigo"
+        },
+        "apiTags": [
+            "lexisnexis-connector",
+            "legal"
+        ],
+        "readme": "./README.md",
+        "summary": {
+            "overview": "LexisNexis legal research integration with document search, case law retrieval, statutory research, citation analysis, and Shepardizing for precedent validation.",
+            "exampleUseCase": "Search case law by topic, Shepardize citations to verify they're still good law, retrieve full statutory text, and analyze citation networks for legal research.",
+            "whatMakesThisDifferent": "Direct LexisNexis API access with your credentials. Pairs with Westlaw connector for comprehensive legal research coverage."
+        }
+    },
+    "dependencies": {
+        "npm": [],
+        "python": [],
+        "packages": []
+    },
+    "bundle": "/bundles/lexisnexis-connector.bundle.js",
+    "bundleVersion": "1768911819791"
+}
