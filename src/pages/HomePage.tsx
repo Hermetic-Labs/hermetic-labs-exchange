@@ -2,7 +2,6 @@ import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
 import { HeroCarousel } from '../components/HeroCarousel';
-import { SearchFilters, FilterState, defaultFilters } from '../components/SearchFilters';
 import { fetchProducts, fetchCategories } from '../api/exchange';
 import { Product, Category } from '../types';
 import { ChevronRight, Zap, Clock, Loader2 } from 'lucide-react';
@@ -17,7 +16,6 @@ export function HomePage() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [filters, setFilters] = useState<FilterState>(defaultFilters);
 
   // Fetch data on mount
   useEffect(() => {
@@ -219,30 +217,15 @@ export function HomePage() {
             )}
           </div>
 
-          {/* Filters + Results Grid */}
-          <div className="grid lg:grid-cols-4 gap-6">
-            {/* Filters Sidebar */}
-            <div className="lg:col-span-1">
-              <SearchFilters
-                filters={filters}
-                onChange={setFilters}
-                productCount={activeCategory || searchQuery ? filteredProducts.length : popularProducts.length}
-                onClear={() => setFilters(defaultFilters)}
-              />
-            </div>
-
-            {/* Products Grid */}
-            <div className="lg:col-span-3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {(activeCategory || searchQuery ? filteredProducts : popularProducts).map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </div>
-              {filteredProducts.length === 0 && (activeCategory || searchQuery) && (
-                <div className="text-center py-12 text-gray-500">No products found</div>
-              )}
-            </div>
+          {/* Products Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {(activeCategory || searchQuery ? filteredProducts : popularProducts).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
+          {filteredProducts.length === 0 && (activeCategory || searchQuery) && (
+            <div className="text-center py-12 text-gray-500">No products found</div>
+          )}
         </div>
       </section>
     </div>
