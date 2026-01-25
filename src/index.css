@@ -110,6 +110,39 @@ body {
   opacity: 1;
 }
 
+/* Disable browser autofill styling */
+.cyber-input:-webkit-autofill,
+.cyber-input:-webkit-autofill:hover,
+.cyber-input:-webkit-autofill:focus,
+.cyber-input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Hide browser-specific input decorations */
+.cyber-input::-webkit-credentials-auto-fill-button,
+.cyber-input::-webkit-contacts-auto-fill-button,
+.cyber-input::-webkit-caps-lock-indicator {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Hide Edge/Chrome password reveal button */
+.cyber-input::-ms-reveal,
+.cyber-input::-ms-clear {
+  display: none !important;
+}
+
+/* Hide search clear button */
+.cyber-input[type="search"]::-webkit-search-cancel-button,
+.cyber-input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  display: none;
+}
+
 .cyber-card {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);

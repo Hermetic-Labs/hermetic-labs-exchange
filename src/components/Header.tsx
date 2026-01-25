@@ -77,7 +77,7 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
-              src="/images/Hermetci Labs Exchange Logo.png"
+              src={`${import.meta.env.BASE_URL}images/Hermetci Labs Exchange Logo.png`}
               alt="Hermetic Labs"
               className="w-10 h-10 object-contain"
             />
