@@ -306,7 +306,7 @@ export class VoiceRecognitionService {
     this.initializeEnhancedVocabulary();
 
     if (this.options.enableDebug) {
-      console.log('🔧 VoiceRecognitionService initialized with options:', this.options);
+      console.log('[Voice] Initialized with options:', this.options);
     }
   }
 
@@ -339,7 +339,7 @@ export class VoiceRecognitionService {
       this.lastCommandTime = Date.now();
 
       if (this.options.enableDebug) {
-        console.log('🎤 Voice recognition started');
+        console.log('[Voice] Recognition started');
       }
     };
 
@@ -385,7 +385,7 @@ export class VoiceRecognitionService {
 
   private processFinalTranscript(transcript: string, confidence: number, result: any): void {
     if (this.options.enableDebug) {
-      console.log(`🗣️ Final transcript: "${transcript}" (confidence: ${confidence})`);
+      console.log(`[Voice] Final transcript: "${transcript}" (confidence: ${confidence})`);
     }
 
     // Add to confidence history
@@ -469,7 +469,7 @@ export class VoiceRecognitionService {
       const cleanTranscript = this.cleanTranscript(transcript);
 
       if (this.options.enableDebug) {
-        console.log(`🔍 Processing command: "${cleanTranscript}"`);
+        console.log(`[Voice] Processing command: "${cleanTranscript}"`);
       }
 
       // Parse using ActionLanguageService
@@ -550,7 +550,7 @@ export class VoiceRecognitionService {
   private async executeCommand(command: VoiceCommand): Promise<void> {
     try {
       if (this.options.enableDebug) {
-        console.log(`🚀 Executing command: ${command.verb} ${command.noun}`);
+        console.log(`[Voice] Executing command: ${command.verb} ${command.noun}`);
       }
 
       const result = await actionLanguageService.executeAction(command.action);
@@ -628,7 +628,7 @@ export class VoiceRecognitionService {
       for (const alias of term.aliases) {
         if (transcript.includes(alias.toLowerCase())) {
           if (this.options.enableDebug) {
-            console.log(`🏥 Identified medical term: ${term.term}`);
+            console.log(`[Voice] Identified medical term: ${term.term}`);
           }
           return term.term;
         }
@@ -699,7 +699,7 @@ export class VoiceRecognitionService {
 
     if (this.options.medicalMode) {
       if (this.options.enableDebug) {
-        console.log('🏥 Enhanced medical vocabulary initialized with', this.enhancedMedicalVocabulary.length, 'terms');
+        console.log('[Voice] Enhanced medical vocabulary initialized with', this.enhancedMedicalVocabulary.length, 'terms');
       }
     }
   }
@@ -745,7 +745,7 @@ export class VoiceRecognitionService {
       setTimeout(() => {
         if (!this.state.is_listening) {
           if (this.options.enableDebug) {
-            console.log('🔄 Restarting voice recognition (continuous mode)');
+            console.log('[Voice] Restarting recognition (continuous mode)');
           }
           this.startListening();
         }
@@ -771,7 +771,7 @@ export class VoiceRecognitionService {
         break;
       case 'no-speech':
         if (this.options.enableDebug) {
-          console.log('🔇 No speech detected');
+          console.log('[Voice] No speech detected');
         }
         this.emitEvent({
           type: 'silence',
@@ -981,7 +981,7 @@ export class VoiceRecognitionService {
   // Test functionality
   public async testRecognition(testText: string): Promise<VoiceRecognitionEvent | null> {
     if (this.options.enableDebug) {
-      console.log(`🧪 Testing recognition with: "${testText}"`);
+      console.log(`[Voice] Testing recognition with: "${testText}"`);
     }
 
     // Simulate recognition event for testing
@@ -1035,7 +1035,7 @@ export class VoiceRecognitionService {
     this.confidenceHistory = [];
 
     if (this.options.enableDebug) {
-      console.log('🧹 Voice Recognition Service destroyed');
+      console.log('[Voice] Service destroyed');
     }
   }
 }

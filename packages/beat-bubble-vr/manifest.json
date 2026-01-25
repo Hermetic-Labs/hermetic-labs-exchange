@@ -6,7 +6,7 @@
     "description": "Immersive 3D spherical beat mixer game. Place beats on a spinning sphere inside a VR-ready environment. Features Web Audio API synthesis for kick, snare, hi-hat, bass, and synth sounds. Perfect for music creation and relaxation.",
     "entry": "./frontend/index.ts",
     "icon": "🎵",
-    "iconUrl": "./assets/icon.svg",
+    "iconUrl": "./assets/icon/icon.svg",
     "sidebar": true,
     "components": [
         "BeatBubbleVR"

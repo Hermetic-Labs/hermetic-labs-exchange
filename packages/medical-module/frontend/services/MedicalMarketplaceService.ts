@@ -37,7 +37,7 @@ class MedicalMarketplaceService {
   public async initialize(): Promise<void> {
     if (this.isInitialized) return;
 
-    console.log('🏥 Initializing Medical Marketplace Service...');
+    console.log('[Medical] Initializing Marketplace Service');
     
     try {
       await this.ensureDirectoryExists(this.marketplaceDirectory);
@@ -73,7 +73,7 @@ class MedicalMarketplaceService {
       await this.initialize();
     }
 
-    console.log(`📦 Installing template ${templateId} for device ${deviceId}...`);
+    console.log(`[Medical] Installing template ${templateId} for device ${deviceId}`);
 
     try {
       // Get template and device
@@ -414,7 +414,7 @@ class MedicalMarketplaceService {
     message: string;
     rollback_warnings: string[];
   }> {
-    console.log(`📦 Uninstalling template ${templateId} from device ${deviceId}...`);
+    console.log(`[Medical] Uninstalling template ${templateId} from device ${deviceId}`);
 
     try {
       const template = this.templateRegistry.get(templateId);
@@ -603,7 +603,7 @@ class MedicalMarketplaceService {
       this.templateRegistry.set(template.template_id, template);
     }
 
-    console.log(`📦 Initialized ${defaultTemplates.length} default medical templates`);
+    console.log(`[Medical] Initialized ${defaultTemplates.length} default templates`);
   }
 
   private getTemplateCertifications(complianceStandards: string[]): string[] {
@@ -678,7 +678,7 @@ class MedicalMarketplaceService {
     params?: Record<string, any>
   ): Promise<void> {
     // Simulate instruction execution
-    console.log(`🔧 Executing installation instruction: ${instruction}`);
+    console.log(`[Medical] Executing installation: ${instruction}`);
     
     switch (instruction) {
       case 'calibrate_pressure_sensors':
@@ -726,7 +726,7 @@ class MedicalMarketplaceService {
   }
 
   private async performTemplateUninstallation(template: MedicalTemplate, device: MedicalDevice): Promise<void> {
-    console.log(`🔧 Uninstalling template: ${template.template_name}`);
+    console.log(`[Medical] Uninstalling template: ${template.template_name}`);
     
     // Remove template-specific capabilities
     device.capabilities = device.capabilities.filter(cap => 
@@ -759,7 +759,7 @@ class MedicalMarketplaceService {
       this.compatibilityMatrix.set(device.device_id, compatibleTemplates);
     }
 
-    console.log(`🔗 Built compatibility matrix for ${devices.length} devices`);
+    console.log(`[Medical] Built compatibility matrix for ${devices.length} devices`);
   }
 
   // File system methods
@@ -788,9 +788,9 @@ class MedicalMarketplaceService {
         }
       }
       
-      console.log(`📦 Loaded ${this.installedTemplates.size} installed templates`);
+      console.log(`[Medical] Loaded ${this.installedTemplates.size} installed templates`);
     } catch (error) {
-      console.log('📦 No existing installed templates found');
+      console.log('[Medical] No existing installed templates found');
     }
   }
 
@@ -808,9 +808,9 @@ class MedicalMarketplaceService {
         }
       }
       
-      console.log(`📋 Loaded ${this.templateRegistry.size} templates in registry`);
+      console.log(`[Medical] Loaded ${this.templateRegistry.size} templates in registry`);
     } catch (error) {
-      console.log('📋 No existing template registry found');
+      console.log('[Medical] No existing template registry found');
     }
   }
 
@@ -821,9 +821,9 @@ class MedicalMarketplaceService {
       const content = await fs.readFile(filePath, 'utf-8');
       this.installationHistory = JSON.parse(content);
       
-      console.log(`📊 Loaded ${this.installationHistory.length} installation records`);
+      console.log(`[Medical] Loaded ${this.installationHistory.length} installation records`);
     } catch (error) {
-      console.log('📊 No existing installation history found');
+      console.log('[Medical] No existing installation history found');
     }
   }
 

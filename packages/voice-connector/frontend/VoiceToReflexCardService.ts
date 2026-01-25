@@ -353,7 +353,7 @@ export class VoiceToReflexCardService extends EventEmitter {
     const startTime = Date.now();
 
     try {
-      console.log(`🎤 Processing voice command: "${rawVoiceText}"`);
+      console.log(`[Voice] Processing command: "${rawVoiceText}"`);
 
       // 1. Preprocess voice text
       const processedText = this.preprocessVoiceText(rawVoiceText);
@@ -592,7 +592,7 @@ export class VoiceToReflexCardService extends EventEmitter {
       const workflowId = this.generateWorkflowId();
       const steps: VoiceWorkflowStep[] = [];
 
-      console.log(`📋 Creating multi-step workflow "${workflowName}" with ${voiceCommands.length} steps`);
+      console.log(`[Workflow] Creating "${workflowName}" with ${voiceCommands.length} steps`);
 
       // Process each voice command in the workflow
       for (let i = 0; i < voiceCommands.length; i++) {
@@ -686,7 +686,7 @@ export class VoiceToReflexCardService extends EventEmitter {
     }
 
     try {
-      console.log(`🚀 Executing workflow: ${workflow.name}`);
+      console.log(`[Workflow] Executing: ${workflow.name}`);
 
       workflow.status = 'executing';
       const startTime = Date.now();
@@ -1187,7 +1187,7 @@ export class VoiceToReflexCardService extends EventEmitter {
   private async requestUserConfirmation(step: VoiceWorkflowStep): Promise<boolean> {
     // In a real implementation, this would prompt the user
     // For now, we'll return true to continue
-    console.log(`🔒 Requesting confirmation for step: ${step.voiceCommand.rawText}`);
+    console.log(`[Workflow] Requesting confirmation: ${step.voiceCommand.rawText}`);
     return true;
   }
 

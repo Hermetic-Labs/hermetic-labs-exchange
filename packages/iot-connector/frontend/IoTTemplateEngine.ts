@@ -300,7 +300,7 @@ export class IoTTemplateEngine extends EventEmitter {
         source: 'cloud' as const // Templates are from marketplace
       };
 
-      console.log(`🔧 Executing template "${template.name}" using Code Interpreter Service`);
+      console.log(`[IoT] Executing template "${template.name}" using Code Interpreter Service`);
 
       // Execute using Code Interpreter Service
       const result = await codeInterpreterService.executeCode(request);

@@ -6,7 +6,7 @@
     "description": "Interactive 3D globe visualization with pluggable data adapters. Supports points, arcs, heatmaps, and flight paths. Perfect for displaying geographic data, network traffic, logistics, and analytics.",
     "entry": "./frontend/index.ts",
     "icon": "🌍",
-    "iconUrl": "./assets/icon.svg",
+    "iconUrl": "./assets/icon/icon.svg",
     "sidebar": true,
     "components": [
         "GlobeViz",

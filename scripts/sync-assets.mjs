@@ -97,22 +97,22 @@ async function main() {
     const result = await syncPackageAssets(pkg);
 
     if (result.synced) {
-      console.log(`✅ ${pkg} - ${result.files} files`);
+      console.log(`[OK] ${pkg} - ${result.files} files`);
       synced++;
       totalFiles += result.files;
     } else if (result.skipped) {
       console.log(`⏭️  ${pkg} - ${result.reason}`);
       skipped++;
     } else if (result.error) {
-      console.log(`❌ ${pkg} - ${result.message}`);
+      console.log(`[ERR] ${pkg} - ${result.message}`);
       errors++;
     }
   }
 
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
-  console.log(`📊 Results: ${synced} packages synced, ${totalFiles} total files`);
+  console.log(`[STAT] Results: ${synced} packages synced, ${totalFiles} total files`);
   console.log(`   Skipped: ${skipped}, Errors: ${errors}`);
-  console.log(`\n📁 Output: ${PUBLIC_PACKAGES_DIR}\n`);
+  console.log(`\n[DIR] Output: ${PUBLIC_PACKAGES_DIR}\n`);
 }
 
 main().catch(console.error);

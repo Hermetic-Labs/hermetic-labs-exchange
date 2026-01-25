@@ -6,7 +6,7 @@
     "description": "Interactive 3D candlestick chart with real-time strategy coding. Write trading strategies in a simple DSL, see buy/sell signals visualized on the chart. Supports 2D/3D views, SMA/EMA indicators, and timeline scrubbing.",
     "entry": "./frontend/index.ts",
     "icon": "📈",
-    "iconUrl": "./assets/icon.svg",
+    "iconUrl": "./assets/icon/icon.svg",
     "sidebar": true,
     "components": [
         "StockVisualizer",

@@ -6,7 +6,7 @@
     "description": "Classic side-scrolling platformer game in the style of Mario. Features pixel art graphics, coin collection, enemies to defeat, platforms to navigate, and a flag to reach. Mobile-ready with touch controls.",
     "entry": "./frontend/index.ts",
     "icon": "🎮",
-    "iconUrl": "./assets/icon.svg",
+    "iconUrl": "./assets/icon/icon.svg",
     "sidebar": true,
     "components": [
         "PlatformerGame"

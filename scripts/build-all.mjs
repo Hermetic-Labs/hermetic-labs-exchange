@@ -246,7 +246,7 @@ async function buildBundle(packageName, verbose = false) {
 
   // Report fixes if any
   if (enforcement.fixes.length > 0 && verbose) {
-    console.log(`   🔧 Auto-fixed: ${enforcement.fixes.join(', ')}`);
+    console.log(`   [FIX] Auto-fixed: ${enforcement.fixes.join(', ')}`);
   }
 
   // If unfixable issues, skip the build
@@ -459,7 +459,9 @@ async function generateCatalog() {
       stripePriceId: prices[pkgName] || null,
       author,
       category,
-      media: [{ type: "image", url: `${AZURE_BASE_URL}/packages/${pkgName}/assets/images/hero.png` }],
+      // Use local path for images (served from public/packages by Vite)
+      // In production, these will be served from GitHub Pages at /hermetic-labs-exchange/packages/
+      media: [{ type: "image", url: `packages/${pkgName}/assets/images/hero.png` }],
       description: manifest.description || "",
       techSpecs,
       links: [{ label: "Documentation", url: "#" }],
@@ -563,7 +565,7 @@ async function main() {
 
   // Run preflight check (unless skipped)
   if (!skipPreflight) {
-    console.log('🔍 Running preflight checks...');
+    console.log('[*] Running preflight checks...');
     console.log('   (run with --skip-preflight to bypass)\n');
   }
 
@@ -576,7 +578,7 @@ async function main() {
     !SKIP_PACKAGES.includes(p) && !p.startsWith('.')
   );
 
-  console.log(`📦 Found ${buildablePackages.length} packages\n`);
+  console.log(`[PKG] Found ${buildablePackages.length} packages\n`);
 
   let bundleSuccess = 0, bundleFailed = 0;
   let zipSuccess = 0, zipFailed = 0;
@@ -584,7 +586,7 @@ async function main() {
   // Build bundles
   if (buildBundles) {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('🔧 Building ESM Bundles (with structure enforcement)...\n');
+    console.log('[FIX] Building ESM Bundles (with structure enforcement)...\n');
 
     let autoFixCount = 0;
     const structureIssues = [];
@@ -599,7 +601,7 @@ async function main() {
 
       if (result.success) {
         const fixNote = result.fixes?.length ? ` [${result.fixes.length} auto-fixed]` : '';
-        console.log(`✅ (${(result.size / 1024).toFixed(1)} KB)${fixNote}`);
+        console.log(`[OK] (${(result.size / 1024).toFixed(1)} KB)${fixNote}`);
         bundleSuccess++;
       } else {
         console.log(`⚠️  ${result.reason}`);
@@ -612,12 +614,12 @@ async function main() {
 
     console.log(`\n   Bundles: ${bundleSuccess} built, ${bundleFailed} skipped`);
     if (autoFixCount > 0) {
-      console.log(`   🔧 Auto-fixes applied: ${autoFixCount}`);
+      console.log(`   [FIX] Auto-fixes applied: ${autoFixCount}`);
     }
 
     // Show structure issues summary
     if (structureIssues.length > 0) {
-      console.log('\n   📋 Structure issues preventing build:');
+      console.log('\n   [LIST] Structure issues preventing build:');
       for (const { pkg, issues } of structureIssues.slice(0, 5)) {
         console.log(`      ${pkg}: ${issues[0]}`);
       }
@@ -630,16 +632,16 @@ async function main() {
   // Create zips
   if (buildZips) {
     console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('📁 Creating ZIP Archives...\n');
+    console.log('[DIR] Creating ZIP Archives...\n');
 
     for (const pkg of buildablePackages) {
       process.stdout.write(`   ${pkg}... `);
       const result = await createZip(pkg);
       if (result.success) {
-        console.log(`✅ (${(result.size / 1024).toFixed(1)} KB)`);
+        console.log(`[OK] (${(result.size / 1024).toFixed(1)} KB)`);
         zipSuccess++;
       } else {
-        console.log(`❌ ${result.reason}`);
+        console.log(`[ERR] ${result.reason}`);
         zipFailed++;
       }
     }
@@ -649,21 +651,21 @@ async function main() {
   // Generate catalog
   if (buildCatalog) {
     console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('📋 Generating Catalog...\n');
+    console.log('[LIST] Generating Catalog...\n');
 
     const catalogResult = await generateCatalog();
-    console.log(`   ✅ catalog.json: ${catalogResult.productCount} products, ${catalogResult.categoryCount} categories`);
-    console.log(`   📁 Output: ${join(PUBLIC_DIR, 'catalog.json')}`);
+    console.log(`   [OK] catalog.json: ${catalogResult.productCount} products, ${catalogResult.categoryCount} categories`);
+    console.log(`   [DIR] Output: ${join(PUBLIC_DIR, 'catalog.json')}`);
   }
 
   // Sync assets
   let assetsSynced = 0;
   if (syncAssetsFlag) {
     console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('🖼️  Syncing Package Assets...\n');
+    console.log('[IMG]️  Syncing Package Assets...\n');
 
     assetsSynced = await syncAssets();
-    console.log(`   ✅ ${assetsSynced} packages synced to public/packages/`);
+    console.log(`   [OK] ${assetsSynced} packages synced to public/packages/`);
   }
 
   // Summary

@@ -173,13 +173,13 @@ async function main() {
   console.log('╚════════════════════════════════════════════════════════════╝\n');
 
   if (fix) {
-    console.log('🔧 Running in FIX mode - will auto-correct fixable issues\n');
+    console.log('[FIX] Running in FIX mode - will auto-correct fixable issues\n');
   }
 
   const packages = await readdir(PACKAGES_DIR);
   const buildablePackages = packages.filter(p => !SKIP.includes(p) && !p.startsWith('.'));
 
-  console.log(`📦 Checking ${buildablePackages.length} packages against _template standard...\n`);
+  console.log(`[PKG] Checking ${buildablePackages.length} packages against _template standard...\n`);
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   const results = [];
@@ -192,17 +192,17 @@ async function main() {
     results.push(result);
 
     if (result.valid) {
-      console.log(`✅ ${pkg}`);
+      console.log(`[OK] ${pkg}`);
       validCount++;
     } else {
-      console.log(`❌ ${pkg}`);
+      console.log(`[ERR] ${pkg}`);
       for (const issue of result.issues) {
-        const icon = issue.fixable ? '🔧' : '⚠️';
+        const icon = issue.fixable ? '[FIX]' : '⚠️';
         console.log(`   ${icon} ${issue.type}: ${issue.file || issue.field || issue.value || issue.module || ''}`);
         issueCount++;
       }
       for (const fixMsg of result.fixes) {
-        console.log(`   ✅ Fixed: ${fixMsg}`);
+        console.log(`   [OK] Fixed: ${fixMsg}`);
         fixedCount++;
       }
     }
@@ -210,11 +210,11 @@ async function main() {
 
   // Summary
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
-  console.log('📊 Summary:\n');
-  console.log(`   ✅ Valid packages:  ${validCount}/${buildablePackages.length}`);
+  console.log('[STAT] Summary:\n');
+  console.log(`   [OK] Valid packages:  ${validCount}/${buildablePackages.length}`);
   console.log(`   ⚠️  Total issues:   ${issueCount}`);
   if (fix) {
-    console.log(`   🔧 Issues fixed:   ${fixedCount}`);
+    console.log(`   [FIX] Issues fixed:   ${fixedCount}`);
   }
 
   // Issue breakdown
@@ -226,7 +226,7 @@ async function main() {
   }
 
   if (Object.keys(issueTypes).length > 0) {
-    console.log('\n📋 Issue breakdown:');
+    console.log('\n[LIST] Issue breakdown:');
     for (const [type, count] of Object.entries(issueTypes).sort((a, b) => b[1] - a[1])) {
       console.log(`   ${type}: ${count}`);
     }
@@ -240,7 +240,7 @@ async function main() {
       csvLines.push(`${r.packageName},${r.valid},${r.issues.map(i => i.type).join(';')}`);
     }
     await writeFile(reportPath, csvLines.join('\n'));
-    console.log(`\n📄 Report written to: ${reportPath}`);
+    console.log(`\n[REPORT] Written to: ${reportPath}`);
   }
 
   console.log('');
@@ -254,7 +254,7 @@ async function main() {
     console.log('╚════════════════════════════════════════════════════════════╝\n');
   } else if (validCount === buildablePackages.length) {
     console.log('╔════════════════════════════════════════════════════════════╗');
-    console.log('║  ✅ ALL PACKAGES CONFORM TO STANDARD                        ║');
+    console.log('║  [OK] ALL PACKAGES CONFORM TO STANDARD                        ║');
     console.log('╚════════════════════════════════════════════════════════════╝\n');
   }
 }

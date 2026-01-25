@@ -8,7 +8,7 @@
     "types": "./frontend/types/index.ts",
     "backend": "./backend/routes.py",
     "icon": "🎤",
-    "iconUrl": "./assets/icon.svg",
+    "iconUrl": "./assets/icon/icon.svg",
     "sidebar": true,
     "components": [
         "VoiceConnectorPortal"

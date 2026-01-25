@@ -59,7 +59,7 @@ async function main() {
   for (const pkg of buildablePackages) {
     const result = await fixPackage(pkg);
     if (result.fixed) {
-      console.log(`✅ ${pkg} - removed duplicate export`);
+      console.log(`[OK] ${pkg} - removed duplicate export`);
       fixed++;
     } else if (result.unchanged) {
       console.log(`⏭️  ${pkg} - no changes needed`);
@@ -67,7 +67,7 @@ async function main() {
     }
   }
 
-  console.log(`\n📊 Fixed: ${fixed}, Unchanged: ${unchanged}\n`);
+  console.log(`\n[STAT] Fixed: ${fixed}, Unchanged: ${unchanged}\n`);
 }
 
 main().catch(console.error);

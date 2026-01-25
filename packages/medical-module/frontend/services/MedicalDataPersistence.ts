@@ -135,10 +135,6 @@ class MedicalDataPersistenceService extends EventEmitter<PersistenceEvents> {
     this.stationId = config.stationId;
     this.currentUserId = config.userId;
 
-    console.log('🏥 Initializing Medical Data Persistence...');
-    console.log(`   Station ID: ${this.stationId}`);
-    console.log(`   Server URL: ${this.hospitalServerUrl || '(local-only mode)'}`);
-
     try {
       await this.openDatabase();
       this.startSyncProcess();
@@ -146,10 +142,8 @@ class MedicalDataPersistenceService extends EventEmitter<PersistenceEvents> {
 
       await this.logAudit('create', 'system', 'audit_log',
         `Persistence service initialized for station ${this.stationId}`);
-
-      console.log('✅ Medical Data Persistence initialized');
     } catch (error) {
-      console.error('❌ Failed to initialize persistence:', error);
+      console.error('Failed to initialize persistence:', error);
       throw error;
     }
   }
@@ -182,8 +176,7 @@ class MedicalDataPersistenceService extends EventEmitter<PersistenceEvents> {
 
     // 1. Save locally first (this is the critical path)
     await this.saveToLocal(record);
-    console.log(`💾 Record saved locally: ${record.id} (${type})`);
-
+    
     // 2. Queue for server sync
     await this.queueForSync(record.id, 'create', options.priority || 'normal');
 
@@ -386,15 +379,13 @@ class MedicalDataPersistenceService extends EventEmitter<PersistenceEvents> {
   private setupConnectionListeners(): void {
     window.addEventListener('online', () => {
       this.isOnline = true;
-      console.log('🌐 Connection restored - starting sync');
-      this.emit('connection:online');
+            this.emit('connection:online');
       this.processSyncQueue();
     });
 
     window.addEventListener('offline', () => {
       this.isOnline = false;
-      console.log('📴 Connection lost - data will be saved locally');
-      this.emit('connection:offline');
+            this.emit('connection:offline');
     });
   }
 
@@ -608,8 +599,7 @@ class MedicalDataPersistenceService extends EventEmitter<PersistenceEvents> {
     this.emit('sync:completed', { synced, failed });
 
     if (synced > 0 || failed > 0) {
-      console.log(`🔄 Sync complete: ${synced} synced, ${failed} failed`);
-    }
+          }
 
     return { synced, failed };
   }

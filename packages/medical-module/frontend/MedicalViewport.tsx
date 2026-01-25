@@ -834,13 +834,17 @@ export function MedicalViewport() {
 
         function animate() {
             if (!sceneRef.current) return;
+
+            const { controls, renderer, scene, camera, macroMeshes, microMeshes } = sceneRef.current;
+
+            // Guard against lost WebGL context or disposed renderer
+            if (!renderer.domElement || renderer.getContext().isContextLost()) return;
+
             sceneRef.current.animationId = requestAnimationFrame(animate);
 
             const now = performance.now();
             const delta = (now - lastTime) / 1000;
             lastTime = now;
-
-            const { controls, renderer, scene, camera, macroMeshes, microMeshes } = sceneRef.current;
             const mode = currentModeRef.current;
             const layer = currentLayerRef.current;
 
@@ -875,9 +879,33 @@ export function MedicalViewport() {
         return () => {
             window.removeEventListener('resize', handleResize);
             renderer.domElement.removeEventListener('click', handleCanvasClick);
+
             if (sceneRef.current) {
+                // Cancel animation first to prevent render calls during disposal
                 cancelAnimationFrame(sceneRef.current.animationId);
+
+                // Dispose all materials and geometries in the scene
+                sceneRef.current.scene.traverse((object) => {
+                    if (object instanceof THREE.Mesh) {
+                        if (object.geometry) {
+                            object.geometry.dispose();
+                        }
+                        if (object.material) {
+                            if (Array.isArray(object.material)) {
+                                object.material.forEach(mat => mat.dispose());
+                            } else {
+                                object.material.dispose();
+                            }
+                        }
+                    }
+                });
+
+                // Clear the scene
+                sceneRef.current.scene.clear();
+
+                // Dispose renderer last
                 renderer.dispose();
+
                 if (container && renderer.domElement && container.contains(renderer.domElement)) {
                     container.removeChild(renderer.domElement);
                 }

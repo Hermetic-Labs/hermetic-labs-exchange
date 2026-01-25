@@ -295,7 +295,7 @@ async function main() {
     !SKIP_PACKAGES.includes(p) && !p.startsWith('.')
   );
 
-  console.log(`📦 Checking ${buildablePackages.length} packages...\n`);
+  console.log(`[PKG] Checking ${buildablePackages.length} packages...\n`);
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   let totalErrors = 0;
@@ -307,19 +307,19 @@ async function main() {
     results.packages.push(result);
 
     if (result.hasErrors) {
-      console.log(`❌ ${pkg}`);
+      console.log(`[ERR] ${pkg}`);
       totalErrors += result.issues.filter(i => i.type === 'error').length;
     } else if (result.hasWarnings) {
       console.log(`⚠️  ${pkg}`);
       totalWarnings += result.issues.filter(i => i.type === 'warning').length;
     } else {
-      console.log(`✅ ${pkg}`);
+      console.log(`[OK] ${pkg}`);
       passedCount++;
     }
 
     // Print issues for this package
     for (const issue of result.issues) {
-      const icon = issue.type === 'error' ? '   ❌' : '   ⚠️';
+      const icon = issue.type === 'error' ? '   [ERR]' : '   ⚠️';
       console.log(`${icon} ${issue.msg}`);
     }
 
@@ -328,15 +328,15 @@ async function main() {
 
   // Summary
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
-  console.log('📊 Summary:\n');
-  console.log(`   ✅ Passed:   ${passedCount}`);
+  console.log('[STAT] Summary:\n');
+  console.log(`   [OK] Passed:   ${passedCount}`);
   console.log(`   ⚠️  Warnings: ${totalWarnings}`);
-  console.log(`   ❌ Errors:   ${totalErrors}`);
+  console.log(`   [ERR] Errors:   ${totalErrors}`);
   console.log('');
 
   if (totalErrors > 0) {
     console.log('╔════════════════════════════════════════════════════════════╗');
-    console.log('║  ❌ PREFLIGHT FAILED - Fix errors before building          ║');
+    console.log('║  [ERR] PREFLIGHT FAILED - Fix errors before building          ║');
     console.log('╚════════════════════════════════════════════════════════════╝\n');
     process.exit(1);
   } else if (totalWarnings > 0) {
@@ -346,7 +346,7 @@ async function main() {
     process.exit(0);
   } else {
     console.log('╔════════════════════════════════════════════════════════════╗');
-    console.log('║  ✅ ALL PACKAGES PASSED - Ready to build                   ║');
+    console.log('║  [OK] ALL PACKAGES PASSED - Ready to build                   ║');
     console.log('╚════════════════════════════════════════════════════════════╝\n');
     process.exit(0);
   }

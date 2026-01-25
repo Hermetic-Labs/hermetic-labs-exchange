@@ -11,7 +11,7 @@
     "prefix": "/hr"
   },
   "icon": "👥",
-  "iconUrl": "./assets/icon.svg",
+  "iconUrl": "./assets/icon/icon.svg",
   "sidebar": true,
   "components": [
     "HRPortal",

@@ -106,7 +106,7 @@ class CortexServiceMedical {
   public async initialize(): Promise<void> {
     if (this.isInitialized) return;
 
-    console.log('🏥 Initializing EVE Medical Cortex (Independent Service)...');
+    console.log('[Medical] Initializing EVE Medical Cortex (Independent Service)...');
 
     try {
       // Create medical cortex directory structure
@@ -158,13 +158,13 @@ class CortexServiceMedical {
       const integrationManager = (window as any).__EVE_CORTEX_INTEGRATION_MANAGER__;
       if (integrationManager && typeof integrationManager.registerMedicalCortex === 'function') {
         integrationManager.registerMedicalCortex(this);
-        console.log('🏥 Medical Cortex registered with host Integration Manager');
+        console.log('[Medical] Medical Cortex registered with host Integration Manager');
       } else {
-        console.log('🏥 Medical Cortex running in standalone mode (no host integration manager)');
+        console.log('[Medical] Medical Cortex running in standalone mode (no host integration manager)');
       }
     } catch (error) {
       // Standalone mode - no host app available
-      console.log('🏥 Medical Cortex running in standalone mode');
+      console.log('[Medical] Medical Cortex running in standalone mode');
     }
   }
 
@@ -227,7 +227,7 @@ class CortexServiceMedical {
       }
     });
 
-    console.log(`🏥 Medical device registered: ${deviceName} (${category})`);
+    console.log(`[Medical] Medical device registered: ${deviceName} (${category})`);
   }
 
   /**
@@ -281,7 +281,7 @@ class CortexServiceMedical {
       }
     });
 
-    console.log(`📋 Medical template registered: ${templateName} (${category})`);
+    console.log(`[Medical] Medical template registered: ${templateName} (${category})`);
   }
 
   /**
@@ -521,7 +521,7 @@ class CortexServiceMedical {
       }
     });
 
-    console.log(`🏥 Medical thread registered: ${threadId} (${threadType})`);
+    console.log(`[Medical] Medical thread registered: ${threadId} (${threadType})`);
   }
 
   public async broadcastEvent(event: CortexEvent): Promise<void> {
@@ -548,7 +548,7 @@ class CortexServiceMedical {
     this.notifyEventListeners(event);
     await this.writeHeartbeatUpdate();
 
-    console.log(`🏥 Medical event broadcasted: ${event.type} from ${event.thread_id}`);
+    console.log(`[Medical] Medical event broadcasted: ${event.type} from ${event.thread_id}`);
   }
 
   public getSituationalMode(): SituationalMode {
@@ -559,7 +559,7 @@ class CortexServiceMedical {
     const previousMode = this.situationalMode;
     this.situationalMode = mode;
 
-    console.log(`🏥 Medical situational mode changed: ${previousMode} → ${mode}`);
+    console.log(`[Medical] Medical situational mode changed: ${previousMode} → ${mode}`);
 
     await this.broadcastEvent({
       id: this.generateEventId(),
@@ -600,7 +600,7 @@ class CortexServiceMedical {
     context: any;
     timestamp: string;
   }): void {
-    console.log(`🏥 Medical Cortex received handoff notification: ${notification.from} → ${notification.to}`);
+    console.log(`[Medical] Medical Cortex received handoff notification: ${notification.from} → ${notification.to}`);
 
     // Broadcast handoff event to listeners
     this.broadcastEvent({
@@ -651,7 +651,7 @@ class CortexServiceMedical {
 
     this.stopBackgroundProcesses();
     await this.writeHeartbeatUpdate();
-    console.log('🏥 Medical Cortex service cleanup completed');
+    console.log('[Medical] Medical Cortex service cleanup completed');
   }
 
   /**
@@ -662,7 +662,7 @@ class CortexServiceMedical {
       const integrationManager = (window as any).__EVE_CORTEX_INTEGRATION_MANAGER__;
       if (integrationManager && typeof integrationManager.unregisterMedicalCortex === 'function') {
         integrationManager.unregisterMedicalCortex();
-        console.log('🏥 Medical Cortex unregistered from host Integration Manager');
+        console.log('[Medical] Medical Cortex unregistered from host Integration Manager');
       }
     } catch {
       // Ignore errors during cleanup
@@ -682,7 +682,7 @@ class CortexServiceMedical {
       }
     }, 3000); // Medical patch updates every 3 seconds (slower for compliance)
 
-    console.log('🏥 Medical patch file crawler started (3s intervals)');
+    console.log('[Medical] Medical patch file crawler started (3s intervals)');
   }
 
   private startThresholdMonitor(): void {
@@ -697,7 +697,7 @@ class CortexServiceMedical {
       }
     }, 15000); // Medical threshold monitoring every 15 seconds
 
-    console.log('🏥 Medical threshold monitor started (15s intervals)');
+    console.log('[Medical] Medical threshold monitor started (15s intervals)');
   }
 
   private startDeviceMonitor(): void {
@@ -712,7 +712,7 @@ class CortexServiceMedical {
       }
     }, 5000); // Device monitoring every 5 seconds
 
-    console.log('🏥 Medical device monitor started (5s intervals)');
+    console.log('[Medical] Medical device monitor started (5s intervals)');
   }
 
   private startComplianceMonitor(): void {
@@ -727,7 +727,7 @@ class CortexServiceMedical {
       }
     }, 60000); // Compliance check every minute
 
-    console.log('🏥 Medical compliance monitor started (60s intervals)');
+    console.log('[Medical] Medical compliance monitor started (60s intervals)');
   }
 
   private stopBackgroundProcesses(): void {
@@ -926,7 +926,7 @@ class CortexServiceMedical {
   }
 
   private async initializeCortexData(): Promise<void> {
-    console.log('🏥 Medical cortex data initialized');
+    console.log('[Medical] Medical cortex data initialized');
   }
 
   private async loadMedicalDevices(): Promise<void> {
@@ -943,9 +943,9 @@ class CortexServiceMedical {
         }
       }
 
-      console.log(`🏥 Loaded ${this.medicalDevices.size} medical devices`);
+      console.log(`[Medical] Loaded ${this.medicalDevices.size} medical devices`);
     } catch (error) {
-      console.log('🏥 No existing medical devices found (first run)');
+      console.log('[Medical] No existing medical devices found (first run)');
     }
   }
 
@@ -963,22 +963,22 @@ class CortexServiceMedical {
         }
       }
 
-      console.log(`🏥 Loaded ${this.medicalTemplates.size} medical templates`);
+      console.log(`[Medical] Loaded ${this.medicalTemplates.size} medical templates`);
     } catch (error) {
-      console.log('🏥 No existing medical templates found (first run)');
+      console.log('[Medical] No existing medical templates found (first run)');
     }
   }
 
   private async loadNeuralPathways(): Promise<void> {
-    console.log('🏥 Medical neural pathways loaded');
+    console.log('[Medical] Medical neural pathways loaded');
   }
 
   private async loadPatchFiles(): Promise<void> {
-    console.log('🏥 Medical patch files loaded');
+    console.log('[Medical] Medical patch files loaded');
   }
 
   private async loadPersonalityThreads(): Promise<void> {
-    console.log('🏥 Medical personality threads loaded');
+    console.log('[Medical] Medical personality threads loaded');
   }
 }
 

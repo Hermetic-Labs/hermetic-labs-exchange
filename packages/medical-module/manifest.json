@@ -7,7 +7,7 @@
     "entry": "./frontend/index.ts",
     "backend": "./backend/routes.py",
     "icon": "🏥",
-    "iconUrl": "./assets/icon.svg",
+    "iconUrl": "./assets/icon/icon.svg",
     "sidebar": true,
     "documentation": {
         "card": {
@@ -89,8 +89,11 @@
             "clsx",
             "tailwind-merge",
             "three",
-            "@types/three"
+            "@types/three",
+            "stream"
         ],
         "packages": []
-    }
+    },
+    "bundle": "/bundles/medical-module.bundle.js",
+    "bundleVersion": "1769192551552"
 }

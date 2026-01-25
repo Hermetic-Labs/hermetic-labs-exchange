@@ -128,20 +128,20 @@ async function main() {
     try {
       const result = await fixPackageExports(pkg);
       if (result.fixed) {
-        console.log(`✅ ${pkg} - added default export for ${result.component}`);
+        console.log(`[OK] ${pkg} - added default export for ${result.component}`);
         fixed++;
       } else if (result.skipped) {
         console.log(`⏭️  ${pkg} - ${result.reason}`);
         skipped++;
       }
     } catch (err) {
-      console.log(`❌ ${pkg} - ${err.message}`);
+      console.log(`[ERR] ${pkg} - ${err.message}`);
       errors++;
     }
   }
 
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
-  console.log(`📊 Results: ${fixed} fixed, ${skipped} skipped, ${errors} errors\n`);
+  console.log(`[STAT] Results: ${fixed} fixed, ${skipped} skipped, ${errors} errors\n`);
 }
 
 main().catch(console.error);

@@ -67,13 +67,13 @@ async function buildPackage(packageName) {
 
   // Check package exists
   if (!existsSync(packageDir)) {
-    console.error(`❌ Package not found: ${packageName}`);
+    console.error(`[ERR] Package not found: ${packageName}`);
     return false;
   }
 
   // Check manifest exists
   if (!existsSync(manifestPath)) {
-    console.error(`❌ No manifest.json in ${packageName}`);
+    console.error(`[ERR] No manifest.json in ${packageName}`);
     return false;
   }
 
@@ -83,11 +83,11 @@ async function buildPackage(packageName) {
   const entryPath = resolve(packageDir, entryPoint);
 
   if (!existsSync(entryPath)) {
-    console.error(`❌ Entry point not found: ${entryPath}`);
+    console.error(`[ERR] Entry point not found: ${entryPath}`);
     return false;
   }
 
-  console.log(`\n📦 Building ${packageName}...`);
+  console.log(`\n[PKG] Building ${packageName}...`);
   console.log(`   Entry: ${entryPoint}`);
 
   const outputFileName = `${packageName}.bundle.js`;
@@ -178,13 +178,13 @@ async function buildPackage(packageName) {
     const stats = await stat(outputPath);
     const sizeKB = (stats.size / 1024).toFixed(1);
 
-    console.log(`   ✅ Built: ${outputFileName} (${sizeKB} KB)`);
-    console.log(`   📁 Output: ${outputPath}`);
-    console.log(`   📁 Vault: ${vaultBundlePath}`);
+    console.log(`   [OK] Built: ${outputFileName} (${sizeKB} KB)`);
+    console.log(`   [DIR] Output: ${outputPath}`);
+    console.log(`   [DIR] Vault: ${vaultBundlePath}`);
 
     return true;
   } catch (error) {
-    console.error(`   ❌ Build failed for ${packageName}:`, error.message);
+    console.error(`   [ERR] Build failed for ${packageName}:`, error.message);
     return false;
   }
 }
@@ -202,7 +202,7 @@ async function buildAll() {
     !p.startsWith('.')
   );
 
-  console.log(`\n🏗️  Building ${buildablePackages.length} marketplace packages...\n`);
+  console.log(`\n[BUILD]️  Building ${buildablePackages.length} marketplace packages...\n`);
 
   let success = 0;
   let failed = 0;
@@ -214,10 +214,10 @@ async function buildAll() {
   }
 
   console.log(`\n${'='.repeat(50)}`);
-  console.log(`📊 Build Summary:`);
-  console.log(`   ✅ Success: ${success}`);
-  console.log(`   ❌ Failed: ${failed}`);
-  console.log(`   📁 Output: ${OUTPUT_DIR}`);
+  console.log(`[STAT] Build Summary:`);
+  console.log(`   [OK] Success: ${success}`);
+  console.log(`   [ERR] Failed: ${failed}`);
+  console.log(`   [DIR] Output: ${OUTPUT_DIR}`);
   console.log(`${'='.repeat(50)}\n`);
 
   return failed === 0;

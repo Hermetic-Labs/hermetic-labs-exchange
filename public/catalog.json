@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "generated": "2026-01-22T09:05:05.611Z",
+  "generated": "2026-01-24T00:37:28.596Z",
   "baseUrl": "https://hermeticlabs9f36.blob.core.windows.net/packages",
   "products": [
     {
@@ -26,7 +26,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/aws-s3-connector/assets/images/hero.png"
+          "url": "packages/aws-s3-connector/assets/images/hero.png"
         }
       ],
       "description": "Amazon S3 storage integration with buckets, objects, presigned URLs, and multipart uploads",
@@ -113,7 +113,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/azure-blob-connector/assets/images/hero.png"
+          "url": "packages/azure-blob-connector/assets/images/hero.png"
         }
       ],
       "description": "Azure Blob Storage integration with containers, blobs, and SAS tokens",
@@ -200,7 +200,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/beat-bubble-vr/assets/images/hero.png"
+          "url": "packages/beat-bubble-vr/assets/images/hero.png"
         }
       ],
       "description": "Immersive 3D spherical beat mixer game. Place beats on a spinning sphere inside a VR-ready environment. Features Web Audio API synthesis for kick, snare, hi-hat, bass, and synth sounds. Perfect for music creation and relaxation.",
@@ -291,7 +291,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/fedramp-compliance/assets/images/hero.png"
+          "url": "packages/fedramp-compliance/assets/images/hero.png"
         }
       ],
       "description": "FedRAMP authorization compliance with security controls, continuous monitoring, and documentation",
@@ -378,7 +378,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/fhir-compliance/assets/images/hero.png"
+          "url": "packages/fhir-compliance/assets/images/hero.png"
         }
       ],
       "description": "HL7 FHIR R4 compliance validation, resource management, and healthcare interoperability",
@@ -465,7 +465,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/form-builder/assets/images/hero.png"
+          "url": "packages/form-builder/assets/images/hero.png"
         }
       ],
       "description": "Drag-and-drop form builder with field palette, live preview, form sharing via URL encoding, and form submission handling. Supports text, email, number, date, select, checkbox, radio, textarea, signature, and file upload fields.",
@@ -556,7 +556,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/gcs-connector/assets/images/hero.png"
+          "url": "packages/gcs-connector/assets/images/hero.png"
         }
       ],
       "description": "Google Cloud Storage integration with buckets, objects, and signed URLs",
@@ -643,7 +643,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/globe-viz/assets/images/hero.png"
+          "url": "packages/globe-viz/assets/images/hero.png"
         }
       ],
       "description": "Interactive 3D globe visualization with pluggable data adapters. Supports points, arcs, heatmaps, and flight paths. Perfect for displaying geographic data, network traffic, logistics, and analytics.",
@@ -734,7 +734,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/hipaa-compliance/assets/images/hero.png"
+          "url": "packages/hipaa-compliance/assets/images/hero.png"
         }
       ],
       "description": "HIPAA Privacy Rule compliance with PHI handling, access controls, and audit logging",
@@ -821,7 +821,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/hr-payroll-portal/assets/images/hero.png"
+          "url": "packages/hr-payroll-portal/assets/images/hero.png"
         }
       ],
       "description": "Complete HR management and payroll processing portal. Manage employees, departments, job postings, banking, payroll calculations, pay stubs, and integrations. Full-featured white-label HR solution.",
@@ -912,7 +912,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/iot-connector/assets/images/hero.png"
+          "url": "packages/iot-connector/assets/images/hero.png"
         }
       ],
       "description": "Universal IoT device discovery, protocol handlers (HTTP/WebSocket/MQTT), workflow automation, and safety rules engine for smart home, medical devices, and industrial IoT",
@@ -1003,7 +1003,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/itar-compliance/assets/images/hero.png"
+          "url": "packages/itar-compliance/assets/images/hero.png"
         }
       ],
       "description": "ITAR export control compliance for defense articles and technical data",
@@ -1090,7 +1090,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/lexisnexis-connector/assets/images/hero.png"
+          "url": "packages/lexisnexis-connector/assets/images/hero.png"
         }
       ],
       "description": "LexisNexis legal research integration with document search, case law, and statutes",
@@ -1177,7 +1177,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/medical-module/assets/images/hero.png"
+          "url": "packages/medical-module/assets/images/hero.png"
         }
       ],
       "description": "Complete medical module with bedside assistant, nurse station dashboard, FHIR integration, vitals monitoring, and fall detection. Optimized for Raspberry Pi deployment.",
@@ -1268,7 +1268,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/pci-compliance/assets/images/hero.png"
+          "url": "packages/pci-compliance/assets/images/hero.png"
         }
       ],
       "description": "PCI DSS compliance for payment card security, cardholder data protection, and network security",
@@ -1355,7 +1355,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/plaid-connector/assets/images/hero.png"
+          "url": "packages/plaid-connector/assets/images/hero.png"
         }
       ],
       "description": "Full Plaid integration with Link token flow, transactions, identity, auth, balances, investments, liabilities, and webhooks",
@@ -1445,7 +1445,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/platformer-game/assets/images/hero.png"
+          "url": "packages/platformer-game/assets/images/hero.png"
         }
       ],
       "description": "Classic side-scrolling platformer game in the style of Mario. Features pixel art graphics, coin collection, enemies to defeat, platforms to navigate, and a flag to reach. Mobile-ready with touch controls.",
@@ -1536,7 +1536,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/salesforce-connector/assets/images/hero.png"
+          "url": "packages/salesforce-connector/assets/images/hero.png"
         }
       ],
       "description": "Full Salesforce CRM integration with objects, SOQL queries, bulk operations, and streaming API",
@@ -1623,7 +1623,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/sam-gov-connector/assets/images/hero.png"
+          "url": "packages/sam-gov-connector/assets/images/hero.png"
         }
       ],
       "description": "SAM.gov federal contractor registration and entity search integration",
@@ -1710,7 +1710,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/sap-connector/assets/images/hero.png"
+          "url": "packages/sap-connector/assets/images/hero.png"
         }
       ],
       "description": "SAP ERP integration with RFC, BAPI, OData services, and IDoc support",
@@ -1797,7 +1797,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/sox-compliance/assets/images/hero.png"
+          "url": "packages/sox-compliance/assets/images/hero.png"
         }
       ],
       "description": "Sarbanes-Oxley compliance for financial controls, audit trails, and internal controls",
@@ -1884,7 +1884,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/stock-visualizer/assets/images/hero.png"
+          "url": "packages/stock-visualizer/assets/images/hero.png"
         }
       ],
       "description": "Interactive 3D candlestick chart with real-time strategy coding. Write trading strategies in a simple DSL, see buy/sell signals visualized on the chart. Supports 2D/3D views, SMA/EMA indicators, and timeline scrubbing.",
@@ -1975,7 +1975,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/stripe-connector/assets/images/hero.png"
+          "url": "packages/stripe-connector/assets/images/hero.png"
         }
       ],
       "description": "Stripe payment integration with charges, subscriptions, customers, and webhooks",
@@ -2062,7 +2062,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/usaspending-connector/assets/images/hero.png"
+          "url": "packages/usaspending-connector/assets/images/hero.png"
         }
       ],
       "description": "USASpending.gov federal spending data integration for awards, agencies, and recipients",
@@ -2149,7 +2149,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/video-narration-component/assets/images/hero.png"
+          "url": "packages/video-narration-component/assets/images/hero.png"
         }
       ],
       "description": "Timeline-based video editor with TTS narration. Drop a script, chunk it, assign voices and speeds per chunk, overlay on video, and export. Supports configurable TTS endpoints (Kokoro compatible).",
@@ -2240,7 +2240,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/voice-connector/assets/images/hero.png"
+          "url": "packages/voice-connector/assets/images/hero.png"
         }
       ],
       "description": "Voice recognition, command processing, and voice-to-reflex-card integration for hands-free operation",
@@ -2327,7 +2327,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/vr-spatial-engine/assets/images/hero.png"
+          "url": "packages/vr-spatial-engine/assets/images/hero.png"
         }
       ],
       "description": "VR/XR capability component - enables VR mode across EVE-OS when installed",
@@ -2417,7 +2417,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/vrm-companion/assets/images/hero.png"
+          "url": "packages/vrm-companion/assets/images/hero.png"
         }
       ],
       "description": "3D VRM avatar companion with lip-syncing, phoneme-driven animation, and EVE Core integration. Can swap EVE's sphere representation with a full VRM character.",
@@ -2508,7 +2508,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/westlaw-connector/assets/images/hero.png"
+          "url": "packages/westlaw-connector/assets/images/hero.png"
         }
       ],
       "description": "Westlaw legal research integration with KeyCite, documents, and statutes",
@@ -2595,7 +2595,7 @@
       "media": [
         {
           "type": "image",
-          "url": "https://hermeticlabs9f36.blob.core.windows.net/packages/packages/workday-connector/assets/images/hero.png"
+          "url": "packages/workday-connector/assets/images/hero.png"
         }
       ],
       "description": "Workday HCM integration with workers, positions, organizations, and payroll",

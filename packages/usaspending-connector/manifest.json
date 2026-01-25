@@ -8,7 +8,7 @@
     "backend": "./backend/routes.py",
     "types": "./frontend/types/index.ts",
     "icon": "💵",
-    "iconUrl": "./assets/icon.svg",
+    "iconUrl": "./assets/icon/icon.svg",
     "sidebar": true,
     "components": [
         "USASpendingConnector",

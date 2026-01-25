@@ -370,7 +370,7 @@ class DevPortalService:
             "displayName": options.display_name or self._to_display_name(options.package_name),
             "description": options.description or f"Generated package containing {len(elements)} elements from {', '.join(source_packages)}",
             "entry": "./frontend/index.ts",
-            "icon": options.icon or "📦",
+            "icon": options.icon or "[PKG]",
             "sidebar": True,
             "components": component_names,
             "permissions": [],
