@@ -77,7 +77,7 @@ export function AuthPage() {
           <div>
             <label className="block text-sm text-gray-400 mb-1">Email</label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
               <input
                 type="email"
                 value={email}
@@ -91,7 +91,7 @@ export function AuthPage() {
           <div>
             <label className="block text-sm text-gray-400 mb-1">Password</label>
             <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
               <input
                 type="password"
                 value={password}
@@ -106,7 +106,7 @@ export function AuthPage() {
             <div>
               <label className="block text-sm text-gray-400 mb-1">Confirm Password</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
                 <input
                   type="password"
                   value={confirmPassword}

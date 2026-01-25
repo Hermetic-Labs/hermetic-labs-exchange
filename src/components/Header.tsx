@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { Search, ShoppingCart, User, ChevronDown, Menu, X, LogOut, Library, Wrench, Store, Filter, Star } from 'lucide-react';
+import { Search, ShoppingCart, User, ChevronDown, Menu, X, LogOut, Library, Wrench, Store, Filter, Star, Settings } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 type SortOption = 'popular' | 'newest' | 'price-low' | 'price-high' | 'rating';
@@ -225,6 +225,13 @@ export function Header() {
                         {user.email}
                       </div>
                       <Link
+                        to="/account"
+                        onClick={() => setShowUserMenu(false)}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors flex items-center gap-2"
+                      >
+                        <Settings className="w-4 h-4" /> Account Settings
+                      </Link>
+                      <Link
                         to="/library"
                         onClick={() => setShowUserMenu(false)}
                         className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors flex items-center gap-2"
@@ -243,7 +250,7 @@ export function Header() {
                           logout();
                           setShowUserMenu(false);
                         }}
-                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors flex items-center gap-2"
+                        className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyber-pink hover:bg-white/5 rounded transition-colors flex items-center gap-2"
                       >
                         <LogOut className="w-4 h-4" /> Sign Out
                       </button>

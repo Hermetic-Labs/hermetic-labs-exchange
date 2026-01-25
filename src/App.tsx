@@ -5,6 +5,7 @@ import { ProductPage } from './pages/ProductPage';
 import { AuthorPage } from './pages/AuthorPage';
 import { SuccessPage } from './pages/SuccessPage';
 import { AuthPage } from './pages/AuthPage';
+import { AccountPage } from './pages/AccountPage';
 import { LibraryPage } from './pages/LibraryPage';
 import { SellerDashboardPage } from './pages/SellerDashboardPage';
 import { AuthProvider } from './context/AuthContext';
@@ -21,6 +22,7 @@ function App() {
             <Route path="/author/:id" element={<AuthorPage />} />
             <Route path="/success" element={<SuccessPage />} />
             <Route path="/auth" element={<AuthPage />} />
+            <Route path="/account" element={<AccountPage />} />
             <Route path="/library" element={<LibraryPage />} />
             <Route path="/seller" element={<SellerDashboardPage />} />
           </Routes>

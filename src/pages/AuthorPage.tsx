@@ -2,9 +2,8 @@ import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchAuthorById, fetchProducts } from '../api/exchange';
 import { Author, Product } from '../types';
-import { upcomingProducts } from '../data/mockData'; // Keep upcoming from mock for now
 import { ProductCard } from '../components/ProductCard';
-import { Twitter, Globe, MessageCircle, UserPlus, Mail, Calendar, Loader2 } from 'lucide-react';
+import { Twitter, Globe, MessageCircle, UserPlus, Mail, Loader2 } from 'lucide-react';
 
 export function AuthorPage() {
   const { id } = useParams();
@@ -58,7 +57,6 @@ export function AuthorPage() {
   }
 
   const authorProducts = products.filter((p) => p.author.id === author.id);
-  const authorUpcoming = upcomingProducts.filter((p) => p.author.id === author.id);
 
   return (
     <div className="min-h-screen pt-20 pb-12">
@@ -150,31 +148,6 @@ export function AuthorPage() {
             </div>
           )}
         </section>
-
-        {/* Upcoming Releases */}
-        {authorUpcoming.length > 0 && (
-          <section>
-            <h2 className="section-title mb-6">Upcoming Releases</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {authorUpcoming.map((item) => (
-                <div key={item.id} className="cyber-card p-6">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="text-lg font-medium text-white mb-2">{item.title}</h3>
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <Calendar className="w-4 h-4" />
-                        <span>Expected: {item.releaseDate}</span>
-                      </div>
-                    </div>
-                    <span className="px-3 py-1 bg-cyber-purple/20 text-cyber-purple text-xs font-medium rounded">
-                      COMING SOON
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
       </div>
     </div>
   );

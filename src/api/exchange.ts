@@ -2,13 +2,12 @@
  * Exchange API Client
  *
  * In development: Uses local catalog.json (public/catalog.json)
- * In production: Fetches from Azure Blob Storage, falls back to GitHub Pages
+ * In production: Fetches from Azure Blob Storage, falls back to GitHub Pages static catalog
  */
 
 import { Product, Category, Author } from '../types';
-import { products as mockProducts, categories as mockCategories, authors as mockAuthors } from '../data/mockData';
 
-// Local catalog URL (for development - served by Vite)
+// Local catalog URL (for development - served by Vite, for production - GitHub Pages)
 const LOCAL_CATALOG_URL = `${import.meta.env.BASE_URL}catalog.json`;
 
 // Azure Blob Storage URL (for production)
@@ -37,15 +36,15 @@ function isCacheValid(): boolean {
 
 /**
  * Fetch and cache the entire catalog
- * DEV: Local catalog.json first, then mock data
- * PROD: Azure first, then local, then mock data
+ * DEV: Local catalog.json
+ * PROD: Azure first, then GitHub Pages static catalog
  */
 async function fetchCatalog(): Promise<Catalog> {
   if (catalogCache && isCacheValid()) {
     return catalogCache;
   }
 
-  // In development, try local catalog first
+  // In development, use local catalog
   if (IS_DEV) {
     try {
       console.log('[Exchange] DEV MODE - Fetching local catalog.json...');
@@ -59,11 +58,11 @@ async function fetchCatalog(): Promise<Catalog> {
         return catalog;
       }
     } catch (error) {
-      console.warn('[Exchange] Local catalog unavailable:', error);
+      console.error('[Exchange] Failed to load local catalog:', error);
     }
   }
 
-  // In production (or if local fails), try Azure
+  // In production, try Azure first
   if (!IS_DEV) {
     try {
       console.log('[Exchange] Fetching catalog from Azure...');
@@ -77,36 +76,28 @@ async function fetchCatalog(): Promise<Catalog> {
         return catalog;
       }
     } catch (error) {
-      console.warn('[Exchange] Azure catalog unavailable:', error);
+      console.warn('[Exchange] Azure catalog unavailable, trying GitHub Pages:', error);
     }
 
-    // Fallback to local catalog (GitHub Pages deployment)
+    // Fallback to GitHub Pages static catalog
     try {
-      console.log('[Exchange] Trying local catalog fallback...');
+      console.log('[Exchange] Fetching catalog from GitHub Pages...');
       const response = await fetch(LOCAL_CATALOG_URL);
 
       if (response.ok) {
         const catalog: Catalog = await response.json();
         catalogCache = catalog;
         cacheTimestamp = Date.now();
-        console.log(`[Exchange] Loaded ${catalog.products?.length || 0} products from local catalog`);
+        console.log(`[Exchange] Loaded ${catalog.products?.length || 0} products from GitHub Pages`);
         return catalog;
       }
     } catch (error) {
-      console.warn('[Exchange] Local catalog unavailable:', error);
+      console.error('[Exchange] GitHub Pages catalog unavailable:', error);
     }
   }
 
-  // Final fallback to mock data
-  console.warn('[Exchange] Using mock data');
-  return {
-    version: '0.0.0',
-    generated: new Date().toISOString(),
-    baseUrl: '',
-    products: mockProducts,
-    categories: mockCategories,
-    authors: mockAuthors,
-  };
+  // No fallback - throw error if catalog unavailable
+  throw new Error('Catalog unavailable. Please check your connection and try again.');
 }
 
 /**
@@ -284,6 +275,9 @@ const AUTH_USER_KEY = 'hermetic_auth_user';
 export interface AuthUser {
   id: string;
   email: string;
+  displayName?: string;
+  avatar?: string;
+  bio?: string;
 }
 
 export interface LibraryItem {
