@@ -142,11 +142,14 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero Carousel */}
+      {/* Title and Hero Carousel */}
       {!activeCategory && !searchQuery && (
         <section className="py-8 px-4">
           <div className="max-w-7xl mx-auto">
-            <HeroCarousel />
+            <h1 className="text-4xl md:text-6xl font-bold text-cyber-green text-glow-green text-center mb-8">
+              Hermetic Labs Exchange
+            </h1>
+            <HeroCarousel products={popularProducts} />
           </div>
         </section>
       )}
