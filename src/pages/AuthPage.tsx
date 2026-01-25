@@ -83,7 +83,6 @@ export function AuthPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="cyber-input w-full pl-10"
-                placeholder="you@example.com"
                 autoComplete="email"
               />
             </div>
@@ -98,7 +97,6 @@ export function AuthPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="cyber-input w-full pl-10"
-                placeholder="••••••••"
                 autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
               />
             </div>
@@ -114,7 +112,6 @@ export function AuthPage() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   className="cyber-input w-full pl-10"
-                  placeholder="••••••••"
                   autoComplete="new-password"
                 />
               </div>

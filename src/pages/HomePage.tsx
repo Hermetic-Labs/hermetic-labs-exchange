@@ -6,10 +6,17 @@ import { fetchProducts, fetchCategories } from '../api/exchange';
 import { Product, Category } from '../types';
 import { ChevronRight, Zap, Clock, Loader2 } from 'lucide-react';
 
+type SortOption = 'popular' | 'newest' | 'price-low' | 'price-high' | 'rating';
+
 export function HomePage() {
   const [searchParams] = useSearchParams();
   const categoryFilter = searchParams.get('category');
   const searchQuery = searchParams.get('search');
+
+  // Read filter state from URL (set by Header filter dropdown)
+  const currentSort = (searchParams.get('sort') as SortOption) || 'popular';
+  const freeOnly = searchParams.get('free') === 'true';
+  const minRating = parseInt(searchParams.get('rating') || '0', 10);
 
   const [activeCategory, setActiveCategory] = useState<string | null>(categoryFilter);
   const [products, setProducts] = useState<Product[]>([]);
@@ -63,33 +70,21 @@ export function HomePage() {
       );
     }
 
-    // Price filters
-    if (filters.freeOnly) {
+    // Price filter (free only from URL)
+    if (freeOnly) {
       filtered = filtered.filter((p) => p.price === 0);
-    } else {
-      if (filters.minPrice !== null) {
-        filtered = filtered.filter((p) => p.price >= filters.minPrice!);
-      }
-      if (filters.maxPrice !== null) {
-        filtered = filtered.filter((p) => p.price <= filters.maxPrice!);
-      }
     }
 
-    // Rating filter
-    if (filters.minRating > 0) {
-      filtered = filtered.filter((p) => p.rating >= filters.minRating);
+    // Rating filter from URL
+    if (minRating > 0) {
+      filtered = filtered.filter((p) => p.rating >= minRating);
     }
 
-    // Sorting
-    switch (filters.sort) {
+    // Sorting from URL
+    switch (currentSort) {
       case 'newest':
         filtered = [...filtered].sort((a, b) =>
           new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
-        );
-        break;
-      case 'oldest':
-        filtered = [...filtered].sort((a, b) =>
-          new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime()
         );
         break;
       case 'price-low':
@@ -112,7 +107,7 @@ export function HomePage() {
     }
 
     return filtered;
-  }, [products, activeCategory, searchQuery, filters]);
+  }, [products, activeCategory, searchQuery, currentSort, freeOnly, minRating]);
 
   const featuredProducts = useMemo(() => products.filter((p) => p.featured), [products]);
   const newProducts = useMemo(() => products.filter((p) => p.isNew), [products]);
