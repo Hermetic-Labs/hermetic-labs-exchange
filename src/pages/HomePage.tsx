@@ -5,7 +5,7 @@ import { HeroCarousel } from '../components/HeroCarousel';
 import { SearchFilters, FilterState, defaultFilters } from '../components/SearchFilters';
 import { fetchProducts, fetchCategories } from '../api/exchange';
 import { Product, Category } from '../types';
-import { ChevronRight, Sparkles, Zap, Clock, Loader2 } from 'lucide-react';
+import { ChevronRight, Zap, Clock, Loader2 } from 'lucide-react';
 
 export function HomePage() {
   const [searchParams] = useSearchParams();
@@ -158,35 +158,9 @@ export function HomePage() {
         </section>
       )}
 
-      {/* Categories Grid */}
-      <section className="py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="section-title flex items-center gap-2">
-              <Sparkles className="w-4 h-4" /> Categories
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(activeCategory === cat.name ? null : cat.name)}
-                className={`cyber-card p-4 text-center transition-all ${activeCategory === cat.name
-                  ? 'border-cyber-green shadow-neon-green'
-                  : 'hover:border-cyber-cyan/50'
-                  }`}
-              >
-                <span className="block text-sm font-medium text-white mb-1">{cat.name}</span>
-                <span className="text-xs text-gray-500">{cat.productCount}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Products Carousel */}
+      {/* Featured Products - Just Below Carousel */}
       {!activeCategory && !searchQuery && featuredProducts.length > 0 && (
-        <section className="py-12 px-4">
+        <section className="py-8 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-between mb-6">
               <h2 className="section-title flex items-center gap-2">

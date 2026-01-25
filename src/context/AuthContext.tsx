@@ -10,6 +10,7 @@ import {
 interface AuthContextType {
   user: AuthUser | null;
   loading: boolean;
+  isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
   logout: () => void;
@@ -43,8 +44,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
   };
 
+  const isAuthenticated = user !== null;
+
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, isAuthenticated, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );

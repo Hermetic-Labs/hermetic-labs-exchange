@@ -1,23 +1,67 @@
-import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Search, ShoppingCart, User, ChevronDown, Menu, X, LogOut, Library, Wrench, Store } from 'lucide-react';
-import { fetchCategories } from '../api/exchange';
-import { Category } from '../types';
+import { useState } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Search, ShoppingCart, User, ChevronDown, Menu, X, LogOut, Library, Wrench, Store, Filter, Star } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
+type SortOption = 'popular' | 'newest' | 'price-low' | 'price-high' | 'rating';
+
 export function Header() {
-  const [showCategories, setShowCategories] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
 
-  // Fetch categories on mount
-  useEffect(() => {
-    fetchCategories().then(setCategories).catch(console.error);
-  }, []);
+  const currentSort = (searchParams.get('sort') as SortOption) || 'popular';
+  const freeOnly = searchParams.get('free') === 'true';
+  const minRating = parseInt(searchParams.get('rating') || '0', 10);
+
+  const handleSortChange = (sort: SortOption) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('sort', sort);
+    setSearchParams(params);
+  };
+
+  const handleFreeToggle = () => {
+    const params = new URLSearchParams(searchParams);
+    if (freeOnly) {
+      params.delete('free');
+    } else {
+      params.set('free', 'true');
+    }
+    setSearchParams(params);
+  };
+
+  const handleRatingChange = (rating: number) => {
+    const params = new URLSearchParams(searchParams);
+    if (rating === 0) {
+      params.delete('rating');
+    } else {
+      params.set('rating', rating.toString());
+    }
+    setSearchParams(params);
+  };
+
+  const clearFilters = () => {
+    const params = new URLSearchParams(searchParams);
+    params.delete('sort');
+    params.delete('free');
+    params.delete('rating');
+    setSearchParams(params);
+    setShowFilters(false);
+  };
+
+  const hasActiveFilters = currentSort !== 'popular' || freeOnly || minRating > 0;
+
+  const sortOptions: { value: SortOption; label: string }[] = [
+    { value: 'popular', label: 'Most Popular' },
+    { value: 'newest', label: 'Newest First' },
+    { value: 'price-low', label: 'Price: Low to High' },
+    { value: 'price-high', label: 'Price: High to Low' },
+    { value: 'rating', label: 'Highest Rated' },
+  ];
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,52 +76,119 @@ export function Header() {
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-green flex items-center justify-center">
-              <span className="text-black font-bold text-lg">H</span>
-            </div>
+            <img
+              src="/images/Hermetci Labs Exchange Logo.png"
+              alt="Hermetic Labs"
+              className="w-10 h-10 object-contain"
+            />
             <span className="text-cyber-green text-glow-green font-semibold text-lg hidden sm:block">
               HERMETIC LABS
             </span>
           </Link>
 
-          {/* Search Bar */}
+          {/* Search Bar - Icon only, no placeholder text */}
           <form onSubmit={handleSearch} className="flex-1 max-w-xl hidden md:block">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search connectors, components, modules..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="cyber-input w-full pl-10 pr-4"
+                aria-label="Search"
               />
             </div>
           </form>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6">
-            {/* Categories Dropdown */}
+            {/* Filter Dropdown */}
             <div className="relative">
               <button
-                onClick={() => setShowCategories(!showCategories)}
+                onClick={() => setShowFilters(!showFilters)}
                 className="flex items-center gap-1 text-sm text-gray-300 hover:text-cyber-green transition-colors"
               >
-                Categories
+                <Filter className="w-4 h-4" />
+                Filter
+                {hasActiveFilters && (
+                  <span className="w-2 h-2 bg-cyber-green rounded-full"></span>
+                )}
                 <ChevronDown className="w-4 h-4" />
               </button>
-              {showCategories && (
-                <div className="absolute top-full mt-2 left-0 cyber-panel p-2 min-w-[200px]">
-                  {categories.map((cat) => (
-                    <Link
-                      key={cat.id}
-                      to={`/?category=${cat.name}`}
-                      onClick={() => setShowCategories(false)}
-                      className="block px-4 py-2 text-sm text-gray-300 hover:text-cyber-green hover:bg-white/5 rounded transition-colors"
+              {showFilters && (
+                <div className="absolute top-full mt-2 left-0 cyber-panel p-4 min-w-[280px]">
+                  {/* Sort By */}
+                  <div className="mb-4">
+                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Sort By</div>
+                    <div className="space-y-1">
+                      {sortOptions.map((opt) => (
+                        <button
+                          key={opt.value}
+                          onClick={() => handleSortChange(opt.value)}
+                          className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
+                            currentSort === opt.value
+                              ? 'bg-cyber-green/20 text-cyber-green'
+                              : 'text-gray-300 hover:bg-white/5'
+                          }`}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Price Filter */}
+                  <div className="mb-4 border-t border-white/10 pt-4">
+                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Price</div>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={freeOnly}
+                        onChange={handleFreeToggle}
+                        className="rounded border-white/30 bg-white/10 text-cyber-green focus:ring-cyber-green"
+                      />
+                      <span className="text-sm text-gray-300">Free Only</span>
+                    </label>
+                  </div>
+
+                  {/* Rating Filter */}
+                  <div className="mb-4 border-t border-white/10 pt-4">
+                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Min Rating</div>
+                    <div className="space-y-1">
+                      {[4, 3, 2, 1, 0].map((rating) => (
+                        <button
+                          key={rating}
+                          onClick={() => handleRatingChange(rating)}
+                          className={`w-full text-left px-3 py-2 text-sm rounded transition-colors flex items-center gap-2 ${
+                            minRating === rating
+                              ? 'bg-cyber-green/20'
+                              : 'hover:bg-white/5'
+                          }`}
+                        >
+                          {rating > 0 ? (
+                            <>
+                              {[...Array(rating)].map((_, i) => (
+                                <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                              ))}
+                              <span className="text-gray-400 text-xs">& up</span>
+                            </>
+                          ) : (
+                            <span className="text-gray-400">Any rating</span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Clear Filters */}
+                  {hasActiveFilters && (
+                    <button
+                      onClick={clearFilters}
+                      className="w-full text-center text-sm text-cyber-pink hover:underline"
                     >
-                      {cat.name}
-                      <span className="text-gray-500 ml-2">({cat.productCount})</span>
-                    </Link>
-                  ))}
+                      Clear All Filters
+                    </button>
+                  )}
                 </div>
               )}
             </div>
@@ -177,10 +288,10 @@ export function Header() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search connectors, components, modules..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="cyber-input w-full pl-10 pr-4"
+                  aria-label="Search"
                 />
               </div>
             </form>
@@ -188,16 +299,9 @@ export function Header() {
               <Link to="/" className="block py-2 text-gray-300 hover:text-cyber-green">
                 Browse
               </Link>
-              {categories.slice(0, 5).map((cat) => (
-                <Link
-                  key={cat.id}
-                  to={`/?category=${cat.name}`}
-                  onClick={() => setMobileMenu(false)}
-                  className="block py-2 text-gray-400 hover:text-cyber-green pl-4"
-                >
-                  {cat.name}
-                </Link>
-              ))}
+              <Link to="/devtools" className="block py-2 text-gray-300 hover:text-cyber-cyan">
+                DevTools
+              </Link>
             </div>
           </div>
         )}
