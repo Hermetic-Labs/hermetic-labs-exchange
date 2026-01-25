@@ -6,7 +6,6 @@ const PLACEHOLDER = `${import.meta.env.BASE_URL}images/connector-placeholder.svg
 
 function getImageSrc(url: string | undefined): string {
   if (!url) return PLACEHOLDER;
-  if (url.includes('localhost:')) return PLACEHOLDER;
   return url;
 }
 

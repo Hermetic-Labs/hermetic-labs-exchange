@@ -112,7 +112,7 @@ export function HomePage() {
   const featuredProducts = useMemo(() => products.filter((p) => p.featured), [products]);
   const newProducts = useMemo(() => products.filter((p) => p.isNew), [products]);
   const popularProducts = useMemo(
-    () => [...products].sort((a, b) => b.reviewCount - a.reviewCount).slice(0, 4),
+    () => [...products].sort((a, b) => b.reviewCount - a.reviewCount),
     [products]
   );
 

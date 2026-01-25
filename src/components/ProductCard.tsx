@@ -11,8 +11,6 @@ const PLACEHOLDER = `${import.meta.env.BASE_URL}images/connector-placeholder.svg
 
 function getImageSrc(url: string | undefined): string {
   if (!url) return PLACEHOLDER;
-  // If it's a localhost URL, use placeholder instead
-  if (url.includes('localhost:')) return PLACEHOLDER;
   return url;
 }
 
