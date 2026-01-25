@@ -12,13 +12,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "AWS S3 Connector hero image"
+          "url": "http://localhost:5174/packages/assets/aws-s3-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -51,9 +54,34 @@
           "value": "Lifecycle policies"
         }
       ],
-      "rating": 4.7775674691645165,
-      "reviewCount": 42,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "AWS S3 Connector",
+          "description": "Amazon S3 storage integration with presigned URLs and multipart uploads",
+          "icon": "Cloud",
+          "color": "cyan"
+        },
+        "apiTags": [
+          "aws-s3-connector",
+          "s3",
+          "storage"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Complete AWS S3 integration for bucket management, object CRUD operations, presigned URLs for secure sharing, and multipart uploads for large files.",
+          "exampleUseCase": "Upload patient records to S3 with automatic encryption, generate time-limited presigned URLs for secure sharing with external parties, and manage lifecycle policies for compliance retention.",
+          "whatMakesThisDifferent": "Runs locally with your AWS credentials - no third-party intermediary. Supports multipart uploads for files over 5GB and integrates with EVE's unified storage abstraction layer."
+        }
+      }
     },
     {
       "id": "p-azure-blob-connector",
@@ -67,13 +95,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Azure Blob Storage Connector hero image"
+          "url": "http://localhost:5174/packages/assets/azure-blob-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -106,9 +137,34 @@
           "value": "Lease handling"
         }
       ],
-      "rating": 4.823255745560301,
-      "reviewCount": 14,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Azure Blob Storage",
+          "description": "Azure Blob integration with containers, SAS tokens, and access tiers",
+          "icon": "Cloud",
+          "color": "blue"
+        },
+        "apiTags": [
+          "azure-blob-connector",
+          "azure",
+          "storage"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Full Azure Blob Storage integration supporting container management, blob operations, SAS token generation for secure access, and hot/cool/archive tier management.",
+          "exampleUseCase": "Store large media files in cool storage for cost savings, generate SAS tokens with expiration for temporary partner access, and automatically move old data to archive tier.",
+          "whatMakesThisDifferent": "Direct Azure connectivity without intermediaries. Supports lease handling for concurrent access control and integrates with EVE's unified storage layer alongside S3 and GCS."
+        }
+      }
     },
     {
       "id": "p-beat-bubble-vr",
@@ -122,13 +178,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Beat Bubble VR hero image"
+          "url": "http://localhost:5174/packages/assets/beat-bubble-vr/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -177,9 +236,34 @@
           "value": "No external audio files required"
         }
       ],
-      "rating": 4.5848697182817855,
-      "reviewCount": 87,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Beat Bubble VR",
+          "description": "Immersive 3D spherical beat mixer with Web Audio synthesis",
+          "icon": "Gamepad2",
+          "color": "violet"
+        },
+        "apiTags": [
+          "beat-bubble-vr",
+          "game",
+          "audio"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "VR-ready 3D beat mixer where you place beats on a spinning sphere. Features Web Audio API synthesis for kick, snare, hi-hat, bass, and synth - no external audio files needed.",
+          "exampleUseCase": "Click to place beats on 5 track lanes, adjust tempo from 60-180 BPM, drag to look around the sphere, and watch visual pulses sync with your rhythm creation.",
+          "whatMakesThisDifferent": "Pure Web Audio synthesis means zero loading time and works offline. The spherical interface is intuitive for VR but works great with mouse/touch. Perfect for creative breaks or focus sessions."
+        }
+      }
     },
     {
       "id": "p-dev-portal",
@@ -193,7 +277,11 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
@@ -240,9 +328,34 @@
           "value": "Vector DB inspector for embeddings"
         }
       ],
-      "rating": 4.558731004764812,
-      "reviewCount": 121,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Developer Portal",
+          "description": "Complete IDE and development toolkit for EVE-OS",
+          "icon": "Code",
+          "color": "purple"
+        },
+        "apiTags": [
+          "devportal",
+          "graph",
+          "nodes"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "The Developer Portal is the central hub for building, testing, and remixing EVE-OS components. It provides a visual code graph IDE, node-based workflow editor, and tools for API testing and AI model interaction.",
+          "exampleUseCase": "Use the Remix IDE to browse installed packages, select components you need, and generate a new package with automatic dependency resolution. Test your APIs with the built-in harness before deployment.",
+          "whatMakesThisDifferent": "Unlike traditional IDEs, the Developer Portal visualizes code as interconnected nodes and supports remixing existing components into new packages without writing boilerplate."
+        }
+      }
     },
     {
       "id": "p-fedramp-compliance",
@@ -256,13 +369,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "FedRAMP Compliance Suite hero image"
+          "url": "http://localhost:5174/packages/assets/fedramp-compliance/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -295,9 +411,34 @@
           "value": "Vulnerability scanning integration"
         }
       ],
-      "rating": 4.61290878720249,
-      "reviewCount": 143,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "FedRAMP Compliance",
+          "description": "Federal cloud authorization with continuous monitoring",
+          "icon": "Shield",
+          "color": "blue"
+        },
+        "apiTags": [
+          "fedramp-compliance",
+          "compliance",
+          "government"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "FedRAMP authorization compliance suite with control baseline assessment, continuous monitoring, POA&M management, SSP documentation, and vulnerability scanning integration.",
+          "exampleUseCase": "Map your controls to FedRAMP baselines, track POA&M items to resolution, generate SSP documentation, and integrate vulnerability scan results for continuous authorization.",
+          "whatMakesThisDifferent": "Pre-mapped control baselines reduce manual mapping. POA&M tracking integrated with workflow engine. SSP templates follow current 3PAO expectations."
+        }
+      }
     },
     {
       "id": "p-fhir-compliance",
@@ -311,13 +452,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "FHIR Compliance Suite hero image"
+          "url": "http://localhost:5174/packages/assets/fhir-compliance/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -350,9 +494,34 @@
           "value": "Bundle/Transaction support"
         }
       ],
-      "rating": 4.87372708545096,
-      "reviewCount": 61,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "FHIR Compliance",
+          "description": "HL7 FHIR R4 validation and healthcare interoperability",
+          "icon": "Stethoscope",
+          "color": "rose"
+        },
+        "apiTags": [
+          "fhir-compliance",
+          "fhir",
+          "healthcare"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "HL7 FHIR R4 compliance validation with resource management for Patient, Practitioner, Observation, Condition, and MedicationRequest. Bundle and transaction support for batch operations.",
+          "exampleUseCase": "Validate incoming FHIR resources from external EHRs, transform legacy data to FHIR format, and export patient bundles for interoperability with other healthcare systems.",
+          "whatMakesThisDifferent": "Local FHIR validation without cloud dependencies. Pairs with HIPAA compliance module for complete healthcare data governance. Medical module uses this for import/export."
+        }
+      }
     },
     {
       "id": "p-form-builder",
@@ -366,13 +535,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Form Builder hero image"
+          "url": "http://localhost:5174/packages/assets/form-builder/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -421,9 +593,33 @@
           "value": "Responsive design"
         }
       ],
-      "rating": 4.548291334612691,
-      "reviewCount": 39,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Form Builder",
+          "description": "Drag-and-drop form builder with live preview and URL sharing",
+          "icon": "FileCheck",
+          "color": "emerald"
+        },
+        "apiTags": [
+          "form-builder",
+          "forms"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Visual drag-and-drop form builder supporting text, email, date, select, checkbox, radio, signature capture, and file uploads. Forms persist locally and can be shared via URL encoding.",
+          "exampleUseCase": "Build a patient intake form with signature capture, preview it live, copy the shareable URL, and collect submissions - all without writing code.",
+          "whatMakesThisDifferent": "URL-encoded sharing means forms work offline and don't require a database. Signature capture built-in for compliance workflows. Integrates with EVE's storage connectors for submission handling."
+        }
+      }
     },
     {
       "id": "p-gcs-connector",
@@ -437,13 +633,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Google Cloud Storage Connector hero image"
+          "url": "http://localhost:5174/packages/assets/gcs-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -476,9 +675,34 @@
           "value": "Lifecycle management"
         }
       ],
-      "rating": 4.8238929249395595,
-      "reviewCount": 164,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Google Cloud Storage",
+          "description": "GCS integration with buckets, signed URLs, and IAM",
+          "icon": "Cloud",
+          "color": "amber"
+        },
+        "apiTags": [
+          "gcs-connector",
+          "gcs",
+          "storage"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Complete Google Cloud Storage integration supporting bucket operations, object management, signed URL generation, and lifecycle policies with native IAM integration.",
+          "exampleUseCase": "Upload analytics exports to GCS, generate signed URLs for time-limited dashboard access, and configure lifecycle rules to auto-archive old data.",
+          "whatMakesThisDifferent": "Direct GCP connectivity using service account credentials. Works alongside S3 and Azure Blob in EVE's unified storage layer. IAM-aware for enterprise deployments."
+        }
+      }
     },
     {
       "id": "p-globe-viz",
@@ -492,13 +716,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Globe Data Visualization hero image"
+          "url": "http://localhost:5174/packages/assets/globe-viz/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -551,9 +778,33 @@
           "value": "Click-to-select details panel"
         }
       ],
-      "rating": 4.644170634180075,
-      "reviewCount": 175,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Globe Visualization",
+          "description": "Interactive 3D globe with pluggable data adapters",
+          "icon": "Globe",
+          "color": "teal"
+        },
+        "apiTags": [
+          "globe-viz",
+          "visualization"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Interactive 3D globe visualization supporting points, arcs, heatmaps, and flight paths. Pluggable data adapters let you visualize geographic data, network traffic, logistics routes, and analytics.",
+          "exampleUseCase": "Display real-time server health across global datacenters, visualize user traffic patterns with heatmaps, or track shipment routes with animated arcs.",
+          "whatMakesThisDifferent": "Pluggable adapter system means any data source works - just transform to lat/lng. Auto-rotation mode for ambient dashboards. Click-to-select for drill-down details."
+        }
+      }
     },
     {
       "id": "p-hipaa-compliance",
@@ -567,13 +818,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "HIPAA Privacy Suite hero image"
+          "url": "http://localhost:5174/packages/assets/hipaa-compliance/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -606,9 +860,34 @@
           "value": "Breach notification support"
         }
       ],
-      "rating": 4.646271506442009,
-      "reviewCount": 150,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "HIPAA Privacy Suite",
+          "description": "PHI handling, access controls, and audit logging",
+          "icon": "Shield",
+          "color": "amber"
+        },
+        "apiTags": [
+          "hipaa-compliance",
+          "hipaa",
+          "healthcare"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "HIPAA Privacy Rule compliance with PHI detection and masking, minimum necessary enforcement, access control validation, audit trail logging, and breach notification support.",
+          "exampleUseCase": "Automatically detect PHI in documents, enforce role-based access controls, log all PHI access for audit, and generate breach notification reports when required.",
+          "whatMakesThisDifferent": "Local-first means PHI never leaves your infrastructure for compliance checking. Pairs with medical module and FHIR compliance for complete healthcare data governance."
+        }
+      }
     },
     {
       "id": "p-hr-payroll-portal",
@@ -622,13 +901,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "HR & Payroll Portal hero image"
+          "url": "http://localhost:5174/packages/assets/hr-payroll-portal/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -681,9 +963,34 @@
           "value": "Dashboard analytics"
         }
       ],
-      "rating": 4.734503244029095,
-      "reviewCount": 37,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "HR & Payroll Portal",
+          "description": "Complete employee management and payroll processing",
+          "icon": "Briefcase",
+          "color": "emerald"
+        },
+        "apiTags": [
+          "hr-payroll-portal",
+          "hr",
+          "payroll"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Full-featured HR management and payroll processing - employee profiles, departments, job postings, banking integrations, payroll calculations with taxes, bulk upload, and PDF pay stubs.",
+          "exampleUseCase": "Add employees via CSV bulk upload, assign to departments, connect Gusto/ADP integration, run payroll calculations, and generate branded PDF pay stubs for distribution.",
+          "whatMakesThisDifferent": "White-label ready with company branding. Integrates with major payroll providers. Local data storage with optional cloud sync. Dashboard analytics for HR insights."
+        }
+      }
     },
     {
       "id": "p-iot-connector",
@@ -697,13 +1004,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "IoT Device Connector hero image"
+          "url": "http://localhost:5174/packages/assets/iot-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -744,9 +1054,34 @@
           "value": "Rate limiting and error recovery"
         }
       ],
-      "rating": 4.544395478183736,
-      "reviewCount": 105,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "IoT Device Connector",
+          "description": "Universal device discovery with MQTT, WebSocket, and safety rules",
+          "icon": "Box",
+          "color": "purple"
+        },
+        "apiTags": [
+          "iot-connector",
+          "iot",
+          "devices"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Universal IoT integration with MDNS/SSDP discovery, HTTP/WebSocket/MQTT protocol handlers, workflow automation, and a safety rules engine for smart home, medical, and industrial devices.",
+          "exampleUseCase": "Auto-discover smart devices on your network, pair them with templates for common manufacturers, set safety rules (never exceed X temperature), and trigger workflows based on sensor readings.",
+          "whatMakesThisDifferent": "Safety-first design with rate limiting and error recovery built-in. Medical device support with proper isolation. Template engine handles manufacturer quirks so you don't have to."
+        }
+      }
     },
     {
       "id": "p-itar-compliance",
@@ -760,13 +1095,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "ITAR Compliance Suite hero image"
+          "url": "http://localhost:5174/packages/assets/itar-compliance/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -799,9 +1137,34 @@
           "value": "Audit reporting"
         }
       ],
-      "rating": 4.551624692803665,
-      "reviewCount": 143,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "ITAR Compliance",
+          "description": "Export control for defense articles and technical data",
+          "icon": "Shield",
+          "color": "slate"
+        },
+        "apiTags": [
+          "itar-compliance",
+          "itar",
+          "defense"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "ITAR export control compliance with USML classification, export license tracking, foreign person screening, technical data controls, and comprehensive audit reporting.",
+          "exampleUseCase": "Classify items against USML categories, screen personnel for foreign person status, track export license applications, and generate audit reports for DDTC review.",
+          "whatMakesThisDifferent": "Local processing ensures controlled technical data never leaves your infrastructure. Integrates with user management for foreign person access controls."
+        }
+      }
     },
     {
       "id": "p-lexisnexis-connector",
@@ -815,13 +1178,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "LexisNexis Connector hero image"
+          "url": "http://localhost:5174/packages/assets/lexisnexis-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -854,9 +1220,33 @@
           "value": "Shepardizing"
         }
       ],
-      "rating": 4.675436877286089,
-      "reviewCount": 100,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "LexisNexis Connector",
+          "description": "Legal research with case law, statutes, and citations",
+          "icon": "Briefcase",
+          "color": "indigo"
+        },
+        "apiTags": [
+          "lexisnexis-connector",
+          "legal"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "LexisNexis legal research integration with document search, case law retrieval, statutory research, citation analysis, and Shepardizing for precedent validation.",
+          "exampleUseCase": "Search case law by topic, Shepardize citations to verify they're still good law, retrieve full statutory text, and analyze citation networks for legal research.",
+          "whatMakesThisDifferent": "Direct LexisNexis API access with your credentials. Pairs with Westlaw connector for comprehensive legal research coverage."
+        }
+      }
     },
     {
       "id": "p-medical-module",
@@ -870,13 +1260,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Medical Professional Suite hero image"
+          "url": "http://localhost:5174/packages/assets/medical-module/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -937,9 +1330,34 @@
           "value": "Branded loading screen"
         }
       ],
-      "rating": 4.859931797754833,
-      "reviewCount": 198,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Medical Module",
+          "description": "HIPAA-compliant healthcare workflows with FHIR integration",
+          "icon": "Stethoscope",
+          "color": "rose"
+        },
+        "apiTags": [
+          "medical-module",
+          "medical",
+          "fhir"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Complete medical professional suite with bedside assistant, nurse station dashboard, FHIR R4 integration, real-time vitals monitoring, and fall detection. Designed for HIPAA compliance and optimized for Raspberry Pi deployment in clinical settings.",
+          "exampleUseCase": "A nurse receives a fall alert on the multi-room dashboard, immediately video-calls the patient via the bedside kiosk, and documents the incident using FHIR-compliant intake forms - all within EVE's unified interface.",
+          "whatMakesThisDifferent": "Unlike cloud-dependent solutions, this runs locally for data sovereignty. The Lite viewport ensures 24 FPS on Raspberry Pi hardware. Six-language terminology support and automatic network discovery make deployment frictionless across facilities."
+        }
+      }
     },
     {
       "id": "p-pci-compliance",
@@ -953,13 +1371,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "PCI DSS Compliance Suite hero image"
+          "url": "http://localhost:5174/packages/assets/pci-compliance/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -992,9 +1413,34 @@
           "value": "SAQ preparation"
         }
       ],
-      "rating": 4.504365114423179,
-      "reviewCount": 145,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "PCI DSS Compliance",
+          "description": "Payment card security and cardholder data protection",
+          "icon": "CreditCard",
+          "color": "emerald"
+        },
+        "apiTags": [
+          "pci-compliance",
+          "pci",
+          "payments"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "PCI DSS compliance suite covering cardholder data protection, network security validation, access control management, vulnerability management, and SAQ preparation.",
+          "exampleUseCase": "Validate network segmentation, scan for cardholder data exposure, manage access controls for payment systems, and prepare SAQ documentation for assessor review.",
+          "whatMakesThisDifferent": "Local validation means cardholder data patterns are checked without external transmission. Integrates with Stripe connector for end-to-end payment compliance."
+        }
+      }
     },
     {
       "id": "p-plaid-connector",
@@ -1008,13 +1454,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Plaid Connector hero image"
+          "url": "http://localhost:5174/packages/assets/plaid-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1055,9 +1504,34 @@
           "value": "Webhook handling"
         }
       ],
-      "rating": 4.873251116548471,
-      "reviewCount": 153,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Plaid Connector",
+          "description": "Banking integration with transactions, identity, and investments",
+          "icon": "CreditCard",
+          "color": "cyan"
+        },
+        "apiTags": [
+          "plaid-connector",
+          "plaid",
+          "banking"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Full Plaid integration with Link token flow, transaction sync, identity verification, ACH authentication, investment holdings, liabilities tracking, and webhook handling.",
+          "exampleUseCase": "Connect bank accounts via Plaid Link, sync transactions for expense tracking, verify identity for KYC, and monitor investment holdings across institutions.",
+          "whatMakesThisDifferent": "Direct Plaid API access with your credentials. Webhook handling built-in for real-time updates. Pairs with PCI compliance for secure payment workflows."
+        }
+      }
     },
     {
       "id": "p-platformer-game",
@@ -1071,13 +1545,16 @@
       "author": {
         "id": "vrf",
         "name": "VRF",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 2,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Super Platformer hero image"
+          "url": "http://localhost:5174/packages/assets/platformer-game/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1130,9 +1607,33 @@
           "value": "Score tracking"
         }
       ],
-      "rating": 4.621717409157941,
-      "reviewCount": 100,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Super Platformer",
+          "description": "Classic side-scrolling platformer with pixel art and touch controls",
+          "icon": "Gamepad2",
+          "color": "pink"
+        },
+        "apiTags": [
+          "platformer-game",
+          "game"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Classic Mario-style platformer with pixel art graphics, coin collection, enemies with patrol patterns, stomp-to-defeat mechanics, and mobile touch controls.",
+          "exampleUseCase": "Jump between platforms, collect coins, stomp enemies, and reach the flag. Works on desktop with keyboard or mobile with touch controls.",
+          "whatMakesThisDifferent": "Pure Canvas rendering means no dependencies and instant load. Mobile-first touch controls work naturally. Perfect for quick breaks or demoing EVE's component system."
+        }
+      }
     },
     {
       "id": "p-salesforce-connector",
@@ -1146,13 +1647,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Salesforce Connector hero image"
+          "url": "http://localhost:5174/packages/assets/salesforce-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1185,9 +1689,34 @@
           "value": "Real-time streaming API"
         }
       ],
-      "rating": 4.87267870018553,
-      "reviewCount": 100,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Salesforce Connector",
+          "description": "CRM integration with SOQL, bulk ops, and streaming API",
+          "icon": "Database",
+          "color": "blue"
+        },
+        "apiTags": [
+          "salesforce-connector",
+          "salesforce",
+          "crm"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Full Salesforce CRM integration with OAuth2 authentication, SOQL query execution, object CRUD operations, bulk data operations, and real-time streaming API.",
+          "exampleUseCase": "Query leads with SOQL, bulk import contacts from CSV, subscribe to opportunity updates via streaming API, and trigger workflows from Salesforce events.",
+          "whatMakesThisDifferent": "Direct Salesforce API access without middleware. Bulk operations handle millions of records. Streaming API enables real-time CRM-to-EVE workflows."
+        }
+      }
     },
     {
       "id": "p-sam-gov-connector",
@@ -1201,13 +1730,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "SAM.gov Connector hero image"
+          "url": "http://localhost:5174/packages/assets/sam-gov-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1240,9 +1772,33 @@
           "value": "Cage code lookup"
         }
       ],
-      "rating": 4.72303953536938,
-      "reviewCount": 123,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "SAM.gov Connector",
+          "description": "Federal contractor registration and entity search integration",
+          "icon": "Briefcase",
+          "color": "blue"
+        },
+        "apiTags": [
+          "sam-gov-connector",
+          "government"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "SAM.gov integration for federal contractor workflows - entity search, registration status, exclusion records, contract opportunities, and CAGE code lookups.",
+          "exampleUseCase": "Verify a vendor's SAM registration status before awarding a contract, check exclusion records for compliance, and monitor contract opportunities matching your NAICS codes.",
+          "whatMakesThisDifferent": "Direct SAM.gov API access without third-party intermediaries. Integrates with USAspending connector for complete federal procurement workflows."
+        }
+      }
     },
     {
       "id": "p-sap-connector",
@@ -1256,13 +1812,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "SAP Connector hero image"
+          "url": "http://localhost:5174/packages/assets/sap-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1295,9 +1854,34 @@
           "value": "Material/vendor management"
         }
       ],
-      "rating": 4.535619308391817,
-      "reviewCount": 61,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "SAP Connector",
+          "description": "ERP integration with RFC, BAPI, OData, and IDoc",
+          "icon": "Database",
+          "color": "amber"
+        },
+        "apiTags": [
+          "sap-connector",
+          "sap",
+          "erp"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "SAP ERP integration supporting RFC function calls, BAPI execution, OData service integration, IDoc processing, and material/vendor management.",
+          "exampleUseCase": "Execute BAPIs for material master updates, process inbound IDocs from suppliers, query OData services for real-time inventory, and manage vendor records via RFC.",
+          "whatMakesThisDifferent": "Native SAP protocol support - no middleware required. IDoc processing for EDI integration. Works with S/4HANA and legacy ECC systems."
+        }
+      }
     },
     {
       "id": "p-sox-compliance",
@@ -1311,13 +1895,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "SOX Compliance Suite hero image"
+          "url": "http://localhost:5174/packages/assets/sox-compliance/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1350,9 +1937,34 @@
           "value": "Deficiency reporting"
         }
       ],
-      "rating": 4.696067627192299,
-      "reviewCount": 138,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "SOX Compliance",
+          "description": "Financial controls, audit trails, and internal controls",
+          "icon": "FileCheck",
+          "color": "amber"
+        },
+        "apiTags": [
+          "sox-compliance",
+          "sox",
+          "audit"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Sarbanes-Oxley compliance suite covering control documentation, audit trail management, segregation of duties validation, access control reviews, and deficiency reporting.",
+          "exampleUseCase": "Document financial controls, validate segregation of duties in approval workflows, review access controls quarterly, and generate deficiency reports for external auditors.",
+          "whatMakesThisDifferent": "Immutable audit trails for SOX 404 compliance. Automated segregation of duties checks. Integrates with workflow engine for control testing documentation."
+        }
+      }
     },
     {
       "id": "p-stock-visualizer",
@@ -1366,13 +1978,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "3D Stock Visualizer hero image"
+          "url": "http://localhost:5174/packages/assets/stock-visualizer/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1417,9 +2032,33 @@
           "value": "Drag-to-rotate 3D view"
         }
       ],
-      "rating": 4.605894594433246,
-      "reviewCount": 30,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "3D Stock Visualizer",
+          "description": "Interactive candlestick charts with real-time strategy coding",
+          "icon": "Activity",
+          "color": "emerald"
+        },
+        "apiTags": [
+          "stock-visualizer",
+          "finance"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Interactive 3D candlestick chart with real-time strategy coding. Write trading strategies in a simple DSL, see buy/sell signals visualized, and switch between 2D/3D views with SMA/EMA indicators.",
+          "exampleUseCase": "Write a crossover strategy in the DSL editor, watch buy/sell signals appear on the chart, scrub the timeline to backtest, and rotate the 3D view to spot patterns.",
+          "whatMakesThisDifferent": "Strategy DSL is readable English, not code. 3D view reveals patterns invisible in 2D. Timeline scrubbing lets you backtest without leaving the visual interface."
+        }
+      }
     },
     {
       "id": "p-stripe-connector",
@@ -1433,13 +2072,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Stripe Connector hero image"
+          "url": "http://localhost:5174/packages/assets/stripe-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1472,9 +2114,34 @@
           "value": "Invoice generation"
         }
       ],
-      "rating": 4.65403171690502,
-      "reviewCount": 140,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Stripe Connector",
+          "description": "Payments with subscriptions, customers, and webhooks",
+          "icon": "CreditCard",
+          "color": "violet"
+        },
+        "apiTags": [
+          "stripe-connector",
+          "stripe",
+          "payments"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Stripe payment integration with payment intents, subscription management, customer management, webhook handling, and invoice generation.",
+          "exampleUseCase": "Create payment intents for one-time charges, set up recurring subscriptions, manage customer payment methods, and handle webhook events for payment confirmations.",
+          "whatMakesThisDifferent": "Direct Stripe API access with built-in webhook signature verification. Pairs with PCI compliance for secure payment workflows. Subscription lifecycle events trigger EVE workflows."
+        }
+      }
     },
     {
       "id": "p-usaspending-connector",
@@ -1488,13 +2155,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "USASpending Connector hero image"
+          "url": "http://localhost:5174/packages/assets/usaspending-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1527,9 +2197,33 @@
           "value": "Time series data"
         }
       ],
-      "rating": 4.8758419612765564,
-      "reviewCount": 97,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "USASpending Connector",
+          "description": "Federal spending data - awards, agencies, and recipients",
+          "icon": "Briefcase",
+          "color": "indigo"
+        },
+        "apiTags": [
+          "usaspending-connector",
+          "government"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "USASpending.gov integration for federal spending analysis - search awards, explore agency budgets, lookup recipients, and analyze geographic distribution with time series data.",
+          "exampleUseCase": "Research federal contracts in your NAICS sector, analyze which agencies are spending in your region, and track award trends over time for business development targeting.",
+          "whatMakesThisDifferent": "Direct API access to public federal data. Pairs with SAM.gov connector for complete procurement intelligence. Geographic and time series analysis built-in."
+        }
+      }
     },
     {
       "id": "p-video-narration-editor",
@@ -1543,7 +2237,11 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
@@ -1598,9 +2296,34 @@
           "value": "Export controls"
         }
       ],
-      "rating": 4.522389859441175,
-      "reviewCount": 145,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Video Narration Editor",
+          "description": "Timeline-based video editor with TTS narration overlay",
+          "icon": "Mic",
+          "color": "pink"
+        },
+        "apiTags": [
+          "video-narration-editor",
+          "video",
+          "tts"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Timeline-based video editor with TTS narration. Drop a script, chunk it into segments, assign voices and speeds per chunk, overlay on video, and export.",
+          "exampleUseCase": "Import your video, paste a narration script, highlight sections to create chunks, pick different voices for different speakers, adjust timing, and export the final video with narration.",
+          "whatMakesThisDifferent": "Per-chunk voice and speed control gives fine-grained narration control. Works with any Kokoro-compatible TTS endpoint. No external software needed."
+        }
+      }
     },
     {
       "id": "p-voice-connector",
@@ -1614,13 +2337,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Voice Connector hero image"
+          "url": "http://localhost:5174/packages/assets/voice-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1653,9 +2379,34 @@
           "value": "Multi-language support"
         }
       ],
-      "rating": 4.664855041174117,
-      "reviewCount": 161,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Voice Connector",
+          "description": "Speech recognition and hands-free voice commands",
+          "icon": "Mic",
+          "color": "rose"
+        },
+        "apiTags": [
+          "voice-connector",
+          "voice",
+          "accessibility"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Voice recognition with natural language command parsing, continuous listening mode, and voice-to-reflex-card conversion for hands-free operation. Multi-language support included.",
+          "exampleUseCase": "Say 'create a task for tomorrow' and watch EVE parse the intent, create the reflex card, and confirm verbally. Works hands-free in medical, industrial, or accessibility scenarios.",
+          "whatMakesThisDifferent": "Voice-to-reflex-card bridge means voice commands create the same structured data as typed inputs. Local processing option for privacy-sensitive environments."
+        }
+      }
     },
     {
       "id": "p-vr-spatial-engine",
@@ -1669,13 +2420,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "VR Spatial Engine hero image"
+          "url": "http://localhost:5174/packages/assets/vr-spatial-engine/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1716,9 +2470,34 @@
           "value": "Cross-platform VR support"
         }
       ],
-      "rating": 4.771308566295745,
-      "reviewCount": 83,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "VR Spatial Engine",
+          "description": "WebXR capability with hand and eye tracking",
+          "icon": "Globe",
+          "color": "purple"
+        },
+        "apiTags": [
+          "vr-spatial-engine",
+          "vr",
+          "xr"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "VR/XR capability component that enables VR mode across EVE-OS. Includes real-time scene generation, WebXR compatibility, node-based visual editor, and hand/eye tracking support.",
+          "exampleUseCase": "Put on a VR headset, press the VR button, and interact with EVE's 3D interface using hand tracking. Edit scenes with the node-based editor and enjoy spatial computing.",
+          "whatMakesThisDifferent": "Capability injection means VR mode works across EVE without modifying core. Integrates with VRM Companion for embodied AI presence in VR. Works with Quest, Index, and other WebXR devices."
+        }
+      }
     },
     {
       "id": "p-vrm-companion",
@@ -1732,7 +2511,11 @@
       "author": {
         "id": "vrf",
         "name": "VRF",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 2,
+        "totalSales": 0
       },
       "media": [
         {
@@ -1779,9 +2562,34 @@
           "value": "Configurable smoothing, gain, and mouth open limits"
         }
       ],
-      "rating": 4.807175455819441,
-      "reviewCount": 42,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "VRM Companion",
+          "description": "3D avatar with phoneme lip-sync and EVE Core integration",
+          "icon": "Users",
+          "color": "violet"
+        },
+        "apiTags": [
+          "vrm-companion",
+          "avatar",
+          "3d"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "3D VRM avatar companion with phoneme-driven lip-syncing that can replace EVE's sphere representation. Integrates with VR spatial engine for immersive presence.",
+          "exampleUseCase": "Load your custom VRM avatar, watch it lip-sync to EVE's speech in real-time, and interact naturally in VR environments when paired with the spatial engine.",
+          "whatMakesThisDifferent": "Real phoneme analysis, not just amplitude. Configurable smoothing and mouth limits for natural motion. Capability injection means it works without modifying EVE Core."
+        }
+      }
     },
     {
       "id": "p-westlaw-connector",
@@ -1795,13 +2603,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Westlaw Connector hero image"
+          "url": "http://localhost:5174/packages/assets/westlaw-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1834,9 +2645,34 @@
           "value": "Secondary sources"
         }
       ],
-      "rating": 4.837651453435262,
-      "reviewCount": 172,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Westlaw Connector",
+          "description": "Legal research with KeyCite, case law, and statutes",
+          "icon": "Briefcase",
+          "color": "teal"
+        },
+        "apiTags": [
+          "westlaw-connector",
+          "westlaw",
+          "legal"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Westlaw legal research integration with document search, KeyCite citation validation, case law research, statute annotations, and secondary sources.",
+          "exampleUseCase": "Search case law by topic, KeyCite citations to check validity and negative treatment, retrieve annotated statutes, and access secondary sources for legal analysis.",
+          "whatMakesThisDifferent": "Direct Westlaw API access with your Thomson Reuters credentials. Pairs with LexisNexis connector for comprehensive legal research coverage across platforms."
+        }
+      }
     },
     {
       "id": "p-workday-connector",
@@ -1850,13 +2686,16 @@
       "author": {
         "id": "hermetic-labs",
         "name": "Hermetic Labs",
-        "avatar": ""
+        "avatar": "",
+        "bio": "",
+        "socialLinks": {},
+        "productCount": 29,
+        "totalSales": 0
       },
       "media": [
         {
           "type": "image",
-          "url": "./assets/images/hero.png",
-          "caption": "Workday Connector hero image"
+          "url": "http://localhost:5174/packages/assets/workday-connector/hero/hero.png"
         }
       ],
       "techSpecs": [
@@ -1889,9 +2728,34 @@
           "value": "Benefits administration"
         }
       ],
-      "rating": 4.70939824909814,
-      "reviewCount": 167,
-      "stripePriceId": null
+      "links": [],
+      "questions": [],
+      "reviews": [],
+      "rating": 0,
+      "reviewCount": 0,
+      "releaseDate": "2026-01-25",
+      "featured": false,
+      "isNew": false,
+      "stripePriceId": null,
+      "documentation": {
+        "card": {
+          "title": "Workday Connector",
+          "description": "HCM integration with workers, payroll, and benefits",
+          "icon": "Users",
+          "color": "cyan"
+        },
+        "apiTags": [
+          "workday-connector",
+          "workday",
+          "hr"
+        ],
+        "readme": "./README.md",
+        "summary": {
+          "overview": "Workday HCM integration supporting worker management, position tracking, organization hierarchy, payroll integration, and benefits administration.",
+          "exampleUseCase": "Sync worker data from Workday, map positions to organization hierarchy, trigger payroll workflows based on position changes, and reconcile benefits elections.",
+          "whatMakesThisDifferent": "Direct Workday API access for real-time HCM data. Pairs with HR Payroll Portal for local payroll processing. Organization hierarchy enables role-based access in EVE."
+        }
+      }
     }
   ],
   "categories": [
@@ -1988,13 +2852,21 @@
     {
       "id": "hermetic-labs",
       "name": "Hermetic Labs",
-      "avatar": ""
+      "avatar": "",
+      "bio": "",
+      "socialLinks": {},
+      "productCount": 29,
+      "totalSales": 0
     },
     {
       "id": "vrf",
       "name": "VRF",
-      "avatar": ""
+      "avatar": "",
+      "bio": "",
+      "socialLinks": {},
+      "productCount": 2,
+      "totalSales": 0
     }
   ],
-  "generatedAt": "2026-01-25T19:42:45.011Z"
+  "generatedAt": "2026-01-25T20:05:51.125Z"
 }
