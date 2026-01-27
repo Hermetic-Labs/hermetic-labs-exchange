@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Grid, Environment, PerspectiveCamera } from '@react-three/drei';
-import { VRScene, VRSceneObject, VRPerformanceMetrics } from '../src/types/vr';
-import { VRSceneService } from '../src/services/VRSceneService';
+import { VRScene, VRSceneObject, VRPerformanceMetrics } from '../types/vr';
+import { VRSceneService } from '../services/VRSceneService';
 import './VRSceneEditor.css';
 
 interface VRSceneEditorProps {

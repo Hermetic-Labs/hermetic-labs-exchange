@@ -81,9 +81,13 @@
         "npm": [
             "three",
             "@react-three/fiber",
-            "@react-three/drei"
+            "@react-three/drei",
+            "events",
+            "webxr-polyfill"
         ],
         "python": [],
         "packages": []
-    }
+    },
+    "bundle": "/bundles/vr-spatial-engine.bundle.js",
+    "bundleVersion": "1769384088090"
 }

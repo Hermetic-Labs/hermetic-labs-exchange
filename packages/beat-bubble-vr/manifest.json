@@ -57,7 +57,11 @@
             "icon": "Gamepad2",
             "color": "violet"
         },
-        "apiTags": ["beat-bubble-vr", "game", "audio"],
+        "apiTags": [
+            "beat-bubble-vr",
+            "game",
+            "audio"
+        ],
         "readme": "./README.md",
         "summary": {
             "overview": "VR-ready 3D beat mixer where you place beats on a spinning sphere. Features Web Audio API synthesis for kick, snare, hi-hat, bass, and synth - no external audio files needed.",
@@ -74,5 +78,7 @@
         "optional": [
             "vr-spatial-engine"
         ]
-    }
+    },
+    "bundle": "/bundles/beat-bubble-vr.bundle.js",
+    "bundleVersion": "1769383253547"
 }

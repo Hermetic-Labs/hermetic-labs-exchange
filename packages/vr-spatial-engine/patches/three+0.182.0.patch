@@ -1,0 +1,29 @@
+diff --git a/node_modules/three/examples/jsm/loaders/FBXLoader.js b/node_modules/three/examples/jsm/loaders/FBXLoader.js
+index 9fa1993..ba4fe14 100644
+--- a/node_modules/three/examples/jsm/loaders/FBXLoader.js
++++ b/node_modules/three/examples/jsm/loaders/FBXLoader.js
+@@ -2374,15 +2374,23 @@ class GeometryParser {
+ 	}
+ 
+ 	// Parse Vertex Colors from FBXTree.Objects.Geometry.LayerElementColor if it exists
++	// Patched to handle missing color data (https://github.com/mrdoob/three.js/issues/31247)
+ 	parseVertexColors( ColorNode ) {
+ 
+ 		const mappingType = ColorNode.MappingInformationType;
+ 		const referenceType = ColorNode.ReferenceInformationType;
++
++		// Guard against missing color data (CC4 exports sometimes have malformed vertex colors)
++		if ( ! ColorNode.Colors || ! ColorNode.Colors.a ) {
++			console.warn( 'THREE.FBXLoader: Vertex color data is missing or malformed, skipping.' );
++			return null;
++		}
++
+ 		const buffer = ColorNode.Colors.a;
+ 		let indexBuffer = [];
+ 		if ( referenceType === 'IndexToDirect' ) {
+ 
+-			indexBuffer = ColorNode.ColorIndex.a;
++			indexBuffer = ColorNode.ColorIndex ? ColorNode.ColorIndex.a : [];
+ 
+ 		}
+ 

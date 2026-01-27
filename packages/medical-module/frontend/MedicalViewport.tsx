@@ -16,6 +16,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { medicalModelLoader } from './services/ModelLoader';
 import type { ModelLoadProgress } from './types/medical-models';
+import { VRButtonSlot } from '../../_shared/useVRCapability';
 
 // ============================================================================
 // HOST APP INTEGRATION (Optional)
@@ -829,11 +830,13 @@ export function MedicalViewport() {
             animationId: 0
         };
 
-        // Animation loop
+        // Animation loop with disposed check to prevent WebGL uniform errors
         let lastTime = performance.now();
+        let isDisposed = false;
 
         function animate() {
-            if (!sceneRef.current) return;
+            // Stop if disposed - prevents WebGL uniform errors during cleanup
+            if (isDisposed || !sceneRef.current) return;
 
             const { controls, renderer, scene, camera, macroMeshes, microMeshes } = sceneRef.current;
 
@@ -877,11 +880,13 @@ export function MedicalViewport() {
 
         // Cleanup
         return () => {
+            // CRITICAL: Set disposed flag FIRST to stop animation loop
+            isDisposed = true;
+
             window.removeEventListener('resize', handleResize);
             renderer.domElement.removeEventListener('click', handleCanvasClick);
 
             if (sceneRef.current) {
-                // Cancel animation first to prevent render calls during disposal
                 cancelAnimationFrame(sceneRef.current.animationId);
 
                 // Dispose all materials and geometries in the scene
@@ -903,8 +908,10 @@ export function MedicalViewport() {
                 // Clear the scene
                 sceneRef.current.scene.clear();
 
-                // Dispose renderer last
+                // Dispose controls and renderer to prevent WebGL uniform errors on HMR
+                sceneRef.current.controls.dispose();
                 renderer.dispose();
+                renderer.forceContextLoss();
 
                 if (container && renderer.domElement && container.contains(renderer.domElement)) {
                     container.removeChild(renderer.domElement);
@@ -935,6 +942,18 @@ export function MedicalViewport() {
 
     return (
         <div className="medical-viewport h-full w-full relative bg-black overflow-hidden">
+            {/* VR Button - Shows if vr-spatial-engine is installed, or prompts to install */}
+            <div className="absolute top-3 right-4 z-20">
+                <VRButtonSlot
+                    viewId="medical-viewport"
+                    size="md"
+                    variant="default"
+                    onNotInstalled={() => {
+                        console.log('[MedicalViewport] VR module not installed, prompting marketplace');
+                    }}
+                />
+            </div>
+
             {/* Vitals Header */}
             <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 px-5 py-2 bg-[rgba(0,25,0,0.9)] rounded-lg border border-[#00ff99] text-[#00ff99] text-sm tracking-wide shadow-[0_0_6px_#00ff99]">
                 HR: {vitals.heartRate} bpm | O₂: {vitals.o2Sat}% | TEMP: {vitals.temp}°F | BP: {vitals.bpSys}/{vitals.bpDia}

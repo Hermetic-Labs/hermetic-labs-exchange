@@ -176,7 +176,7 @@ class MedicalDataPersistenceService extends EventEmitter<PersistenceEvents> {
 
     // 1. Save locally first (this is the critical path)
     await this.saveToLocal(record);
-    
+
     // 2. Queue for server sync
     await this.queueForSync(record.id, 'create', options.priority || 'normal');
 
@@ -379,13 +379,13 @@ class MedicalDataPersistenceService extends EventEmitter<PersistenceEvents> {
   private setupConnectionListeners(): void {
     window.addEventListener('online', () => {
       this.isOnline = true;
-            this.emit('connection:online');
+      this.emit('connection:online');
       this.processSyncQueue();
     });
 
     window.addEventListener('offline', () => {
       this.isOnline = false;
-            this.emit('connection:offline');
+      this.emit('connection:offline');
     });
   }
 
@@ -597,9 +597,6 @@ class MedicalDataPersistenceService extends EventEmitter<PersistenceEvents> {
     await this.saveSettings('syncInfo', { lastSync: now });
 
     this.emit('sync:completed', { synced, failed });
-
-    if (synced > 0 || failed > 0) {
-          }
 
     return { synced, failed };
   }

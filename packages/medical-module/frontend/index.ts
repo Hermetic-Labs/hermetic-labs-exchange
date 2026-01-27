@@ -20,12 +20,12 @@ export { default, default as MedicalModulePage } from './MedicalModulePage';
 // Individual components (for direct access)
 export { MedicalViewport } from './MedicalViewport';
 export { MedicalViewportLite } from './MedicalViewportLite';
+export { MedicalViewportVR } from './MedicalViewportVR';
 export { MedicalDashboard } from './MedicalDashboard';
 export { AdminPortal } from './AdminPortalBridge';
 export { AdminControls } from './AdminControls';
 
 // Clinical components
-// Using default export since the component uses `export default function`
 export { default as EveBedsideAssistant } from './EveBedsideAssistant';
 export { BedsideKiosk } from './BedsideKiosk';
 export { default as NurseStationDashboard } from './NurseStationDashboard';
@@ -33,6 +33,10 @@ export { default as FHIRImportExport } from './FHIRImportExport';
 export { default as HealthKitVitalsChart } from './HealthKitVitalsChart';
 export { default as PatientIntakeForms } from './PatientIntakeForms';
 
+// Services (for cross-package dependencies)
+export { MedicalDataPersistence, medicalDataPersistence } from './services/MedicalDataPersistence';
+
 // Re-export types
 export type { ModelLoadProgress, MedicalModelMetadata } from './types/medical-models';
 export type { AdminSettings, LayerConfig } from './AdminControls';
+export type { MedicalRecord, MedicalRecordType, SyncStatus, AuditEntry } from './services/MedicalDataPersistence';

@@ -15,6 +15,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { CONFIG, shouldRender, dispose } from './utils/performance';
 import { createBodyMesh, initParticlePool, spawnParticle, updateParticles, disposeAll } from './utils/optimizedGeometry';
+import { VRButtonSlot } from '../../_shared/useVRCapability';
 
 // =============================================================================
 // LAYER CONFIG (macro only - micro disabled for Pi)
@@ -114,9 +115,14 @@ export function MedicalViewportLite() {
         // Store refs
         sceneRef.current = { renderer, scene, camera, controls, meshes, animId: 0 };
 
-        // Animation loop (24 FPS limited)
+        // Animation loop (24 FPS limited) with disposed check to prevent WebGL uniform errors
+        let isDisposed = false;
+
         function animate() {
-            sceneRef.current!.animId = requestAnimationFrame(animate);
+            // Stop if disposed - prevents WebGL uniform errors during cleanup
+            if (isDisposed || !sceneRef.current) return;
+
+            sceneRef.current.animId = requestAnimationFrame(animate);
 
             const now = performance.now();
             if (!shouldRender(now)) return;
@@ -148,14 +154,23 @@ export function MedicalViewportLite() {
         };
         window.addEventListener('resize', onResize);
 
-        // Cleanup
+        // Cleanup - dispose all resources to prevent WebGL uniform errors on HMR
         return () => {
+            // CRITICAL: Set disposed flag FIRST to stop animation loop
+            isDisposed = true;
+
             window.removeEventListener('resize', onResize);
-            cancelAnimationFrame(sceneRef.current!.animId);
+            if (sceneRef.current) {
+                cancelAnimationFrame(sceneRef.current.animId);
+            }
             dispose(scene);
             disposeAll();
+            controls.dispose();
             renderer.dispose();
-            container.removeChild(renderer.domElement);
+            renderer.forceContextLoss();
+            if (container.contains(renderer.domElement)) {
+                container.removeChild(renderer.domElement);
+            }
             sceneRef.current = null;
         };
     }, []);
@@ -222,6 +237,18 @@ export function MedicalViewportLite() {
 
     return (
         <div className="medical-viewport h-full w-full relative bg-black overflow-hidden">
+            {/* VR Button - Shows if vr-spatial-engine is installed, or prompts to install */}
+            <div className="absolute top-2 right-2 z-20">
+                <VRButtonSlot
+                    viewId="medical-viewport-lite"
+                    size="sm"
+                    variant="default"
+                    onNotInstalled={() => {
+                        console.log('[MedicalViewportLite] VR module not installed');
+                    }}
+                />
+            </div>
+
             {/* Vitals (minimal) */}
             <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 px-4 py-1.5 bg-black/80 rounded border border-green-500/50 text-green-400 text-xs font-mono">
                 HR:{vitals.hr} O₂:{vitals.o2}% T:{vitals.temp}°F

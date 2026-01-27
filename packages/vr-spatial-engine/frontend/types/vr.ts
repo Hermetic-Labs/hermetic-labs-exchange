@@ -320,15 +320,6 @@ export interface VRLogEntry {
   metadata?: Record<string, any>;
 }
 
-// Re-export WebXR types
-export type {
-  XRSession,
-  XRReferenceSpace,
-  XRFrame,
-  XRView,
-  XRInputSource,
-  XRHitTestSource,
-  XRAnchor,
-  XRLightProbe,
-  XRDOMOverlay
-} from 'webxr-polyfill';
+// WebXR types are available globally from TypeScript's DOM lib
+// Reference: https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API
+// For enhanced type support, add @webxr-types/types to devDependencies

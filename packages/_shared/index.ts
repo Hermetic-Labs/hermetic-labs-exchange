@@ -17,6 +17,25 @@ export { EventEmitter } from './EventEmitter';
 export { BufferShim as Buffer } from './Buffer';
 
 // ─────────────────────────────────────────────────────────────────────────────
+// VR CAPABILITY (for 3D packages)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export {
+  useVRCapability,
+  VRButtonSlot,
+  VRCapabilityProvider,
+  useVRCapabilityContext,
+  registerVRModule,
+} from './useVRCapability';
+
+export type {
+  VRCapability,
+  VRCapabilityState,
+  VRCapabilityActions,
+  VRButtonSlotProps,
+} from './useVRCapability';
+
+// ─────────────────────────────────────────────────────────────────────────────
 // TYPE RE-EXPORTS (from host contract)
 // ─────────────────────────────────────────────────────────────────────────────
 

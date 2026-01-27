@@ -678,7 +678,7 @@ class MedicalMarketplaceService {
     params?: Record<string, any>
   ): Promise<void> {
     // Simulate instruction execution
-    console.log(`[Medical] Executing installation: ${instruction}`);
+    console.log(`[Medical] Executing installation instruction: ${instruction}`);
     
     switch (instruction) {
       case 'calibrate_pressure_sensors':

@@ -10,13 +10,20 @@
     "./adapters/*": "./frontend/adapters/*",
     "./hooks/*": "./frontend/hooks/*"
   },
+  "scripts": {
+    "postinstall": "patch-package"
+  },
   "peerDependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "three": "^0.182.0"
   },
   "dependencies": {
-    "@react-three/fiber": "^9.5.0",
-    "@react-three/drei": "^10.7.7",
-    "three": "^0.182.0"
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.562.0",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "patch-package": "^8.0.0"
   }
 }

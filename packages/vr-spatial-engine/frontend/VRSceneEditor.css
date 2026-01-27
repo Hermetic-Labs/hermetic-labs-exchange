@@ -2,7 +2,10 @@
 .vr-scene-editor {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* Fill parent container - works in flex/grid layouts */
+  height: 100%;
+  /* Minimum height as fallback when parent has no explicit height */
+  min-height: 600px;
   background: #1e1e1e;
   color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -70,6 +73,7 @@
   display: flex;
   flex: 1;
   overflow: hidden;
+  min-height: 0; /* Allow flex child to shrink below content size */
 }
 
 /* Viewport */
@@ -77,6 +81,7 @@
   flex: 1;
   position: relative;
   background: #000000;
+  min-height: 400px;
 }
 
 .editor-canvas {

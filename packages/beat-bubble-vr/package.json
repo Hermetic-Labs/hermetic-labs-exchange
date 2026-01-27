@@ -8,11 +8,16 @@
     ".": "./frontend/index.ts",
     "./components/*": "./frontend/components/*"
   },
+  "scripts": {
+    "postinstall": "patch-package"
+  },
   "peerDependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "dependencies": {
+    "react-dom": "^18.0.0",
     "three": "^0.182.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "patch-package": "^8.0.0"
   }
 }

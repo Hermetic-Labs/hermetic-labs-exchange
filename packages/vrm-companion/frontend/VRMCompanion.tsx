@@ -21,9 +21,22 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import LipSyncService, { VisemeKey } from './LipSyncService';
 import { AnimationService } from './mesh/animations';
-import { onStateChange as onTTSStateChange, getAudioElement, getAnalyser } from '@/services/ttsService';
+import { VRButtonSlot } from '../../_shared/useVRCapability';
 
-const DEFAULT_VRM_URL = 'https://cdn.jsdelivr.net/gh/pixiv/three-vrm@dev/packages/three-vrm/examples/models/VRM1_Constraint_Twist_Sample.vrm';
+// Default model URL - served by the backend's asset route when module is installed
+// This path is resolved at runtime via the /marketplace/modules/vrm-companion/assets/... endpoint
+const DEFAULT_MODEL_PATH = '/marketplace/modules/vrm-companion/assets/models/VRoid/SampleAvatar/SampleAvatar.vrm';
+
+import {
+    onStateChange,
+    getAudioElement,
+    getAnalyser,
+    type TTSState,
+    speak, // Dynamic import requires this to be available in core.d.ts
+    // stop // Assuming stop is also exported if needed
+} from '@/services/ttsService';
+
+
 
 // Golden ratio for natural timing
 const PHI = 1.618033988749895;
@@ -270,19 +283,44 @@ export const VRMCompanion: React.FC<VRMCompanionProps> = ({
     const vrmLookAtTargetRef = useRef<THREE.Object3D | null>(null);
 
     // Fetch available models from backend on mount
+    // If API not available, use local models from assets folder
     useEffect(() => {
         const fetchModels = async () => {
+            // Fallback models - served by backend at runtime via /marketplace/modules/vrm-companion/assets/...
+            // These match the known models in frontend/assets/models/ folder structure
+            const fallbackModels = [
+                { name: 'Sample Avatar (VRoid)', url: '/marketplace/modules/vrm-companion/assets/models/VRoid/SampleAvatar/SampleAvatar.vrm', type: 'vrm' },
+                { name: 'Camila (Reallusion/CC)', url: '/marketplace/modules/vrm-companion/assets/models/Reallusion/Camila/Camila.fbx', type: 'fbx' },
+                { name: 'Michelle (Reallusion/CC)', url: '/marketplace/modules/vrm-companion/assets/models/Reallusion/Michelle/Michelle.fbx', type: 'fbx' },
+                { name: 'Manny (UE5)', url: '/marketplace/modules/vrm-companion/assets/models/UnrealEngine/Manny/Manny.fbx', type: 'fbx' },
+                { name: 'Quinn (UE5)', url: '/marketplace/modules/vrm-companion/assets/models/UnrealEngine/Quinn/Quinn.fbx', type: 'fbx' },
+            ];
+
             try {
                 const response = await fetch('/marketplace/modules/vrm-companion/models');
+                if (!response.ok) {
+                    // API endpoint doesn't exist yet - use fallback models
+                    console.warn('[VRMCompanion] Models API not available, using fallback models');
+                    setAvailableModels(fallbackModels);
+                    if (!selectedModelUrl) {
+                        setSelectedModelUrl(fallbackModels[0].url);
+                    }
+                    return;
+                }
                 const models = await response.json();
-                setAvailableModels(models);
+                console.log('[VRMCompanion] Fetched models from API:', models);
+                setAvailableModels(models.length > 0 ? models : fallbackModels);
                 // Set first model as default if no model URL provided
-                if (models.length > 0 && !selectedModelUrl) {
-                    setSelectedModelUrl(models[0].url);
+                if ((models.length > 0 || fallbackModels.length > 0) && !selectedModelUrl) {
+                    setSelectedModelUrl(models.length > 0 ? models[0].url : fallbackModels[0].url);
                 }
             } catch (error) {
                 console.error('[VRMCompanion] Failed to fetch models:', error);
-                setAvailableModels([]);
+                // Fallback to CDN model
+                setAvailableModels(fallbackModels);
+                if (!selectedModelUrl) {
+                    setSelectedModelUrl(fallbackModels[0].url);
+                }
             }
         };
         fetchModels();
@@ -611,8 +649,23 @@ export const VRMCompanion: React.FC<VRMCompanionProps> = ({
         return () => {
             window.removeEventListener('resize', handleResize);
             renderer.setAnimationLoop(null); // Stop animation loop
-            renderer.dispose();
+
+            // Dispose all scene objects to prevent WebGL uniform errors
+            scene.traverse((object) => {
+                if (object instanceof THREE.Mesh) {
+                    object.geometry?.dispose();
+                    if (Array.isArray(object.material)) {
+                        object.material.forEach(m => m.dispose());
+                    } else if (object.material) {
+                        object.material.dispose();
+                    }
+                }
+            });
+            scene.clear();
+
             controlsRef.current?.dispose();
+            renderer.dispose();
+            renderer.forceContextLoss();
             if (container && renderer.domElement) {
                 container.removeChild(renderer.domElement);
             }
@@ -688,72 +741,80 @@ export const VRMCompanion: React.FC<VRMCompanionProps> = ({
 
                         // Sample colors from the HDR texture to tint the lights
                         // This creates ambient lighting that matches the environment
-                        const canvas = document.createElement('canvas');
-                        const size = 32; // Small sample for performance
-                        canvas.width = size;
-                        canvas.height = size;
-                        const ctx = canvas.getContext('2d');
-                        if (ctx && texture.image) {
-                            ctx.drawImage(texture.image, 0, 0, size, size);
-                            const imageData = ctx.getImageData(0, 0, size, size).data;
+                        // Note: HDR DataTextures don't have canvas-compatible images, so skip sampling for them
+                        try {
+                            const canvas = document.createElement('canvas');
+                            const size = 32; // Small sample for performance
+                            canvas.width = size;
+                            canvas.height = size;
+                            const ctx = canvas.getContext('2d');
+                            // Only try to sample if we have a drawable image (not HDR DataTexture)
+                            const img = texture.image;
+                            if (ctx && img && 'width' in img && (img instanceof HTMLImageElement || img instanceof ImageBitmap)) {
+                                ctx.drawImage(img, 0, 0, size, size);
+                                const imageData = ctx.getImageData(0, 0, size, size).data;
 
-                            // Sample sky color (top region) and ground color (bottom region)
-                            let skyR = 0, skyG = 0, skyB = 0, skyCount = 0;
-                            let groundR = 0, groundG = 0, groundB = 0, groundCount = 0;
+                                // Sample sky color (top region) and ground color (bottom region)
+                                let skyR = 0, skyG = 0, skyB = 0, skyCount = 0;
+                                let groundR = 0, groundG = 0, groundB = 0, groundCount = 0;
 
-                            for (let y = 0; y < size; y++) {
-                                for (let x = 0; x < size; x++) {
-                                    const i = (y * size + x) * 4;
-                                    if (y < size / 3) {
-                                        // Top third = sky
-                                        skyR += imageData[i];
-                                        skyG += imageData[i + 1];
-                                        skyB += imageData[i + 2];
-                                        skyCount++;
-                                    } else if (y > size * 2 / 3) {
-                                        // Bottom third = ground
-                                        groundR += imageData[i];
-                                        groundG += imageData[i + 1];
-                                        groundB += imageData[i + 2];
-                                        groundCount++;
+                                for (let y = 0; y < size; y++) {
+                                    for (let x = 0; x < size; x++) {
+                                        const i = (y * size + x) * 4;
+                                        if (y < size / 3) {
+                                            // Top third = sky
+                                            skyR += imageData[i];
+                                            skyG += imageData[i + 1];
+                                            skyB += imageData[i + 2];
+                                            skyCount++;
+                                        } else if (y > size * 2 / 3) {
+                                            // Bottom third = ground
+                                            groundR += imageData[i];
+                                            groundG += imageData[i + 1];
+                                            groundB += imageData[i + 2];
+                                            groundCount++;
+                                        }
                                     }
                                 }
+
+                                // Average and normalize
+                                const skyColor = new THREE.Color(
+                                    skyR / skyCount / 255,
+                                    skyG / skyCount / 255,
+                                    skyB / skyCount / 255
+                                );
+                                const groundColor = new THREE.Color(
+                                    groundR / groundCount / 255,
+                                    groundG / groundCount / 255,
+                                    groundB / groundCount / 255
+                                );
+
+                                // Update hemisphere light with environment colors
+                                if (hemiLightRef.current) {
+                                    hemiLightRef.current.color.copy(skyColor);
+                                    hemiLightRef.current.groundColor.copy(groundColor);
+                                    hemiLightRef.current.intensity = 0.8;
+                                }
+
+                                // Tint main light with a warm/cool bias from environment
+                                if (mainLightRef.current) {
+                                    const mainColor = skyColor.clone().lerp(new THREE.Color(1, 1, 1), 0.5);
+                                    mainLightRef.current.color.copy(mainColor);
+                                    mainLightRef.current.intensity = 1.2;
+                                }
+
+                                // Fill light - slightly tinted by ground reflection
+                                if (fillLightRef.current) {
+                                    const fillColor = groundColor.clone().lerp(new THREE.Color(1, 1, 1), 0.7);
+                                    fillLightRef.current.color.copy(fillColor);
+                                    fillLightRef.current.intensity = 0.6;
+                                }
+
+                                console.log('[VRMCompanion] HDR lighting applied - sky:', skyColor, 'ground:', groundColor);
                             }
-
-                            // Average and normalize
-                            const skyColor = new THREE.Color(
-                                skyR / skyCount / 255,
-                                skyG / skyCount / 255,
-                                skyB / skyCount / 255
-                            );
-                            const groundColor = new THREE.Color(
-                                groundR / groundCount / 255,
-                                groundG / groundCount / 255,
-                                groundB / groundCount / 255
-                            );
-
-                            // Update hemisphere light with environment colors
-                            if (hemiLightRef.current) {
-                                hemiLightRef.current.color.copy(skyColor);
-                                hemiLightRef.current.groundColor.copy(groundColor);
-                                hemiLightRef.current.intensity = 0.8;
-                            }
-
-                            // Tint main light with a warm/cool bias from environment
-                            if (mainLightRef.current) {
-                                const mainColor = skyColor.clone().lerp(new THREE.Color(1, 1, 1), 0.5);
-                                mainLightRef.current.color.copy(mainColor);
-                                mainLightRef.current.intensity = 1.2;
-                            }
-
-                            // Fill light - slightly tinted by ground reflection
-                            if (fillLightRef.current) {
-                                const fillColor = groundColor.clone().lerp(new THREE.Color(1, 1, 1), 0.7);
-                                fillLightRef.current.color.copy(fillColor);
-                                fillLightRef.current.intensity = 0.6;
-                            }
-
-                            console.log('[VRMCompanion] HDR lighting applied - sky:', skyColor, 'ground:', groundColor);
+                        } catch (colorSampleError) {
+                            // HDR DataTextures don't have canvas-compatible images, this is expected
+                            console.log('[VRMCompanion] Skipping color sampling for HDR texture');
                         }
 
                         // Apply environment map to all mesh materials for proper reflections
@@ -784,7 +845,7 @@ export const VRMCompanion: React.FC<VRMCompanionProps> = ({
                     // Priority: .hdr.jpg (UltraHDR) > .hdr (Radiance) > .exr (OpenEXR)
                     if (url.endsWith('.hdr.jpg')) {
                         // UltraHDR format - most efficient, smallest file size
-                        // TODO: Enable when UltraHDR files are available
+                        console.log('[VRMCompanion] UltraHDR format detected, falling back to procedural (loader not enabled). URL:', selectedEnvironmentUrl);
                         // const loader = new UltraHDRLoader();
                         // loader.setDataType(THREE.HalfFloatType);
                         // loader.load(selectedEnvironmentUrl, onLoad, undefined, onError);
@@ -822,7 +883,7 @@ export const VRMCompanion: React.FC<VRMCompanionProps> = ({
     useEffect(() => {
         console.log('[VRMCompanion] Setting up TTS state listener, vrmLoaded:', vrmLoaded);
 
-        const unsubscribe = onTTSStateChange(async (state) => {
+        const unsubscribe = onStateChange(async (state) => {
             console.log('[VRMCompanion] TTS state changed:', state, 'vrmLoaded:', vrmLoaded, 'lipSyncRef:', !!lipSyncRef.current);
 
             if (state.playing && lipSyncRef.current && vrmLoaded) {
@@ -1736,6 +1797,18 @@ export const VRMCompanion: React.FC<VRMCompanionProps> = ({
                 <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm p-4 rounded-lg max-w-xs border border-cyan-500/30 pointer-events-none z-10">
                     <h1 className="text-lg font-bold mb-2 text-cyan-400">VRM Companion</h1>
                     <p className="text-sm text-gray-300">{status}</p>
+                </div>
+
+                {/* VR Button - Shows if vr-spatial-engine is installed, or prompts to install */}
+                <div className="absolute top-4 right-4 z-20">
+                    <VRButtonSlot
+                        viewId="vrm-companion"
+                        size="md"
+                        variant="default"
+                        onNotInstalled={() => {
+                            console.log('[VRMCompanion] VR module not installed, prompting marketplace');
+                        }}
+                    />
                 </div>
             </div>
 

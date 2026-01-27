@@ -11,11 +11,10 @@
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "three": "^0.182.0",
+    "@react-three/fiber": "^8.18.0",
+    "@react-three/drei": "^9.122.0"
   },
-  "dependencies": {
-    "@react-three/fiber": "^9.5.0",
-    "@react-three/drei": "^10.7.7",
-    "three": "^0.182.0"
-  }
+  "dependencies": {}
 }

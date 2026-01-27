@@ -73,8 +73,15 @@
         }
     },
     "dependencies": {
-        "npm": [],
+        "npm": [
+            "@pixiv/three-vrm",
+            "three",
+            "vrm-mixamo-retarget",
+            "events"
+        ],
         "python": [],
         "packages": []
-    }
+    },
+    "bundle": "/bundles/vrm-companion.bundle.js",
+    "bundleVersion": "1769384193751"
 }

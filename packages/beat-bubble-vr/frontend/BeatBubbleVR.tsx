@@ -1,6 +1,27 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { VRButtonSlot } from '../../_shared/useVRCapability';
+
+/** Dispose all geometries and materials in an object and its children */
+function disposeObject(obj: THREE.Object3D) {
+  obj.traverse((child) => {
+    if (child instanceof THREE.Mesh) {
+      child.geometry?.dispose();
+      if (Array.isArray(child.material)) {
+        child.material.forEach(mat => mat.dispose());
+      } else if (child.material) {
+        child.material.dispose();
+      }
+    }
+    if (child instanceof THREE.Points) {
+      child.geometry?.dispose();
+      if (child.material instanceof THREE.Material) {
+        child.material.dispose();
+      }
+    }
+  });
+}
 
 // Sound types with colors
 const SOUND_TYPES = [
@@ -349,12 +370,16 @@ function App() {
 
     renderer.domElement.addEventListener('click', handleClick);
 
-    // Animation loop
+    // Animation loop with disposed check
     let animationId: number;
     let lastTime = performance.now();
     let angle = 0;
+    let isDisposed = false;
 
     const animate = () => {
+      // Stop if disposed - prevents uniform errors during cleanup
+      if (isDisposed) return;
+
       animationId = requestAnimationFrame(animate);
 
       const now = performance.now();
@@ -400,13 +425,22 @@ function App() {
     animate();
 
     return () => {
+      // CRITICAL: Set disposed flag FIRST to stop animation loop
+      isDisposed = true;
+
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', handleResize);
       renderer.domElement.removeEventListener('click', handleClick);
+      // Dispose all scene objects to prevent WebGL uniform errors on HMR
+      if (sceneRef.current) {
+        disposeObject(sceneRef.current);
+      }
+      controls.dispose();
       if (containerRef.current && renderer.domElement) {
         containerRef.current.removeChild(renderer.domElement);
       }
       renderer.dispose();
+      renderer.forceContextLoss();
     };
   }, [isPlaying, tempo, selectedSound]);
 
@@ -454,6 +488,18 @@ function App() {
   return (
     <div className="relative w-full h-full overflow-hidden" onClick={initAudio}>
       <div ref={containerRef} className="w-full h-full" />
+
+      {/* VR Button - Shows if vr-spatial-engine is installed, or prompts to install */}
+      <div className="absolute top-4 right-4 z-20">
+        <VRButtonSlot
+          viewId="beat-bubble-vr"
+          size="md"
+          variant="default"
+          onNotInstalled={() => {
+            console.log('[BeatBubbleVR] VR module not installed, prompting marketplace');
+          }}
+        />
+      </div>
 
       {/* UI Controls */}
       <div className="absolute top-4 left-4 bg-black/70 p-4 rounded-lg text-white space-y-4 max-w-xs">

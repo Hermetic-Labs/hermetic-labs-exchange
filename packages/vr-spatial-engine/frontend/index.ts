@@ -15,6 +15,9 @@ export { default, default as VRSceneEditor } from './VRSceneEditor';
 
 /// <reference path="../../_shared/webxr.d.ts" />
 
+// Import registration helper from shared
+import { registerVRModule } from '../../_shared/useVRCapability';
+
 // ============================================================================
 // CAPABILITY DETECTION - Used by EVE Core to check if VR is available
 // ============================================================================
@@ -87,8 +90,10 @@ export { VRSessionManager } from './services/VRSessionManager';
 // ============================================================================
 
 export { VRButton } from './components/VRButton';
-// VRSceneEditor already exported as default at top of file
+// VRSceneEditor already exported above as default
 export { VROverlay } from './components/VROverlay';
+export { VRSceneProvider, useVRScene } from './components/VRSceneProvider';
+export type { VRSceneProviderProps, VRSceneContextValue } from './components/VRSceneProvider';
 
 // ============================================================================
 // SERVICES
@@ -141,7 +146,37 @@ export async function initializeVRForView(viewId: string): Promise<{
     if (!supported) {
         return { supported: false, error: 'WebXR not supported on this device' };
     }
-    
+
     // VR session would be created here
     return { supported: true };
+}
+
+// ============================================================================
+// GLOBAL REGISTRATION - Auto-register when module loads
+// ============================================================================
+
+import { VRButton } from './components/VRButton';
+import { getVRSessionManager } from './services/VRSessionManager';
+
+// Register VR module with global registry so other packages can discover it
+if (typeof window !== 'undefined') {
+    const sessionManager = getVRSessionManager();
+
+    registerVRModule({
+        VRButton,
+        VRSessionManager: sessionManager,
+        isWebXRSupported,
+        enterVR: async (viewId: string) => {
+            return sessionManager.startSession({
+                viewId,
+                mode: 'immersive-vr',
+                features: ['local-floor', 'hand-tracking'],
+            });
+        },
+        exitVR: async () => {
+            await sessionManager.endSession();
+        },
+    });
+
+    console.log('[VR Spatial Engine] Registered with EVE module system');
 }

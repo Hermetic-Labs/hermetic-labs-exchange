@@ -36,15 +36,33 @@ export function AccountPage() {
     setMessage(null);
 
     try {
-      // TODO: Implement API call to save profile
-      // await updateProfile({ displayName, bio, avatar: avatarPreview });
+      const token = localStorage.getItem('auth_token');
+      if (!token) {
+        throw new Error('Not authenticated');
+      }
 
-      // Simulate save for now
-      await new Promise(resolve => setTimeout(resolve, 500));
+      const response = await fetch('/api/profile', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          displayName,
+          bio,
+          avatarUrl: avatarPreview,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to update profile');
+      }
 
       setMessage({ type: 'success', text: 'Profile updated successfully!' });
     } catch (err) {
-      setMessage({ type: 'error', text: 'Failed to update profile' });
+      setMessage({ type: 'error', text: err instanceof Error ? err.message : 'Failed to update profile' });
     } finally {
       setSaving(false);
     }

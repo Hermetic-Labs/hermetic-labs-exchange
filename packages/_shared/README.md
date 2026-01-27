@@ -132,6 +132,59 @@ Or add type references in your code:
 3. **Versioning** - Contract changes are explicit and documented
 4. **Distribution** - Packages are self-contained zip files
 
+## 3D/VR Dependency Requirements
+
+All packages using 3D visualization or VR features **MUST** use the following standardized versions to prevent WebGL shader conflicts and ensure compatibility:
+
+### Core 3D Dependencies (Required Versions)
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `three` | `^0.182.0` | Core Three.js 3D engine |
+| `@react-three/fiber` | `^8.18.0` | React renderer for Three.js (React 18 compatible) |
+| `@react-three/drei` | `^9.122.0` | Useful helpers and components (React 18 compatible) |
+| `@react-three/xr` | `^6.6.29` | WebXR support for VR/AR |
+| `@types/three` | `^0.182.0` | TypeScript definitions |
+
+### VRM Avatar Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `@pixiv/three-vrm` | `^3.4.5` | VRM avatar loading and animation |
+
+### Common Utility Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `lucide-react` | `^0.562.0` | Icon library |
+| `tailwind-merge` | `^3.4.0` | Tailwind CSS class merging |
+| `clsx` | `^2.1.1` | Conditional class names |
+
+### Version Synchronization
+
+**CRITICAL:** Version mismatches between Three.js ecosystem packages cause WebGL errors like:
+```
+WebGL: INVALID_OPERATION: uniform1f: location is not from the associated program
+```
+
+When updating any 3D dependency:
+1. Update ALL related packages together
+2. Run `pnpm install` to regenerate lockfile
+3. Test 3D features in browser for WebGL errors
+4. Check console for deprecation warnings
+
+### Peer Dependencies
+
+Host applications should provide:
+```json
+{
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
+```
+
 ## Questions?
 
 See the main [PACKAGE-CATALOG.md](../PACKAGE-CATALOG.md) for package development guidelines.

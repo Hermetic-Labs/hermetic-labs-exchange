@@ -20,6 +20,15 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+    // Deduplicate Three.js and related packages to prevent "Multiple instances" warning
+    dedupe: [
+      'three',
+      '@react-three/fiber',
+      '@react-three/drei',
+      '@react-three/xr',
+      'react',
+      'react-dom',
+    ],
   },
   server: {
     port: 5174,

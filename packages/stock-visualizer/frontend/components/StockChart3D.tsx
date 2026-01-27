@@ -1,9 +1,10 @@
 import { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useThree, useFrame } from '@react-three/fiber';
-import { OrbitControls, Text, Line } from '@react-three/drei';
+import { OrbitControls, Html, Line } from '@react-three/drei';
 import * as THREE from 'three';
 import { CandleData, Signal, normalizeVolume } from '../utils/stockData';
 import { IndicatorConfig } from '../utils/strategyParser';
+import { VRButtonSlot } from '../../../_shared/useVRCapability';
 
 interface StockChart3DProps {
   data: CandleData[];
@@ -63,15 +64,19 @@ function Candlestick({ candle, index, normalizedVolume, is3D, priceRange, signal
               emissiveIntensity={0.5}
             />
           </mesh>
-          <Text
+          <Html
             position={[0, signal.type === 'buy' ? -0.8 : 0.8, 0]}
-            fontSize={0.4}
-            color={signal.type === 'buy' ? '#22c55e' : '#ef4444'}
-            anchorX="center"
-            anchorY="middle"
+            center
+            style={{
+              fontSize: '12px',
+              fontWeight: 'bold',
+              color: signal.type === 'buy' ? '#22c55e' : '#ef4444',
+              pointerEvents: 'none',
+              userSelect: 'none',
+            }}
           >
             {signal.type === 'buy' ? 'BUY' : 'SELL'}
-          </Text>
+          </Html>
         </group>
       )}
     </group>
@@ -123,16 +128,20 @@ function PriceAxis({ priceRange, xOffset }: { priceRange: { min: number; max: nu
         const price = priceRange.min + (range * i) / steps;
         const y = (i / steps) * priceScale;
         return (
-          <Text
+          <Html
             key={i}
             position={[0, y, 0]}
-            fontSize={0.35}
-            color="#9ca3af"
-            anchorX="right"
-            anchorY="middle"
+            center
+            style={{
+              fontSize: '10px',
+              color: '#9ca3af',
+              pointerEvents: 'none',
+              userSelect: 'none',
+              whiteSpace: 'nowrap',
+            }}
           >
             ${price.toFixed(2)}
-          </Text>
+          </Html>
         );
       })}
     </group>
@@ -292,15 +301,32 @@ function Scene({ data, indicators, signals, is3D, visibleRange }: StockChart3DPr
 
 export default function StockChart3D(props: StockChart3DProps) {
   return (
-    <div className="w-full h-full bg-gray-900 rounded-lg overflow-hidden">
+    <div
+      className="w-full h-full bg-gray-900 rounded-lg overflow-hidden relative"
+      style={{ width: '100%', height: '100%', minHeight: '400px' }}
+    >
       <Canvas
         camera={{ position: [50, 8, 40], fov: 50 }}
         gl={{ antialias: true }}
+        style={{ width: '100%', height: '100%' }}
       >
         <color attach="background" args={['#111827']} />
         <fog attach="fog" args={['#111827', 30, 100]} />
         <Scene {...props} />
       </Canvas>
+
+      {/* VR Button - Shows if vr-spatial-engine is installed, or prompts to install */}
+      <div className="absolute top-4 right-4 z-10">
+        <VRButtonSlot
+          viewId="stock-visualizer"
+          size="md"
+          variant="default"
+          onNotInstalled={() => {
+            // Optional: Custom handling for marketplace prompt
+            console.log('[StockChart3D] VR module not installed, prompting marketplace');
+          }}
+        />
+      </div>
     </div>
   );
 }

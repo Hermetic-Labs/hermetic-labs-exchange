@@ -6,6 +6,7 @@ import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GlobeDataItem, GlobeProps, PointData, ArcData } from '../adapters/types';
+import { VRButtonSlot } from '../../../_shared/useVRCapability';
 
 const GLOBE_RADIUS = 1;
 
@@ -34,8 +35,28 @@ function checkWebGL(): { supported: boolean; message: string } {
 
 /** Detect mobile */
 function isMobile(): boolean {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     || window.innerWidth < 768;
+}
+
+/** Dispose all geometries and materials in an object and its children */
+function disposeObject(obj: THREE.Object3D) {
+  obj.traverse((child) => {
+    if (child instanceof THREE.Mesh) {
+      child.geometry?.dispose();
+      if (Array.isArray(child.material)) {
+        child.material.forEach(mat => mat.dispose());
+      } else if (child.material) {
+        child.material.dispose();
+      }
+    }
+    if (child instanceof THREE.Points) {
+      child.geometry?.dispose();
+      if (child.material instanceof THREE.Material) {
+        child.material.dispose();
+      }
+    }
+  });
 }
 
 export function Globe({
@@ -144,14 +165,19 @@ export function Globe({
     // Store refs
     sceneRef.current = { scene, camera, renderer, controls, globe, dataGroup, animationId: 0 };
 
-    // Animation loop
+    // Animation loop with disposed check
+    let isDisposed = false;
+
     function animate() {
-      sceneRef.current!.animationId = requestAnimationFrame(animate);
-      
+      // Stop if disposed - prevents uniform errors during cleanup
+      if (isDisposed || !sceneRef.current) return;
+
+      sceneRef.current.animationId = requestAnimationFrame(animate);
+
       if (autoRotate) {
         globe.rotation.y += 0.001;
       }
-      
+
       controls.update();
       renderer.render(scene, camera);
     }
@@ -169,10 +195,20 @@ export function Globe({
     window.addEventListener('resize', handleResize);
 
     return () => {
+      // CRITICAL: Set disposed flag FIRST to stop animation loop
+      isDisposed = true;
+
       window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(sceneRef.current!.animationId);
+      if (sceneRef.current) {
+        cancelAnimationFrame(sceneRef.current.animationId);
+      }
+      // Dispose all scene objects to prevent WebGL uniform errors on HMR
+      disposeObject(scene);
+      controls.dispose();
       renderer.dispose();
+      renderer.forceContextLoss();
       container.removeChild(renderer.domElement);
+      sceneRef.current = null;
     };
   }, [webglStatus.supported, backgroundColor, autoRotate]);
 
@@ -181,9 +217,11 @@ export function Globe({
     if (!sceneRef.current) return;
     const { dataGroup } = sceneRef.current;
 
-    // Clear existing data
+    // Clear existing data and dispose their resources
     while (dataGroup.children.length) {
-      dataGroup.remove(dataGroup.children[0]);
+      const child = dataGroup.children[0];
+      disposeObject(child);
+      dataGroup.remove(child);
     }
 
     // Add points
@@ -247,9 +285,9 @@ export function Globe({
   }
 
   return (
-    <div 
+    <div
       ref={containerRef}
-      style={{ 
+      style={{
         position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
         minHeight: '100vh', minWidth: '100vw', touchAction: 'none'
       }}
@@ -268,6 +306,20 @@ export function Globe({
             <p>Loading Globe...</p>
             <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
           </div>
+        </div>
+      )}
+
+      {/* VR Button - Shows if vr-spatial-engine is installed, or prompts to install */}
+      {!loading && (
+        <div style={{ position: 'absolute', top: 16, right: 16, zIndex: 20 }}>
+          <VRButtonSlot
+            viewId="globe-viz"
+            size="md"
+            variant="default"
+            onNotInstalled={() => {
+              console.log('[Globe] VR module not installed, prompting marketplace');
+            }}
+          />
         </div>
       )}
     </div>

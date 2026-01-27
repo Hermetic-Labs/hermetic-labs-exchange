@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Grid, Environment, PerspectiveCamera } from '@react-three/drei';
-import { VRScene, VRSceneObject, VRPerformanceMetrics } from './types/vr';
+import { VRScene, VRSceneObject, VRPerformanceMetrics } from './types';
 import { VRSceneService } from './services/VRSceneService';
 import './VRSceneEditor.css';
 
@@ -190,7 +190,7 @@ export const VRSceneEditor: React.FC<VRSceneEditorProps> = ({
   }, [currentScene, editorState.selectedObjectId, handleSceneChange, handleObjectSelect]);
 
   return (
-    <div className="vr-scene-editor">
+    <div className="vr-scene-editor" style={{ height: '100%', minHeight: '100vh' }}>
       {/* Toolbar */}
       <div className="editor-toolbar">
         <div className="toolbar-section">

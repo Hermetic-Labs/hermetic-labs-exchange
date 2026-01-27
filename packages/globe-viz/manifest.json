@@ -59,7 +59,10 @@
             "icon": "Globe",
             "color": "teal"
         },
-        "apiTags": ["globe-viz", "visualization"],
+        "apiTags": [
+            "globe-viz",
+            "visualization"
+        ],
         "readme": "./README.md",
         "summary": {
             "overview": "Interactive 3D globe visualization supporting points, arcs, heatmaps, and flight paths. Pluggable data adapters let you visualize geographic data, network traffic, logistics routes, and analytics.",
@@ -72,9 +75,13 @@
             "@react-three/fiber",
             "@react-three/drei",
             "three",
-            "lucide-react"
+            "lucide-react",
+            "clsx",
+            "tailwind-merge"
         ],
         "python": [],
         "packages": []
-    }
+    },
+    "bundle": "/bundles/globe-viz.bundle.js",
+    "bundleVersion": "1769383394329"
 }
